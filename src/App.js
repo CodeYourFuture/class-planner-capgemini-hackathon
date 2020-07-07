@@ -5,7 +5,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App-header">
-      <button className="edit-button">Edit</button>
+      <h1>Code Your Future Class Planner</h1>
+      <button className="edit-button">Edit Week/Add Week</button>
       <EachWeek
         week="0"
         location="central london"

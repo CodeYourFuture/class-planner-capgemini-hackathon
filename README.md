@@ -46,11 +46,11 @@ Lead Teacher is just one person.
 
 # Top right or top left:
 
-an edit(weeks) button for main page:
+an edit/add(weeks) button for main page:
 
 ---
 
-### Edit(weeks) page:
+### Edit/add(weeks) page:
 
 - add weeks in order by number , if the numbers are same in order by the number after dot ".":
   1. 0
@@ -72,27 +72,48 @@ an edit(weeks) button for main page:
 
 ### Details Page:
 
-it should contain just a list of the following information:<br />
-(Not meant to be editable but has the buttons for register(Join Us) and `cancel registration` and "main page")
+(detail of each week separately)
+
+it should contain just a list of the following information for each week:<br />
 
 - 3 buttons
   1. Join Us
-  2. Edit(Cancel)
+  2. Edit(update AND Cancel(delete))
+     **Warning :)**
+     **Please Note: this edit is for each week, it is different with edit/add button on main page**
   3. Main Page
-- Time in detail (
+- Time in details (
   like this:
   11:30 - 12:00
   12:00 - 14:00
   14:00 - 15:00
   15:00 - 17:00
   )
-- For each time:
-  1. a name **with form we can pick it by registered role `it can be more than 1 person for same role`**
-  2. email address
-  3. it can be null (like lunch time)
-- a role **should be the key to connect form to time table**
-- or just holiday
-  **It must be just a simple form without editing features**
+- For each time(11:30 - 12:00):
+  **Hint: data will come from form of `join us` button.**
+  1. name
+     **Note: `it can be more than 1 person for same role` maybe even 5 to 10 teache assistants**
+  2. email address for each person
+  3. it can be null sometimes(like lunch time)
+- a role for everyone(if they add their roles)
+<!-- - or just holiday(if week was in holiday this page can don't open) -->
+
+---
+
+### Edit Each Week Page:
+
+it is a simple form as well with following functionalities:
+
+- this page is accessible with Edit button OF Details page, NOT main page.
+- finding the person with name OR email address
+- resubmit(edit/put) the information
+- delete all data related to this account
+- has a warning response before delete
+- has a you name successfully deleted message after delete with a OK button
+- Ok button will turn him back to Details page
+- edit button doesn't has any warning or notification
+- has a successfully edited message after editing a with a OK button
+- Ok button will turn him back to Details page(same as delete)
 
 ---
 
@@ -110,3 +131,6 @@ it is just a simple register form where we ask them to fill some data:
 4. slack id
 5. comments
 6. Submit button
+7. a message of your name is successfully added and thank you for registering, our community appreciate your helps message with a Ok button,
+
+- ok button will take you back to Details page.
