@@ -1,14 +1,14 @@
-### Class-Planner
+# Class-Planner
 
 **Any further changes will be assign in Trello tickets**
 
 ---
 
-### Main page
+# Main page
 
 Here you can find the data needed on the first page;
 
-# on the [left side]:
+## on the [left side]:
 
 ## week
 
@@ -34,7 +34,7 @@ We have 2 buttons, each one will bring us in a new page
 One for details of that specific week's detail **Note: I called it `Details`, you can rename it!**<br />
 the other one is for volunteers Registration **Note: I called it `Join Us`, you can rename it!!**
 
-# On the right side
+### On the right side
 
 **Note: This is for `owners` to see if there is enough volunteers for each post or not!**
 
@@ -44,13 +44,13 @@ it can just don't show anything if there isn't any one on that role!<br />
 **Note: It could be as many as possible for TA's so my personal recommendation is to use number for TA's and mentors!**
 Lead Teacher is just one person.
 
-# Top right or top left:
+### Top right or top left:
 
 an edit/add(weeks) button for main page:
 
 ---
 
-### Edit/add(weeks) page:
+# Edit/add(weeks) page:
 
 - add weeks in order by number , if the numbers are same in order by the number after dot ".":
   1. 0
@@ -70,7 +70,7 @@ an edit/add(weeks) button for main page:
 
 ---
 
-### Details Page:
+# Details Page:
 
 (detail of each week separately)
 
@@ -100,7 +100,7 @@ it should contain just a list of the following information for each week:<br />
 
 ---
 
-### Edit Each Week Page:
+# Edit Each Week Page:
 
 it is a simple form as well with following functionalities:
 
@@ -117,7 +117,7 @@ it is a simple form as well with following functionalities:
 
 ---
 
-### Join Us page:
+# Join Us page:
 
 it is just a simple register form where we ask them to fill some data:
 
