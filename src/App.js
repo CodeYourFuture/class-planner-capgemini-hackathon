@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import EachWeek from "./EachWeek";
+import Break from "./Break";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-header">
+      <EachWeek
+        week="0"
+        location="central london"
+        date="02-Dec-2019"
+        start="11am"
+        end="05:30pm"
+        subject="Intro"
+        subjectP="(There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,)"
+      />
+      <Break />
+      <EachWeek
+        week="1"
+        location="central london"
+        date="09-Dec-2019"
+        start="11am"
+        end="07:30pm"
+        subject="Intro"
+        subjectP="(There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,)"
+      />
+      <Break />
+      <EachWeek
+        week="2"
+        date="016-Dec-2019"
+        start="11am"
+        end="07:30pm"
+        subject="JS Core 1"
+      />
     </div>
   );
 }
