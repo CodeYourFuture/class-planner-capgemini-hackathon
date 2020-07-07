@@ -28,27 +28,27 @@ const EachWeek = (props) => {
       <div className="teachingDetails">
         <label>
           <p>
-            Lead Teacher 1<input type="checkbox"></input>
+            Coordinator<input type="checkbox"></input>
           </p>
         </label>
         <label>
           <p>
-            Lead Teacher 2<input type="checkbox"></input>
+            Lead Teacher<input type="checkbox"></input>
           </p>
         </label>
         <label>
           <p>
-            Teacher Asistant 1<input type="checkbox"></input>
+            Assistant Lead Teacher<input type="checkbox"></input>
           </p>
         </label>
         <label>
           <p>
-            Teacher Asistant 2<input type="checkbox"></input>
+            Teaching Assistant<input type="checkbox"></input>
           </p>
         </label>
         <label>
           <p>
-            Mentor 1<input type="checkbox"></input>
+            Personal Development Rep<input type="checkbox"></input>
           </p>
         </label>
       </div>

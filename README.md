@@ -1,7 +1,3 @@
-# Class-Planner
-
----
-
 ({
 
 ## Prerequisites
@@ -24,12 +20,11 @@
 5. yarn bootstrap
 6. yarn dev
    })
+   **Any further changes will be assign in Trello tickets**
 
 ---
 
-**Any further changes will be assign in Trello tickets**
-
----
+# Class-Planner
 
 # 1. Main page
 
