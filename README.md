@@ -78,11 +78,16 @@ it is a simple _form_ as well with following functionalities:
 it should contain just a list of the following information for each week:<br />
 
 - 3 buttons
+
   1. Join Us
   2. Edit(update AND Cancel(delete))
      **Warning :)**
      **Please Note: this edit is for each week, it is different with edit/add button on main page**
   3. Main Page
+  4. Syllabus
+
+  **then two columns with**
+
 - Time in details (
   like this:
   11:30 - 12:00
@@ -90,15 +95,19 @@ it should contain just a list of the following information for each week:<br />
   14:00 - 15:00
   15:00 - 17:00
   )
-- For each time(11:30 - 12:00):
+  and the duty for each time (11:30 - 12:00 - Standup)(11:30 - 14:00 - React)
+  in first column,
+- for the second column
   **Hint: data will come from form of `join us` button.**
+
   1. name
-     **Note: `it can be more than 1 person for same role` maybe even 5 to 10 teache assistants**
-  2. email address for each person
-  3. it can be null sometimes(like lunch time)
-  4. class type (like warm up/ )
-- a role for everyone(if they add their roles)
-<!-- - or just holiday(if week was in holiday this page can don't open) -->
+     **Note: `it can be more than 1 person for same role` maybe even 5 to 10 teach assistants**
+  2. role (it can be like: Lead Teacher: Chris Owen , Teacher Assistant: Your name)
+
+  <!-- - or just holiday(if week was in holiday this page can don't open) -->
+
+**`Emails should not be visible in this stage`, if any one come as admin can see the email. for more details please see 6. Admin Page**
+**Note: No one can not pick more than 1 role each time, `but 1 person can enroll 2 times with different roles`**
 
 ---
 
@@ -126,13 +135,40 @@ it is just a simple register _form_ where we ask them to fill some data:
 1. name **essential**
 2. email address **essential**
 3. choose role from drop down menu **essential**
-   - Lead Teacher 1
-   - Lead Teacher 2
-   - Teacher Assistant
-   - Mentor
+   - Coordinator
+   - Lead Teacher
+   - Assistant Lead Teacher
+   - Teaching Assistant
+   - Personal Development Rep
 4. slack id
 5. comments
 6. Submit button
-7. a message of your name is successfully added and thank you for registering, our community appreciate your helps message with a Ok button,
+7. a message of your name is successfully added and thank you for registering, our community appreciate your helps message , _please read these links before class_ with a Ok button.
 
 - ok button will take you back to Details page.
+
+---
+
+# 6. Admin page:
+
+- this page should be exactly like Details Page, but emails are visible here
+- Admin login can be achieved by passing a parameter to the URL. No security or authorisation is required for this version. (for example: http://www.classplanner.com/`admin` <--)
+
+---
+
+# Stretch Goals
+
+### Deep Linking
+
+- By using a URL like joinaclass.codeyourfuture.com/{CLASS_ID} I should be directed directly to the class in question.
+
+### Multiple Schools
+
+- As an Admin I'd like to be able to host multiple schools under the same website.
+  For example, I'd like to have joinaclass.codeyourfuture.com/london and joinaclass.codeyourfuture.com/birmingham as separate pages.
+
+  ### Emailing
+
+- It would be very handy to have a way of emailing all volunteers who are signed up to teach a class.
+- A stretch goal for this would be automated emails that get sent out a couple of days before class.
+  _Please contact Chris Owen to integrate with our email system._
