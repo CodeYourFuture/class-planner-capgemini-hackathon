@@ -1,68 +1,112 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Class-Planner
 
-## Available Scripts
+**Any further changes will be assign in Trello tickets**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### Main page
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Here you can find the data needed on the first page;
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# on the [left side]:
 
-### `npm test`
+## week
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The name "week" can be hard coded but the number of weeks should be editable<br />
+it would be better if we can edit it by a _form_
 
-### `npm run build`
+## Time-Date-Location
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+these initial data can be smaller in size, in nice place to read but not as the main content<br />
+The numbers would be better if we can edit it by a _form_
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Subject
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This is the main content of each week<br />
+It can own another paragraph for more details or not
 
-### `npm run eject`
+IF we have more details it should be smaller in size<br />
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Buttons
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We have 2 buttons, each one will bring us in a new page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+One for details of that specific week's detail **Note: I called it `Details`, you can rename it!**<br />
+the other one is for volunteers Registration **Note: I called it `Join Us`, you can rename it!!**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# On the right side
 
-## Learn More
+**Note: This is for `owners` to see if there is enough volunteers for each post or not!**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+so it is not important to write "Lead Teacher" or "Teacher Assistant"<br />
+the idea is : on the first sight they can detect if there are enough assistants or not.<br />
+it can just don't show anything if there isn't any one on that role!<br />
+**Note: It could be as many as possible for TA's so my personal recommendation is to use number for TA's and mentors!**
+Lead Teacher is just one person.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Top right or top left:
 
-### Code Splitting
+an edit(weeks) button for main page:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+---
 
-### Analyzing the Bundle Size
+### Edit(weeks) page:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- add weeks in order by number , if the numbers are same in order by the number after dot ".":
+  1. 0
+  2. 0.1
+  3. 0.2
+  4. 1
+  5. 2
+- add or remove each week
+- add Date, location, time(start and end, not in details) for each week
+- write Subject for Each week
+- more information about subject
+- can add more than one week each time (send just a success message don't reload the page.)
+- find each week with the number of the week
+- show the information of each week `with the name of volunteers`
+- ability of edit just these information (weeks, location, data, time, subject. NOT each day's details)
+- a button to come back to main page
 
-### Making a Progressive Web App
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Details Page:
 
-### Advanced Configuration
+it should contain just a list of the following information:<br />
+(Not meant to be editable but has the buttons for register(Join Us) and `cancel registration` and "main page")
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- 3 buttons
+  1. Join Us
+  2. Edit(Cancel)
+  3. Main Page
+- Time in detail (
+  like this:
+  11:30 - 12:00
+  12:00 - 14:00
+  14:00 - 15:00
+  15:00 - 17:00
+  )
+- For each time:
+  1. a name **with form we can pick it by registered role `it can be more than 1 person for same role`**
+  2. email address
+  3. it can be null (like lunch time)
+- a role **should be the key to connect form to time table**
+- or just holiday
+  **It must be just a simple form without editing features**
 
-### Deployment
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Join Us page:
 
-### `npm run build` fails to minify
+it is just a simple register form where we ask them to fill some data:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. name **essential**
+2. email address **essential**
+3. choose role from drop down menu **essential**
+   - Lead Teacher 1
+   - Lead Teacher 2
+   - Teacher Assistant
+   - Mentor
+4. slack id
+5. comments
+6. Submit button

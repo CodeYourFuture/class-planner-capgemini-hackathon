@@ -1,11 +1,11 @@
 import React from "react";
 import EachWeek from "./EachWeek";
-import Break from "./Break";
 import "./App.css";
 
 function App() {
   return (
     <div className="App-header">
+      <button className="edit-button">Edit</button>
       <EachWeek
         week="0"
         location="central london"
@@ -15,7 +15,10 @@ function App() {
         subject="Intro"
         subjectP="(There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,)"
       />
-      <Break />
+      <div className="holiday">
+        <p>Bank Holiday</p>
+        <p>23-Dec</p>
+      </div>
       <EachWeek
         week="1"
         location="central london"
@@ -25,7 +28,6 @@ function App() {
         subject="Intro"
         subjectP="(There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,)"
       />
-      <Break />
       <EachWeek
         week="2"
         date="016-Dec-2019"
