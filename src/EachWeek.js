@@ -26,29 +26,29 @@ const EachWeek = (props) => {
         </div>
       </div>
       <div className="teachingDetails">
-        <label class="container">
+        <label>
           <p>
-            Lead Teacher 1<input type="checkbox" checked="checked"></input>
+            Lead Teacher 1<input type="checkbox"></input>
           </p>
         </label>
-        <label class="container">
+        <label>
           <p>
-            Lead Teacher 2<input type="checkbox" checked="checked"></input>
+            Lead Teacher 2<input type="checkbox"></input>
           </p>
         </label>
-        <label class="container">
+        <label>
           <p>
-            Teacher Asistant 1<input type="checkbox" checked="checked"></input>
+            Teacher Asistant 1<input type="checkbox"></input>
           </p>
         </label>
-        <label class="container">
+        <label>
           <p>
-            Teacher Asistant 2<input type="checkbox" checked="checked"></input>
+            Teacher Asistant 2<input type="checkbox"></input>
           </p>
         </label>
-        <label class="container">
+        <label>
           <p>
-            Mentor 1<input type="checkbox" checked="checked"></input>
+            Mentor 1<input type="checkbox"></input>
           </p>
         </label>
       </div>
