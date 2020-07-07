@@ -19,8 +19,10 @@
 }
 .week {
   border-left: 5px solid greenyellow;
-  max-width: 40%;
   display: flex;
+  border: 5px solid red;
+  padding: 5px;
+  margin: 5px;
 }
 .buttons {
   display: flex;
@@ -32,10 +34,9 @@
   padding: 15px;
 }
 .teachingDetails {
-  margin-left: 5em;
+  margin-left: 20px;
   border-left: 2px solid red;
-  display: flex;
-  flex-direction: column;
+  width: 20%;
 }
 .teachingDetails label {
   margin-left: 15px;
