@@ -2,19 +2,21 @@
 
 ---
 
-({
-
 ## Prerequisites
 
 - node
 - React
-- 
-
-## Getting Started
+- join to Trello group of this project
+- clone project from [https://github.com/codeyourfuture/class-planner]
+- make your own branch
+- take a look which parts are doing by others so prevent conflicts
+- make you own ticket and assign yourself and anyone else you need
 
 ---
 
 **Any further changes will be assign in Trello tickets**
+
+## Getting Started
 
 ---
 
