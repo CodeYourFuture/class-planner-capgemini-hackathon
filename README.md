@@ -1,29 +1,3 @@
-({
-
-## Prerequisites
-
-- node 10
-- yarn
-- firebase cli version 7.3.2 (installed globally)
-  On mac:
-  `brew install node@10` or `nvm install lts/dubnium`
-  `brew install yarn`
-  `npm install firebase-tools@7.3.2 -g`
-  login to the Firebase CLI tool with `firebase login`
-
-## Getting Started
-
-1. Ask an engineer for the environment variables you'll need!
-2. Also ask for the Firebase service account details.
-3. Clone the repo
-4. yarn
-5. yarn bootstrap
-6. yarn dev
-   })
-   **Any further changes will be assign in Trello tickets**
-
----
-
 # Class-Planner
 
 # 1. Main page
