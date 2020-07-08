@@ -1,7 +1,7 @@
 import React from "react";
 import EachWeek from "./EachWeek";
 import "./App.css";
-
+//frontend
 function App() {
   return (
     <div className="App-header">
