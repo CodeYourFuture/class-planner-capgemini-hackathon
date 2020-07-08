@@ -4,6 +4,7 @@ const EachWeek = (props) => {
   return (
     <div className="week">
       <div className="classDetails">
+        
         <div className="week-time">
           <div>
             <h1>Week {props.week}</h1>

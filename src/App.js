@@ -1,12 +1,22 @@
 import React from "react";
 import EachWeek from "./EachWeek";
+import Navbar from "./Navbar";
+import Subject from "./Subject"
+import Week_time_location from "./Week_time_location";
 import "./App.css";
-//frontend
+
 function App() {
+  
   return (
     <div className="App-header">
+      <Navbar />
+      <Week_time_location/>
+      <Subject/>
       <h1>Code Your Future Class Planner</h1>
-      <button className="edit-button">Edit Week/Add Week</button>
+      <button className="edit-button">
+        Edit Week/Add Week
+      </button>
+    
       <EachWeek
         week="0"
         location="central london"

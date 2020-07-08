@@ -62,3 +62,44 @@
   color: black;
   margin: 50px;
 }
+/*navigation section             */
+.navbar {
+  margin-bottom: 80px;
+  background-color: aliceblue;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.search-bar {
+  width: 450px;
+  height: 40px;
+}
+.logo {
+  width: 100px;
+}
+/*week-time-location section             */
+.week-time-location {
+  margin-top: 100px;
+  width: 65%;
+  height: 120px;
+  background-color: aliceblue;
+  color: black;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid rgb(18, 19, 17);
+}
+.location-date-time {
+  margin-right: 45px;
+}
+.location-date-time p {
+  font-size: 15px;
+  font-weight: 500;
+}
+.week-1 h1 {
+  font-size: 20px;
+  font-weight: 500;
+}
