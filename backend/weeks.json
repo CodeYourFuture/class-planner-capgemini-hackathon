@@ -41,6 +41,20 @@
         "role": "Lead Teacher",
         "slackId": "Chris",
         "comments": "so cool"
+      },
+      {
+        "fullName": "Ali Smith",
+        "email": "example@example.com",
+        "role": "Teacher Assistant",
+        "slackId": "Chris",
+        "comments": "so cool"
+      },
+      {
+        "fullName": "Dom Vinyard",
+        "email": "example@example.com",
+        "role": "Teacher trainer",
+        "slackId": "Chris",
+        "comments": "so cool"
       }
     ]
   }
