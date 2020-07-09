@@ -19,6 +19,7 @@
 ## Getting Started
 
 - to build your frontend, navigate to frontend (`cd frontend`) folder and run `npm install` and `npm start`
+
 ---
 
 # 1. Main page
@@ -63,7 +64,11 @@ Lead Teacher is just one person.
 
 ### Top right or top left:
 
-an edit/add(weeks) button for main page:
+## an edit/add(weeks) button for main page:
+
+# Backend <br />
+
+_this page will not provide any data for backend (it's just data user)_
 
 ---
 
@@ -87,6 +92,20 @@ an edit/add(weeks) button for main page:
 
 ---
 
+# Backend : <br/>
+
+we are going to receive these data from a submit form with following information:
+
+- Week : number ("week": 0, or "week": "0") // **essential to make a week**
+- location
+- date
+- time -> start - end
+- subject **essential to make a week**
+
+**to find each week for edit or delete we are going to find week with: number of week OR subject**
+
+---
+
 # 3. Details Page:
 
 (detail of each week separately)<br/>
@@ -96,12 +115,13 @@ it should contain just a list of the following information for each week:<br />
 
 - 3 buttons
 
-  1. Join Us
-  2. Edit(update AND Cancel(delete))
+  1. Add/edit/delete (Time)
+  2. Syllabus
      **Warning :)**
      **Please Note: this edit is for each week, it is different with edit/add button on main page**
-  3. Main Page
-  4. Syllabus
+  3. Home
+  4. Sign up
+  5. Edit/delete (volunteer)
 
   **then two columns with**
 
@@ -115,7 +135,7 @@ it should contain just a list of the following information for each week:<br />
   and the duty for each time (11:30 - 12:00 - Standup)(11:30 - 14:00 - React)
   in first column,
 - for the second column
-  **Hint: data will come from form of `join us` button.**
+  **Hint: data will come from form of `Add/Edit/Delete (time)` button.**
 
   1. name
      **Note: `it can be more than 1 person for same role` maybe even 5 to 10 teach assistants**
@@ -128,16 +148,64 @@ it should contain just a list of the following information for each week:<br />
 
 ---
 
-# 4. Edit Each Week Page:
+# Backend <br />
+
+_this page is a data user_
+
+---
+
+# 4. Add/Edit/delete(time):
 
 it is a simple _form_ as well with following functionalities:
 
-- this page is accessible with Edit button OF Details page, NOT main page.
+- this page is accessible with Add/Edit/Delete button OF Details page, (NOT main page).
+- here we have two components:
+  1. Time and Class Type
+  - start time with text input **essential**
+  - end time with text input **essential**
+  - class type with text input **essential**
+  2.  Finder of timetable details
+  - start time with text input
+  - end time with text input
+  - class type with tex input
+- finding the time with start time OR finish time OR class type
+- then it will a new component will appear with details (if existed)
+  **if it's not existed it needs to show an alert message to say it's not existed**
+- the component has two buttons:
+  - Apply
+  - Delete
+- delete all data related to this time
+- has a warning response before delete
+- has a you time successfully deleted message after delete with a OK button
+- Ok button will turn him back to Details page
+- has a successfully edited message after editing a with a OK button
+- Ok button will turn him back to Details page(same as delete)
+
+---
+
+# Backend <br />
+
+we are going to receive/edit/delete these data from a submit form with following information:
+
+- start time **essential to add**
+- end time **essential to add**
+- class type **essential to add**
+
+**we can find it with each of above details**
+then we need to be able to edit and delete as well
+
+---
+
+# 5. Edit/delete (volunteer)
+
+it is a simple _form_ as well with following functionalities:
+
+- this page is accessible with Edit/delete (volunteer) button OF Details page, (NOT main page).
 - finding the person with name OR email address
 - resubmit(edit/put) the information
 - delete all data related to this account
 - has a warning response before delete
-- has a you name successfully deleted message after delete with a OK button
+- has a your name successfully deleted message after delete with a OK button
 - Ok button will turn him back to Details page
 - edit button doesn't has any warning or notification
 - has a successfully edited message after editing a with a OK button
@@ -145,7 +213,27 @@ it is a simple _form_ as well with following functionalities:
 
 ---
 
-# 5. Join Us page:
+# Backend
+
+we are going to edit/delete these data from a submit form with following information:
+
+- name OR email address
+
+we need responses if we found data or not
+we need responses if we edited successfully or not
+we need responses if we deleted successfully or not
+
+we need access to these data for edit:
+
+- full name
+- email address
+- role
+- slack id (if existed)
+- any comments they wrote
+
+---
+
+# 6. Sign up page:
 
 it is just a simple register _form_ where we ask them to fill some data:
 
@@ -164,16 +252,34 @@ it is just a simple register _form_ where we ask them to fill some data:
 
 - ok button will take you back to Details page.
 
+# Backend
+
+we will receive data from a submit form with following data:
+
+- Full name **essential**
+- Email **essential**
+- Role **essential**
+- Slack ID
+- comments
+
+we are going to have a [very important response message with some links for volunteers to read before class, please get in touch with me //Bani to get information of that response _thank you in advance_]
+
 ---
 
-# 6. Admin page:
+# 7. Admin page:
 
 - this page should be exactly like Details Page, but emails are visible here
 - Admin login can be achieved by passing a parameter to the URL. No security or authorisation is required for this version. (for example: http://www.classplanner.com/`admin` <--)
 
+# Backend <br />
+
+- we need a page with data of details page but with query of /admin ro implement this page.
+
 ---
 
 # Stretch Goals
+
+### (Backend / Frontend)
 
 ### Deep Linking
 
