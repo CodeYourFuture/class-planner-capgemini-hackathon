@@ -7,7 +7,7 @@ return(
             <h1>Week: 0</h1>
         </div>
         <div className="location-date-time">
-            <p>Location : </p>
+            <p>Central London </p>
             <p>Date : </p>
             <p> Time : </p>
         </div>
