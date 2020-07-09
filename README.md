@@ -6,7 +6,7 @@
 
 - node
 - React
-- join to Trello group of this project
+- join to Trello group of this project []
 - clone project from [https://github.com/codeyourfuture/class-planner]
 - make your own branch
 - take a look which parts are doing by others so prevent conflicts
@@ -18,6 +18,7 @@
 
 ## Getting Started
 
+- to build your frontend, navigate to frontend (`cd frontend`) folder and run `npm install` and `npm start`
 ---
 
 # 1. Main page
