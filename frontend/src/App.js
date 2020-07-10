@@ -1,6 +1,7 @@
 import React from "react";
 import EachWeek from "./EachWeek";
 import "./App.css";
+import DetailsPage from "./DetailsPage";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         end="07:30pm"
         subject="JS Core 1"
       />
+      <DetailsPage/>
     </div>
   );
 }
