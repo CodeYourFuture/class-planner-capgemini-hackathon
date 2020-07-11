@@ -1,6 +1,6 @@
 import React from "react";
 import weeks from "./weeks.json"
-import LeadDetails from "./LeadDetails"
+// import LeadDetails from "./LeadDetails"
 
 
 
@@ -44,7 +44,7 @@ const DetailsPage = () => {
             <button>Add/Edit/Delete Time</button>
             <button>Syllabus</button>
             <button>Home</button>
-            <LeadDetails result={weeks[0].peopleDetails} />
+            {/* <LeadDetails result={weeks[0].peopleDetails} /> */}
         </div>
     )
 }
