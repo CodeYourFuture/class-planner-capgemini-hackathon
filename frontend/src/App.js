@@ -6,6 +6,7 @@ import DetailsPage from "./DetailsPage";
 function App() {
   return (
     <div className="App-header">
+      <DetailsPage/>
       <h1>Code Your Future Class Planner</h1>
       <button className="edit-button">Edit Week/Add Week</button>
       <EachWeek
@@ -37,7 +38,7 @@ function App() {
         end="07:30pm"
         subject="JS Core 1"
       />
-      <DetailsPage/>
+      
     </div>
   );
 }
