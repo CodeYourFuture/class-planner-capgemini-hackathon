@@ -1,6 +1,6 @@
 import React from "react";
 import EachWeek from "./EachWeek";
-import AddEditDelete from "./AddEditDelete/AddEditDelete";
+
 import "./App.css";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="App-header">
       <h1>Code Your Future Class Planner</h1>
       <button className="edit-button">Edit Week/Add Week</button>
-      <AddEditDelete />
+      
       <EachWeek
         week="0"
         location="central london"
