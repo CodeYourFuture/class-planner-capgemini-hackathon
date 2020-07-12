@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import EachWeek from "./EachWeek";
 
 import "./App.css";
-
+//import DetailsPage from "./DetailsPage";
 
 class App extends Component {
 
@@ -37,6 +37,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 export default App;
