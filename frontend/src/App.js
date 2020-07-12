@@ -1,10 +1,12 @@
 import React from "react";
 import EachWeek from "./EachWeek";
+
 import "./App.css";
 
 function App() {
   return (
     <div className="App-header">
+     
       <h1>Code Your Future Class Planner</h1>
       <button className="edit-button">Edit Week/Add Week</button>
       <EachWeek
