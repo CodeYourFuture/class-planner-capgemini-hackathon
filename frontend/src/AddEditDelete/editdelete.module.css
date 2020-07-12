@@ -1,0 +1,14 @@
+.editdelete {
+  border-radius: 1px;
+  margin: 20px;
+  width: 90%;
+  height: 200px;
+  background: white;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
