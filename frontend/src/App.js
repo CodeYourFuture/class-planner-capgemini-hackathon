@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EachWeek from "./EachWeek";
+
 import "./App.css";
 
 class App extends Component {
@@ -11,10 +12,6 @@ class App extends Component {
       weeks: [],
     };
   }
-
-  // state = {
-  //   weeks = []
-  // };
 
   componentDidMount() {
     fetch('http://localhost:22666/week')
@@ -35,6 +32,7 @@ class App extends Component {
           <p>Bank Holiday</p>
           <p>23-Dec</p>
         </div>
+
       </div>
     );
   }
