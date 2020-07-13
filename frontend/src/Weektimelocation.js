@@ -10,10 +10,8 @@ const WeektimeLocation = () => {
         <div className="week-1">
                   <h1>Week: 0</h1>
                 
-        </div>
-              
-        <div className="location-date-time">
-                  
+        </div>    
+        <div className="location-date-time">      
           <p>Central London</p>
           <p>Date : </p>
           <p>Time : </p>

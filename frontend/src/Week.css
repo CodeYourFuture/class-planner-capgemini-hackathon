@@ -32,18 +32,17 @@
 .week-time-location {
   /* margin-top: 100px; */
   width: 50em;
-  height: 30%;
+  height: 35%;
   /* background-color: beige; */
   color: black;
   /* padding:15px 60%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* border: 2px solid rgb(18, 19, 17); */
+  border: 1px solid rgb(18, 19, 17);
 }
 .location-date-time {
-  margin-top: 5px;
-  margin-right: 45px;
+  margin-right: 35px;
 }
 .location-date-time p {
   font-size: 15px;
@@ -56,11 +55,11 @@
 /* Subject container   */
 .subject-container {
   /* width: 65%; */
-  height: 70%;
+  height: 65%;
   /* background-color: beige; */
   color: black;
-  
-  /* border: 2px solid #121311; */
+
+  border: 1px solid #121311;
 }
 .subject h1 {
   margin-left: 50px;
@@ -69,25 +68,24 @@
 }
 .details-signup-buttons {
   margin: auto;
-  width: 50%;
+  width: 70%;
   display: flex;
   flex-direction: column;
 }
 /*week-time-location and Teachers section       */
 
 .week-teachers {
-
   display: flex;
-  border:2px solid red;
+
   background-color: beige;
   margin: auto;
 }
 .teacher-details {
-    /* background-color:beige; */
+  /* background-color:beige; */
   color: black;
   /* width:200px; */
   margin-top: 0;
-  /* border: 2px solid #121311; */
+  border: 1px solid #121311;
   /* width: 80%; */
-  height:100%;
+  height: 100%;
 }
