@@ -2,13 +2,13 @@ import React from "react";
 import style from "./editdelete.module.css";
 const EditDelete = () => {
   return (
-    <div className={style.editdelete}>
-      <div className="page-header">
-        <h4 className="text-left">Week Finder</h4>
+    <div className={style.EditDelete}>
+      <div className={style.header}>
+        <h4 className={style.headertext}>Week Edit/Delete form</h4>
       </div>
       <div>
         <form>
-          <div className={style.editdelete}>
+          <div className={style.form}>
             <label>
               Week Number:
               <input type="text" name="name" />
@@ -30,7 +30,7 @@ const EditDelete = () => {
               <input type="text" name="name" />
             </label>
           </div>
-          <div>
+          <div className={style.button}>
             <input type="submit" value="Submit" />
             <button>Delete</button>
           </div>
