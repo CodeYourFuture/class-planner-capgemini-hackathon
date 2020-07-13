@@ -62,3 +62,7 @@
   color: black;
   margin: 50px;
 }
+.table-container {
+  display: flex;
+  flex-direction: column;
+}
