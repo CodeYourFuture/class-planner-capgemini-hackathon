@@ -7,22 +7,15 @@ import "./Week.css";
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
- 
-    this.state = {
-      weeks: [],
-    };
-  }
+  const [weeks, setWeeks] = useState([]);
 
-  componentDidMount() {
-    fetch('http://localhost:22666/week')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ weeks: data })
-    })
-    .catch(console.log)
-  };
+  useEffect(() => {
+    fetch("http://localhost:22666/week")
+      .then((res) => res.json())
+      .then((data) => {
+        setWeeks(data);
+      });
+  }, []);
 
   render() {
     return (
