@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import EachWeek from "./EachWeek";
-
+import Week from "./Week";
 import "./App.css";
+import "./Week.css";
 //import DetailsPage from "./DetailsPage";
 
 class App extends Component {
@@ -33,7 +34,6 @@ class App extends Component {
           <p>Bank Holiday</p>
           <p>23-Dec</p>
         </div>
-
       </div>
     );
   }
