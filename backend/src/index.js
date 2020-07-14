@@ -20,10 +20,19 @@ app.get("/week", (req, res) => {
 });
 
 //show week ID
-app.get("/week/:number", (req, res) => {
-  const weekId = weeks[req.params.week];
-  const findWeek = weeks.find((week) => week.week === weekId);
-  findWeek ? res.send(findWeek) : res.status(404).send("ID not found");
+// app.get("/week/:number", (req, res) => {
+//   const weekId = weeks[req.params.week];
+//   const findWeek = weeks.find((week) => week.week === weekId);
+//   weekId ? res.send(find) : res.status(404).send("ID not found");
+// });
+
+app.get("/week/:id", (req, res) => {
+  // const {albumId} = req.params
+  const weekId = Number(req.params.id);
+  
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week) : res.sendStatus(404);
+  console.log(weekId);
 });
 
 app.post("/week/:number", (req, res) => {
