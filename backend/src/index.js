@@ -20,21 +20,16 @@ app.get("/week", (req, res) => {
 });
 
 //show week ID
-// app.get("/week/:number", (req, res) => {
-//   const weekId = weeks[req.params.week];
-//   const findWeek = weeks.find((week) => week.week === weekId);
-//   weekId ? res.send(find) : res.status(404).send("ID not found");
-// });
 
 app.get("/week/:id", (req, res) => {
   // const {albumId} = req.params
   const weekId = Number(req.params.id);
-  
   const week = weeks.find((week) => week.week === weekId);
   week ? res.json(week) : res.sendStatus(404);
   console.log(weekId);
 });
 
+//Create new week
 app.post("/week/:number", (req, res) => {
  const newWeek = {
     week: Number(req.body.week),
@@ -67,18 +62,31 @@ app.post("/week/:number", (req, res) => {
   console.log(newWeek);
 });
 
-app.put("/week/:number", (req, res) => {
+app.put("/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  let newWeek = weeks.filter(week =>{
+    return week.week === weekId
+  })[0];
+
+  const index = weeks.indexOf(newWeek);
+  
+  const keys = Object.keys(req.body)
+  keys.forEach(key=>{
+newWeek[key] = req.body[key]
+  });
+
+  weeks[index]= newWeek;
+  res.json(weeks[index]);
   return res.send(
     `Received a PUT HTTP method for week number ${req.params.number}`
   );
 });
 
-app.delete("/week/:number", (req, res) => {
-  const weekDelete = weeks[req.params.week];
+app.delete("/week/:id", (req, res) => {
+  const weekDelete = Number(req.params.id);
   weeks = weeks.filter((week) => week.week != weekDelete);
-  console.log(weeks[req.params]);
-   res.send(
-    `Received a DELETE HTTP method for week number ${req.params.number}`
+  res.send(
+    `Received a DELETE HTTP method for week number ${req.params.id}`
   );
 });
 
