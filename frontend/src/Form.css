@@ -1,27 +1,26 @@
-.form{
-    display: flex;
-    flex-direction: column;
-  
+.form {
+  display: flex;
+  flex-direction: column;
 }
-.input{
-  height:25px;
+.input {
+  height: 25px;
   width: 500px;
 }
-.dropdown{
+.dropdown {
   height: 30px;
-  width:508px;
+  width: 508px;
 }
-.comment{
-    height:100px;
-    width: 500px;
+.comment {
+  height: 100px;
+  width: 500px;
 }
-.button{
-  float:right;
-  background-color:yellow;
+.button {
+  float: right;
+  background-color: yellow;
   border: 1px solid yellow;
   height: 30px;
 }
-.help{
+.help {
   color: red;
 }
 
