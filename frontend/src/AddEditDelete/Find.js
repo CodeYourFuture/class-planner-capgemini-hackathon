@@ -13,18 +13,14 @@ const Find = () => {
               Week Number
               <input
                 type="text"
-                id="customerName"
-                className="form-control"
-                placeholder="Customer name"
-              />
+               
+                 />
             </label>
             <label>
               Subject
               <input
                 type="text"
-                id="customerName"
-                className="form-control"
-                placeholder="Customer name"
+               
               />
             </label>
             <div className={style.button}>
