@@ -3,7 +3,7 @@ import cors from 'cors';
 import express from 'express';
 
 const app = express();
-const weeks = require('../weeks.json')
+const weeks = require('../../frontend/src/weeks.json')
 
 app.use(cors());
 
