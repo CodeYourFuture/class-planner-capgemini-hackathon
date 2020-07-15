@@ -5,6 +5,9 @@
   align-items: center;
   color: white;
 }
+.week-date-time {
+  padding-left: 0;
+}
 .search-bar {
   width: 10em;
   display: inline-block;

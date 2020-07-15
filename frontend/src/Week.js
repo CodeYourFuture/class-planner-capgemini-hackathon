@@ -9,7 +9,7 @@ const Week = (props) => {
           <div className="row ">
             <h3 className="col-sm-9 margin">Week: {props.week.week}</h3>
             <div className="col-sm-3 margin">
-              <ul className="margin">
+              <ul className="week-date-time">
                 <li>{props.week.location}</li>
                 <li>{props.week.date}</li>
                 <li>
@@ -21,16 +21,16 @@ const Week = (props) => {
         </div>
         <div className="card-body padding">
           <div className="row">
-            <div className="col-sm-10">
+            <div className="col-sm-9">
               <h1 className="card-title title">{props.week.subject}</h1>
-              <button className="btn btn-primary col-12 margin-button">
+              <button className="btn btn-primary col-9 margin-button">
                 View Details
               </button>
-              <button className="btn btn-success col-12 margin-button">
+              <button className="btn btn-success col-9 margin-button">
                 Sign Up
               </button>
             </div>
-            <div className="col-sm-2">
+            <div className="col-sm-3">
               <TeacherDetails className="margin" />
             </div>
           </div>

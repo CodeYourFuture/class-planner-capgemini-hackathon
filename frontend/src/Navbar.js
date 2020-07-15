@@ -4,7 +4,12 @@ const Navbar = () => {
   return (
     <div className="container navbar-section">
       <div className="row margin">
-        <img className="col-sm-2 logo margin" src="cyf-logo.png" alt="Logo" />
+        <img
+          className="col-sm-2 logo margin"
+          src="cyf-logo.png"
+          alt="Logo"
+          href="/"
+        />
         <div className="col-sm-1"></div>
         <input
           className="col-sm-6 margin form-control"
