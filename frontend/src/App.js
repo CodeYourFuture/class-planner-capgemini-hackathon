@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import EachWeek from "./EachWeek";
 import "./App.css";
 import "./Week.css";
+import Datetime from "./Admin_page/Datetime"
 
 const App = () => {
   const [weeks, setWeeks] = useState([]);
@@ -16,6 +17,7 @@ const App = () => {
 
   return (
     <div className="App-header">
+      <Datetime/>
       <h1>Code Your Future Class Planner</h1>
       <button className="edit-button">Edit Week/Add Week</button>
       <EachWeek props={weeks} />
