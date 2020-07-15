@@ -23,8 +23,36 @@ const DetailsPage = (props) => {
           </div>
           <div className="card-body">
             <div className="row">
-              <TimeDetailsPage week={props.week} className="col-6" />
-              <VolunteersDetails week={props.week} className="col-6" />
+              <div className="col">
+                <TimeDetailsPage week={props.week} />
+              </div>
+              <div className="col">
+                <VolunteersDetails week={props.week} />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-3">
+                <button
+                  href="#"
+                  className="btn btn-primary col-12 margin-button"
+                >
+                  Add Time
+                </button>
+              </div>
+              <div className="col-3">
+                <button
+                  href="#"
+                  className="btn btn-primary col-12 margin-button"
+                >
+                  Syllabus
+                </button>
+              </div>
+              <div className="col-6">
+                <button className="btn btn-success col-12 margin-button">
+                  Sign Up
+                </button>
+              </div>
             </div>
           </div>
 

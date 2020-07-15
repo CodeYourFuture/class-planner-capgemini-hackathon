@@ -4,7 +4,7 @@ const VolunteersDetails = (props) => {
   return (
     <div>
       {console.log(props.week.peopleDetails)}
-      <table className="table table-sm col-6">
+      <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">#</th>

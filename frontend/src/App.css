@@ -1,7 +1,9 @@
 .time-table {
   border-right: 1px solid lightslategrey;
 }
-
+.signUp {
+  margin-bottom: 0.5em;
+}
 .App-header {
   min-height: 100vh;
   display: flex;

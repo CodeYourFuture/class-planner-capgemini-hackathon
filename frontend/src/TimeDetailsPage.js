@@ -3,7 +3,7 @@ import React from "react";
 const TimeDetailsPage = (props) => {
   return (
     <div>
-      <table className="table table-striped col-6 time-table">
+      <table className="table table-striped time-table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -25,12 +25,6 @@ const TimeDetailsPage = (props) => {
           })}
         </tbody>
       </table>
-      <button href="#" className="btn btn-primary">
-        Add Time
-      </button>
-      <button href="#" className="btn btn-primary">
-        Syllabus
-      </button>
     </div>
   );
 };
