@@ -3,8 +3,8 @@ import style from "./add.module.css";
 const Add = () => {
   const [week, setWeek] = useState("");
   const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [dateTime, setDateTime] = useState("");
+
   const [subject, setSubject] = useState("");
 
   const locationList = [
@@ -13,29 +13,33 @@ const Add = () => {
     "Manchester",
     "Glasgow",
   ];
+  const weekList = [0, 1, 2, 3, 4, 5];
+
+  const subjectList = ["HTML&CSS", " JS", " React", " Node.js", "MongoDB"];
 
   function handleWeekChange(event) {
+    console.log(event.target.value);
     setWeek(event.target.value);
   }
-  function handleDateChange(event) {
-    setDate(event.target.value);
+  function handleDateTimeChange(event) {
+    console.log(event.target.value);
+    setDateTime(event.target.value);
   }
-  function handleTimeChange(event) {
-    setTime(event.target.value);
-  }
+
   function handleLocationChange(event) {
     console.log(event.target.value);
     setLocation(event.target.value);
   }
   function handleSubjectChange(event) {
+    console.log(event.target.value);
     setSubject(event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    const body = JSON.stringify({ week, location, date, time, subject });
+    const body = JSON.stringify({ week, location, dateTime, subject });
 
-    fetch(`http://localhost:22666/week/${week}`, {
+    fetch(`http://localhost:22666/week`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,53 +57,46 @@ const Add = () => {
           <div className={style.dateTimeWeeklocation}>
             <label>
               Week:
-              <input
-                type="text"
-                name="week"
-                value={week}
-                onChange={handleWeekChange}
-              />
-            </label>
-            <label>
-              Location:
-              <select name="pets" onChange={handleLocationChange}>
-                {locationList.map((location, index) => (
-                  <option key={index} value={location}>{location}</option>
+              <select name="week" onChange={handleWeekChange}>
+                {weekList.map((week, index) => (
+                  <option key={index} value={week}>
+                    {week}
+                  </option>
                 ))}
-                {/* <option value="Central London">Central London</option>
-                <option value="Birmingham">Birmingham</option>
-                <option value="Manchester">Manchester</option>
-                <option value="Glasgow">Glasgow</option> */}
               </select>
             </label>
             <label>
-              Date:
-              <input
-                type="text"
-                name="date"
-                value={date}
-                onChange={handleDateChange}
-              />
+              Location:
+              <select name="location" onChange={handleLocationChange}>
+                {locationList.map((location, index) => (
+                  <option key={index} value={location}>
+                    {location}
+                  </option>
+                ))}
+              </select>
             </label>
             <label>
-              Time :
+              Date and Time
               <input
-                type="text"
-                name="time"
-                value={time}
-                onChange={handleTimeChange}
+                type="datetime-local"
+                name="meeting-time"
+                value={dateTime}
+                onChange={handleDateTimeChange}
+                min="2018-01-01T00:00"
+                max="2020-12-31T00:00"
               />
             </label>
           </div>
           <div>
             <label>
               Subject :
-              <input
-                type="text"
-                name="subject"
-                value={subject}
-                onChange={handleSubjectChange}
-              />
+              <select name="subject" onChange={handleSubjectChange}>
+                {subjectList.map((subject, index) => (
+                  <option key={index} value={subject}>
+                    {subject}
+                  </option>
+                ))}
+              </select>
             </label>
             <div className={style.button}>
               <input type="submit" value="Save this week" />
