@@ -3,7 +3,7 @@ import React from "react";
 const TimeDetailsPage = (props) => {
   return (
     <div>
-      <table className="table table-striped time-table">
+      <table className="table table-striped time-table table-hover">
         <thead>
           <tr>
             <th scope="col">#</th>
