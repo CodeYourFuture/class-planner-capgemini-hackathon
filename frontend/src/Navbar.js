@@ -18,9 +18,7 @@ const Navbar = () => {
           aria-label="Search"
         ></input>
         <div className="col-sm-1"></div>
-        <button className="col-sm-2 btn btn-primary margin">
-          Add/Edit/Delete
-        </button>
+        <button className="col-sm-2 btn btn-primary margin">Add Week</button>
       </div>
     </div>
   );
