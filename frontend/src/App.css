@@ -1,3 +1,7 @@
+.time-table {
+  border-right: 1px solid lightslategrey;
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;

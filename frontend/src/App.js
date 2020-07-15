@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Week from "./Week";
+import DetailsPage from "./DetailsPage";
 import "./App.css";
 
 const App = () => {
@@ -19,7 +20,12 @@ const App = () => {
       {console.log(weeks)}
       <Navbar />
       {weeks.map((week, index) => {
-        return <Week week={week} key={index} />;
+        return (
+          <div key={index}>
+            <Week week={week} />
+            <DetailsPage week={week} />
+          </div>
+        );
       })}
     </div>
   );

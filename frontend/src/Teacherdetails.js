@@ -2,11 +2,11 @@ import React from "react";
 const TeacherDetails = () => {
   return (
     <ul className="list-group">
-      <li className="list-item">Lead Teacher 1</li>
-      <li className="list-item">Lead Teacher 2</li>
-      <li className="list-item">Teacher Assistant 1</li>
-      <li className="list-item">Teacher Assistant 2</li>
-      <li className="list-item">Mentor</li>
+      <li className="list-item">Coordinator </li>
+      <li className="list-item">Lead Teacher</li>
+      <li className="list-item">Assistant Lead Teacher</li>
+      <li className="list-item">Teaching Assistant</li>
+      <li className="list-item">Personal Development Rep</li>
     </ul>
   );
 };

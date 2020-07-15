@@ -6,7 +6,7 @@ const Week = (props) => {
     <div className="container">
       <div className="card">
         <div className="card-header padding ">
-          <div className="row ">
+          <div className="row">
             <h3 className="col-sm-9 margin">Week: {props.week.week}</h3>
             <div className="col-sm-3 margin">
               <ul className="week-date-time">
