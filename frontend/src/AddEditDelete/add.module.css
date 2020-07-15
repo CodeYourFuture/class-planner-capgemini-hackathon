@@ -1,11 +1,15 @@
 .add {
-  border-radius: 10px;
-  margin: 10px ;
-  box-shadow: 0px 5px 20px rgb(71, 71, 71);
+  margin: 60px ;
+  height:240px;
   display: flex;
   flex-direction:column;
   justify-content: space-between;
   background: white;
   align-items: center;
   color:black;
+}
+.dateTimeWeeklocation{
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
 }
