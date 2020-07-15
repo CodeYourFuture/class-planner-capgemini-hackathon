@@ -1,0 +1,15 @@
+.form-datetime{
+    background-color: white;
+    color:black;
+    width:600px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.btn-date-time{
+    width: 100px;
+    margin: auto;
+}
+.form-datetime label{
+    margin-right: 25px;
+}

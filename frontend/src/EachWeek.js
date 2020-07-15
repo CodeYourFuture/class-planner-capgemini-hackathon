@@ -1,8 +1,10 @@
 import React from "react";
+import Datetime from "./Datetime";
 
 const EachWeek = ({ props }) => {
   return (
     <div>
+      <Datetime/>
     { props.map((week) => (
       <div className="week">
         <div className="classDetails">
