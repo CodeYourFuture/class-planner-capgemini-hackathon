@@ -1,32 +1,33 @@
-import React, { useState } from "react";
-import  "./Datetime.css";
-const Datetime = () => {
+import React, { useState, useEffect } from "react";
+import "./Datetime.css";
+
+const Editdelete = () => {
   const [startTime, setStartTime] = useState("");
   const [finishTime, setFinishTime] = useState("");
   const [classType, setClassType] = useState("");
 
   const handleAddNew = () => {
-    
-    fetch("https://hackathon-procject.glitch.me/week/1/class", {
+    const body = JSON.stringify({
+      startTime,
+      finishTime,
+      classType,
+    });
+    fetch("http://localhost:22666/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({
-        start: startTime,
-        finish: finishTime,
-        type: classType,
-      })
+      body,
     })
       .then((res) => res.json())
       .then(() => {
         console.log("Data added");
       });
   };
-console.log(startTime);
+
   return (
     <form onSubmit={handleAddNew} className="form-datetime">
-      <h3>Time and Class Type</h3>
+      <h3>Edit/Delete</h3>
       <div className="start-time">
         <div>
           <label>Start Time:</label>
@@ -65,10 +66,13 @@ console.log(startTime);
       </div>
       <div className="date-time-btn">
         <button className="btn-date-time" type="submit">
-          Add to Timetable
+          Save Changes
+        </button>
+        <button className="btn-date-time-delete" type="submit">
+          Delete
         </button>
       </div>
     </form>
   );
 };
-export default Datetime;
+export default Editdelete;

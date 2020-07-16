@@ -3,6 +3,8 @@ import EachWeek from "./EachWeek";
 import "./App.css";
 import "./Week.css";
 import Datetime from "./Admin_page/Datetime"
+import Classtypefinder from "./Admin_page/Classtypefinder";
+import Editdelete from "./Admin_page/Editdelete";
 
 const App = () => {
   const [weeks, setWeeks] = useState([]);
@@ -18,6 +20,8 @@ const App = () => {
   return (
     <div className="App-header">
       <Datetime/>
+      <Classtypefinder/>
+      <Editdelete/>
       <h1>Code Your Future Class Planner</h1>
       <button className="edit-button">Edit Week/Add Week</button>
       <EachWeek props={weeks} />
