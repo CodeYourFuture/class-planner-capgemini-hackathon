@@ -27,7 +27,7 @@ app.put('/volunteer/:number', (req, res) => {
     volunteers = weekSelected.peopleDetails.find(person => person.fullName === fullName ||
     person.email === email || person.role === role || person.slackId === slackId 
   )}
-  if(req.body.FullName) {
+  if(req.body.fullName) {
     volunteers.fullName = req.body.fullName
   }
   if(req.body.email) {
@@ -43,17 +43,19 @@ app.put('/volunteer/:number', (req, res) => {
   })
 
   app.delete('/volunteer/:number', (req, res) => {
-    const {fullName, email, role, slackId, comments} = req.query; 
+    const {fullName, email, slackId} = req.body; 
     
     const weekSelected = weeks.find(element => element.week === Number(req.params.number))
     
-    if (req.body.fullName && req.body.email && req.body.role && req.body.slackId && req.body.comments) {
-      res.json(weekSelected.peopleDetails.filter(
+    
+    if (fullName && email && slackId) {
+      let result = weekSelected.peopleDetails.filter(
         person =>
-          person.fullName !== fullName && person.email !== email && person.role !== role 
-          && person.slackId !== slackId && person.comments !== comments
-      ));
-    } else {"Please fill correctly"}
+          person.fullName !== fullName && person.email !== email 
+          && person.slackId !== slackId )
+        res.json(result)
+      
+    } else {"Not Found"}
     
   });
   app.use(express.static("public"));
