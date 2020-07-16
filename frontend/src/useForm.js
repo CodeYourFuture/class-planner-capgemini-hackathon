@@ -17,8 +17,6 @@ const useForm = (callback, validate) => {
       setIsSubmitting(false);
     } else {
       setErrors(validate(values));
-      //alert('Thank You')
-      //setIsSubmitting(true);
     }
   };
 

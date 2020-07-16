@@ -1,5 +1,14 @@
+* {
+  font-family: "Lato", sans-serif;
+}
 .time-table {
   border-right: 1px solid lightslategrey;
+}
+.signUpTitle {
+  margin-bottom: 3em;
+}
+.help {
+  color: red;
 }
 .signUp {
   margin-bottom: 0.5em;
