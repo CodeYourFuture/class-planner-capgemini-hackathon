@@ -42,7 +42,7 @@ app.put('/volunteer/:number', (req, res) => {
   res.json(volunteers);
   })
 
-  pp.delete('/volunteer/:number', (req, res) => {
+  app.delete('/volunteer/:number', (req, res) => {
     const {fullName, email, role, slackId, comments} = req.query; 
     
     const weekSelected = weeks.find(element => element.week === Number(req.params.number))
