@@ -1,10 +1,8 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
-
-
 const app = express();
-const weeks = require('../weeks.json')
+const weeks = require('weeks.json')
 
 const bodyParser = require("body-parser");
 
@@ -17,18 +15,9 @@ app.get('/', (req, res) => {
   return res.send('Hello from the Class PLanner Backend!');
 });
 
-// app.get('/volunteer', (req, res) => {
-//   return res.send(Object.values(weeks));
-// });
-
-// app.get('/volunteer/:number', (req, res) => {
-  
-// });
-
-
 app.put('/volunteer/:number', (req, res) => {
   
-  const {fullName, email, role, slackId, comments} = req.query; 
+  const {fullName, email, role, slackId} = req.query; 
   
   const weekSelected = weeks.find(element => element.week === Number(req.params.number))
   
@@ -53,10 +42,20 @@ app.put('/volunteer/:number', (req, res) => {
   res.json(volunteers);
   })
 
-app.delete('/volunteer/:number', (req, res) => {
-  return res.send(`Received a DELETE HTTP method for week number ${req.params.number}`);
-});
+  pp.delete('/volunteer/:number', (req, res) => {
+    const {fullName, email, role, slackId, comments} = req.query; 
+    
+    const weekSelected = weeks.find(element => element.week === Number(req.params.number))
+    
+    if (req.body.fullName && req.body.email && req.body.role && req.body.slackId && req.body.comments) {
+      res.json(weekSelected.peopleDetails.filter(
+        person =>
+          person.fullName !== fullName && person.email !== email && person.role !== role 
+          && person.slackId !== slackId && person.comments !== comments
+      ));
+    } else {"Please fill correctly"}
+    
+  });
+  app.use(express.static("public"));
 
-app.listen(process.env.PORT, () =>
-  console.log(`Backend listening on port ${process.env.PORT}!`),
-);
+ app.listen(process.env.PORT || 3000);
