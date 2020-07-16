@@ -45,7 +45,7 @@ const DetailsPage = (props) => {
                   href="#"
                   className="btn btn-primary col-12 margin-button"
                 >
-                  Syllabus
+                  View Syllabus
                 </button>
               </div>
               <div className="col-6">
