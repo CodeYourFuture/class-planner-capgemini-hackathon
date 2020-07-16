@@ -3,10 +3,11 @@ import style from "./add.module.css";
 const Add = () => {
   const [week, setWeek] = useState("");
   const [location, setLocation] = useState("");
-  const [dateTime, setDateTime] = useState("");
-
+  const [date, setDate] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
   const [subject, setSubject] = useState("");
-
+  const [more, setMore] = useState("");
   const locationList = [
     "Central London",
     "Birmingham",
@@ -17,29 +18,24 @@ const Add = () => {
 
   const subjectList = ["HTML&CSS", " JS", " React", " Node.js", "MongoDB"];
 
-  function handleWeekChange(event) {
+  function changStartTimeHandler(event) {
     console.log(event.target.value);
-    setWeek(event.target.value);
+    setStart(event.target.value);
   }
-  function handleDateTimeChange(event) {
-    console.log(event.target.value);
-    setDateTime(event.target.value);
-  }
-
-  function handleLocationChange(event) {
-    console.log(event.target.value);
-    setLocation(event.target.value);
-  }
-  function handleSubjectChange(event) {
-    console.log(event.target.value);
-    setSubject(event.target.value);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
-    const body = JSON.stringify({ week, location, dateTime, subject });
+    event.target.reset();
+    const body = JSON.stringify({
+      week,
+      location,
+      date,
+      start,
+      end,
+      subject,
+      more,
+    });
 
-    fetch(`http://localhost:22666/week`, {
+    fetch(`http://localhost:22666/week/${week}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +44,7 @@ const Add = () => {
     })
       .then((res) => res.json())
       .then();
-  }
+   }
 
   return (
     <div>
@@ -56,8 +52,11 @@ const Add = () => {
         <form className={style.form} onSubmit={handleSubmit}>
           <div className={style.dateTimeWeeklocation}>
             <label>
-              Week:
-              <select name="week" onChange={handleWeekChange}>
+              <select
+                name="week"
+                onChange={(event) => setWeek(event.target.value)}
+              >
+                <option>Week</option>
                 {weekList.map((week, index) => (
                   <option key={index} value={week}>
                     {week}
@@ -66,8 +65,11 @@ const Add = () => {
               </select>
             </label>
             <label>
-              Location:
-              <select name="location" onChange={handleLocationChange}>
+              <select
+                name="location"
+                onChange={(event) => setLocation(event.target.value)}
+              >
+                <option>Location</option>
                 {locationList.map((location, index) => (
                   <option key={index} value={location}>
                     {location}
@@ -76,27 +78,61 @@ const Add = () => {
               </select>
             </label>
             <label>
-              Date and Time
+              Date
               <input
-                type="datetime-local"
-                name="meeting-time"
-                value={dateTime}
-                onChange={handleDateTimeChange}
-                min="2018-01-01T00:00"
-                max="2020-12-31T00:00"
+                type="date"
+                name="date"
+                value={date}
+                onChange={(event) => setDate(event.target.value)}
+                min="2020-01-01"
+                max="2020-12-31"
+                required
+              />
+            </label>
+            <label>
+              Start Time{" "}
+              <input
+                type="time"
+                name="start"
+                value={start}
+                onChange={changStartTimeHandler}
+                min="11:00"
+                max="17:00"
+                required
+              />
+            </label>
+            <label>
+              End Time {""}
+              <input
+                type="time"
+                name="end"
+                value={end}
+                onChange={(event) => setEnd(event.target.value)}
+                min="11:00"
+                max="17:00"
+                required
               />
             </label>
           </div>
           <div>
             <label>
-              Subject :
-              <select name="subject" onChange={handleSubjectChange}>
+              <select
+                name="subject"
+                onChange={(event) => setSubject(event.target.value)}
+              >
+                <option>Subject</option>
                 {subjectList.map((subject, index) => (
                   <option key={index} value={subject}>
                     {subject}
                   </option>
                 ))}
               </select>
+              <label>Tell us more about yourself</label>
+
+              <textarea
+                value={more}
+                onChange={(event) => setMore(event.target.value)}
+              ></textarea>
             </label>
             <div className={style.button}>
               <input type="submit" value="Save this week" />
