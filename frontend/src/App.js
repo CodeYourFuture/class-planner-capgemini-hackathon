@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 // import Week from "./Week";
 // import DetailsPage from "./DetailsPage";
-import SignUp from "./SignUp";
+// import SignUp from "./SignUp";
 import "./App.css";
 
 const App = () => {
@@ -17,10 +17,10 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-light">
+    <div>
       {/* {console.log(weeks)} */}
       <Navbar />
-      <SignUp />
+      {/* <SignUp /> */}
       {weeks.map((week, index) => {
         return (
           <div key={index}>
