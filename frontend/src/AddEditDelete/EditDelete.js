@@ -2,7 +2,7 @@ import React from "react";
 import style from "./editdelete.module.css";
 const EditDelete = () => {
   return (
-    <div className={style.EditDelete}>
+    <div className={style.editdelete}>
       <div className={style.header}>
         <h4 className={style.headertext}>Week Edit/Delete form</h4>
       </div>
