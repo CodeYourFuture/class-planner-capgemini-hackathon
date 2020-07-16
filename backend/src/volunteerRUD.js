@@ -15,6 +15,23 @@ app.get('/', (req, res) => {
   return res.send('Hello from the Class PLanner Backend!');
 });
 
+app.get('/volunteer/:number/teacher', (req, res) => {
+  const {fullName, email, slackId} = req.body; 
+  
+  const weekSelected = weeks.find(element => element.week === Number(req.params.number))
+  
+  
+  if (fullName || email || slackId) {
+    let result = weekSelected.peopleDetails.find(
+      person =>
+        person.fullName === fullName || person.email === email 
+        || person.slackId === slackId )
+      res.json(result)
+    
+  } else {"Not Found"}
+  
+});
+
 app.put('/volunteer/:number', (req, res) => {
   
   const {fullName, email, role, slackId} = req.query; 
