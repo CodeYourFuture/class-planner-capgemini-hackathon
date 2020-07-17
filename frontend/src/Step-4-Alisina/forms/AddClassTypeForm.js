@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const AddClassTypeForm = (props) => {
-  const initialFormState = { id: null, classType: "", startTime: "", finishTime:"",};
+  const initialFormState = { id: null, classType: "", startTime: "", finishTime:""};
   const [user, setUser] = useState(initialFormState);
 
   const handleInputChange = (event) => {
@@ -18,7 +18,7 @@ const AddClassTypeForm = (props) => {
         setUser(initialFormState);
       }}
     >
-      <label>ClassType</label>
+      <label>Class Type</label>
       <input
         type="text" required
         name="classType"
@@ -45,7 +45,7 @@ const AddClassTypeForm = (props) => {
         value={user.finishTime}
         onChange={handleInputChange}
       />
-      <button>create a new Class</button>
+      <button>Create a new class</button>
     </form>
   );
 };

@@ -11,7 +11,7 @@ const  ClassTable = (props) => (
       </tr>
     </thead>
     <tbody>
-      {props.users.length > 0 ? (
+      {props.users && props.users.length > 0 ? (
         props.users.map((user) => (
           <tr key={user.id}>
             <td>{user.classType}</td>
@@ -35,7 +35,7 @@ const  ClassTable = (props) => (
         ))
       ) : (
         <tr>
-          <td colSpan={3}>No classes has been added yet.</td>
+          <td colSpan={3}>No classes have been added yet.</td>
         </tr>
       )}
     </tbody>

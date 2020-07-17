@@ -19,8 +19,7 @@ const EditClassTypeForm = (props) => {
         props.updateUser(user.id, user);
       }}
     >
-       
-      <label>ClassType</label>
+      <label>Class Type</label>
       <input
         type="text"
         name="classType"
