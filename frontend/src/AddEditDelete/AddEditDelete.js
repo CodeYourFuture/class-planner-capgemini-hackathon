@@ -10,7 +10,7 @@ const AddEditDelete = () => {
       <h1> Add/Edit/Delete Page</h1>
       <Add />
       <Find />
-      <EditDelete />
+     
     </div>
   );
 };
