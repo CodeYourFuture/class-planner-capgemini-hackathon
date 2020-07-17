@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-// import Week from "./Week";
-// import DetailsPage from "./DetailsPage";
-// import SignUp from "./SignUp";
 import "./App.css";
 
 const App = () => {
@@ -21,7 +18,7 @@ const App = () => {
       {/* {console.log(weeks)} */}
       <Navbar />
       {/* <SignUp /> */}
-      {weeks.map((week, index) => {
+      {weeks && weeks.map((week, index) => {
         return (
           <div key={index}>
             {/* <Week week={week} /> */}
