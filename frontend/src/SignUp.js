@@ -9,7 +9,7 @@ const SignUp = () => {
   );
 
   function submit() {
-    console.log("No errors, submit callback called!");
+    //TODO
   }
   return (
     <form onSubmit={handleSubmit} className="container col-6" noValidate>
@@ -53,7 +53,6 @@ const SignUp = () => {
       <div className="form-group">
         <label htmlFor="volunteer">Role*:</label>
         <select
-          className="custom-select"
           className={
             !errors.volunteer ? "custom-select" : "custom-select border-danger"
           }

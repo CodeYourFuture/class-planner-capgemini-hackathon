@@ -6,13 +6,13 @@
   border-right: 1px solid lightslategrey;
 }
 .signUpTitle {
-  margin-bottom: 3em;
+  margin-bottom: 3rem;
 }
 .help {
   color: red;
 }
 .signUp {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
 }
 .App-header {
   min-height: 100vh;
@@ -29,39 +29,33 @@
   display: inline-block;
   vertical-align: middle;
 }
-.logo {
-  width: 80px;
-}
 .container {
-  margin-top: 1em;
+  margin-top: 1rem;
 }
 .list-item {
   position: relative;
   display: block;
-  padding: 0.5em 0;
+  padding: 0.5rem 0;
 }
 .navbar-section {
-  margin: 1em auto 2em auto;
+  margin: 1rem auto 2rem auto;
   height: 100px;
 }
 .margin-button {
-  margin: 2px;
+  margin: 0.15rem;
 }
 .margin {
   margin: auto 0 auto 0;
 }
 .padding {
-  padding: 0 20px;
+  padding: 0 2rem;
 }
 li {
   list-style: none;
 }
 .title {
-  margin-top: 0.5em;
-  margin-bottom: 1.5em;
-}
-.App-link {
-  color: #61dafb;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 .week-time {
   display: flex;
@@ -74,48 +68,13 @@ li {
   border-left: 5px solid greenyellow;
   display: flex;
   border: 5px solid red;
-  padding: 5px;
-  margin: 5px;
 }
 .buttons {
   display: flex;
   flex-direction: column;
   border: 5px solid greenyellow;
 }
-.buttons button {
-  margin: 5px;
-  padding: 15px;
-}
 .teachingDetails {
-  margin-left: 20px;
   border-left: 2px solid red;
   width: 20%;
-}
-.teachingDetails label {
-  margin-left: 15px;
-  width: 40px;
-}
-.break {
-  border: 5px solid blue;
-  width: 100%;
-  margin: 15px;
-}
-.holiday {
-  background-color: gray;
-  width: 100%;
-  text-align: center;
-}
-.edit-button {
-  margin-left: 90%;
-  padding: 20px;
-}
-.class-number {
-  padding: 200px 500px;
-  background-color: paleturquoise;
-  color: black;
-  margin: 50px;
-}
-.table-container {
-  display: flex;
-  flex-direction: column;
 }

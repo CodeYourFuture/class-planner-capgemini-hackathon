@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import Week from "./Week";
+import SignUp from "./SignUp";
+import DetailsPage from "./DetailsPage";
 import "./App.css";
 
 const App = () => {
@@ -17,15 +20,16 @@ const App = () => {
     <div>
       {/* {console.log(weeks)} */}
       <Navbar />
-      {/* <SignUp /> */}
-      {weeks && weeks.map((week, index) => {
-        return (
-          <div key={index}>
-            {/* <Week week={week} /> */}
-            {/* <DetailsPage week={week} /> */}
-          </div>
-        );
-      })}
+      <SignUp />
+      {weeks &&
+        weeks.map((week, index) => {
+          return (
+            <div key={index}>
+              <Week week={week} />
+              <DetailsPage week={week} />
+            </div>
+          );
+        })}
     </div>
   );
 };
