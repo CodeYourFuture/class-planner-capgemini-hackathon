@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import  "./Datetime.css";
+import "./Datetime.css";
 const Datetime = () => {
-  const [startTime, setStartTime] = useState("");
-  const [finishTime, setFinishTime] = useState("");
-  const [classType, setClassType] = useState("");
+  const [start, setStartTime] = useState("");
+  const [end, setFinishTime] = useState("");
+  const [type, setClassType] = useState("");
 
   const handleAddNew = () => {
-    
-    fetch("https://hackathon-procject.glitch.me/week/1/class", {
+    const body = JSON.stringify({
+      start,
+      end,
+      type,
+    });
+    fetch("http://localhost:22666/week/1/class", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({
-        start: startTime,
-        finish: finishTime,
-        type: classType,
-      })
+      body,
     })
       .then((res) => res.json())
       .then(() => {
         console.log("Data added");
       });
   };
-console.log(startTime);
+
   return (
     <form onSubmit={handleAddNew} className="form-datetime">
       <h3>Time and Class Type</h3>
@@ -35,7 +35,7 @@ console.log(startTime);
           <input
             onChange={(event) => setStartTime(event.target.value)}
             type="text"
-            value={startTime}
+            value={start}
           />
         </div>
       </div>
@@ -47,7 +47,7 @@ console.log(startTime);
           <input
             onChange={(event) => setFinishTime(event.target.value)}
             type="text"
-            value={finishTime}
+            value={end}
           />
         </div>
       </div>
@@ -59,7 +59,7 @@ console.log(startTime);
           <input
             onChange={(event) => setClassType(event.target.value)}
             type="text"
-            value={classType}
+            value={type}
           />
         </div>
       </div>

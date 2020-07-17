@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import "./Datetime.css";
 
 
 const Classtypefinder = () => {
-  const [startTime, setStartTime] = useState("");
-  const [finishTime, setFinishTime] = useState("");
-  const [classType, setClassType] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [type, setType] = useState("");
 
-  const handleAddNew = () => {
+  const handleSubmit = () => {
     const body = JSON.stringify({
-      startTime,
-      finishTime,
-      classType,
+      start,
+      end,
+      type,
     });
-    fetch("http://localhost:22666/", {
+    fetch("http://localhost:22666/week/1/class", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -27,7 +27,7 @@ const Classtypefinder = () => {
   };
 
   return (
-    <form onSubmit={handleAddNew} className="form-datetime">
+    <form onSubmit={handleSubmit} className="form-datetime">
       <h3>Class Type Finder</h3>
       <div className="start-time">
         <div>
@@ -35,9 +35,9 @@ const Classtypefinder = () => {
         </div>
         <div>
           <input
-            onChange={(event) => setStartTime(event.target.value)}
-            type="text"
-            value={startTime}
+            onChange={(event) => setStart(event.target.value)}
+            type="search"
+            value={start}
           />
         </div>
       </div>
@@ -47,9 +47,9 @@ const Classtypefinder = () => {
         </div>
         <div>
           <input
-            onChange={(event) => setFinishTime(event.target.value)}
-            type="text"
-            value={finishTime}
+            onChange={(event) => setEnd(event.target.value)}
+            type="search"
+            value={end}
           />
         </div>
       </div>
@@ -59,9 +59,9 @@ const Classtypefinder = () => {
         </div>
         <div>
           <input
-            onChange={(event) => setClassType(event.target.value)}
-            type="text"
-            value={classType}
+            onChange={(event) => setType(event.target.value)}
+            type="search"
+            value={type}
           />
         </div>
       </div>
