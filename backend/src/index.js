@@ -18,6 +18,20 @@ app.get("/", (req, res) => {
 app.get("/week", (req, res) => {
   return res.send(Object.values(weeks));
 });
+//show people according to week
+app.get("/admin/people/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week.peopleDetails) : res.sendStatus(404);
+  // return res.send(Object.values(weeks));
+});
+//show time details according to week
+app.get("/admin/time/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week.timeDetails) : res.sendStatus(404);
+  // return res.send(Object.values(weeks));
+});
 
 //show week ID
 
@@ -31,15 +45,15 @@ app.get("/week/:id", (req, res) => {
 
 //Create new week
 app.post("/week/:number", (req, res) => {
- const newWeek = {
+  const newWeek = {
     week: Number(req.body.week),
     location: req.body.location,
     date: req.body.date,
     start: req.body.start,
     end: req.body.end,
     subject: req.body.subject,
-    more: req.body.more
- }
+    more: req.body.more,
+  };
 
   if (
     //mandatory fields
@@ -49,9 +63,7 @@ app.post("/week/:number", (req, res) => {
     "subject" in req.body
   ) {
     weeks.push(newWeek);
-    res.send(
-      `week number ${req.params.number} has been created`
-    );
+    res.send(`week number ${req.params.number} has been created`);
   } else {
     res
       .status(400)
@@ -64,18 +76,18 @@ app.post("/week/:number", (req, res) => {
 
 app.put("/week/:id", (req, res) => {
   const weekId = Number(req.params.id);
-  let newWeek = weeks.filter(week =>{
-    return week.week === weekId
+  let newWeek = weeks.filter((week) => {
+    return week.week === weekId;
   })[0];
 
   const index = weeks.indexOf(newWeek);
-  
-  const keys = Object.keys(req.body)
-  keys.forEach(key=>{
-newWeek[key] = req.body[key]
+
+  const keys = Object.keys(req.body);
+  keys.forEach((key) => {
+    newWeek[key] = req.body[key];
   });
 
-  weeks[index]= newWeek;
+  weeks[index] = newWeek;
   res.json(weeks[index]);
   return res.send(
     `Received a PUT HTTP method for week number ${req.params.number}`
@@ -85,9 +97,7 @@ newWeek[key] = req.body[key]
 app.delete("/week/:id", (req, res) => {
   const weekDelete = Number(req.params.id);
   weeks = weeks.filter((week) => week.week != weekDelete);
-  res.send(
-    `Received a DELETE HTTP method for week number ${req.params.id}`
-  );
+  res.send(`Received a DELETE HTTP method for week number ${req.params.id}`);
 });
 
 app.listen(process.env.PORT, () =>
