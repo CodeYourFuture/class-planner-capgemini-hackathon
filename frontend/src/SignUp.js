@@ -62,10 +62,10 @@ const SignUp = () => {
           onChange={handleChange}
           required
         >
-          <option>select...</option>
+          <option>Select...</option>
           <option>Lead Teacher</option>
           <option>Teacher Assistant</option>
-          <option>Teacher trainer</option>
+          <option>Teacher Trainer</option>
         </select>
         {errors.volunteer && (
           <small className="form-text help">{errors.volunteer}</small>
