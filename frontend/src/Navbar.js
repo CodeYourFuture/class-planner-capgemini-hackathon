@@ -1,28 +1,26 @@
 import React from "react";
 
-
 const Navbar = () => {
   return (
-    <header className="navbar">
-            
-      <div>
-                
-        <img className="logo" src="cyf-logo.png" alt="Logo" />
-              
+    <div className="container navbar-section">
+      <div className="row margin">
+        <img
+          className="col-sm-2 logo margin"
+          src="cyf-logo.png"
+          alt="Logo"
+          href="/"
+        />
+        <div className="col-sm-1"></div>
+        <input
+          className="col-sm-6 margin form-control"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+        ></input>
+        <div className="col-sm-1"></div>
+        <button className="col-sm-2 btn btn-primary margin">Add Week</button>
       </div>
-            
-      <div>
-                
-        <input className="search-bar" type="text" placeholder="SEARCH"></input>
-              
-      </div>
-            
-      <div className="add-edit-delete">
-                <button>Add/Edit/Delete</button>
-              
-      </div>
-          
-    </header>
+    </div>
   );
 };
 export default Navbar;
