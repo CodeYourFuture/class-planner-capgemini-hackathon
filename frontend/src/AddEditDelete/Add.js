@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./add.module.css";
+
 const Add = () => {
   const [week, setWeek] = useState("");
   const [location, setLocation] = useState("");
@@ -44,103 +44,120 @@ const Add = () => {
     })
       .then((res) => res.json())
       .then();
-   }
+  }
 
   return (
-    <div>
-      <div className={style.add}>
-        <form className={style.form} onSubmit={handleSubmit}>
-          <div className={style.dateTimeWeeklocation}>
-            <label>
-              <select
-                name="week"
-                onChange={(event) => setWeek(event.target.value)}
-              >
-                <option>Week</option>
-                {weekList.map((week, index) => (
-                  <option key={index} value={week}>
-                    {week}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              <select
-                name="location"
-                onChange={(event) => setLocation(event.target.value)}
-              >
-                <option>Location</option>
-                {locationList.map((location, index) => (
-                  <option key={index} value={location}>
-                    {location}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Date
-              <input
-                type="date"
-                name="date"
-                value={date}
-                onChange={(event) => setDate(event.target.value)}
-                min="2020-01-01"
-                max="2020-12-31"
-                required
-              />
-            </label>
-            <label>
-              Start Time{" "}
-              <input
-                type="time"
-                name="start"
-                value={start}
-                onChange={changStartTimeHandler}
-                min="11:00"
-                max="17:00"
-                required
-              />
-            </label>
-            <label>
-              End Time {""}
-              <input
-                type="time"
-                name="end"
-                value={end}
-                onChange={(event) => setEnd(event.target.value)}
-                min="11:00"
-                max="17:00"
-                required
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              <select
-                name="subject"
-                onChange={(event) => setSubject(event.target.value)}
-              >
-                <option>Subject</option>
-                {subjectList.map((subject, index) => (
-                  <option key={index} value={subject}>
-                    {subject}
-                  </option>
-                ))}
-              </select>
-              <label>Tell us more about yourself</label>
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="weekSelect">Week</label>
+          <select
+            id="weekSelect"
+            name="week"
+            className="custom-select"
+            onChange={(event) => setWeek(event.target.value)}
+          >
+            <option>Week</option>
+            {weekList.map((week, index) => (
+              <option key={index} value={week}>
+                {week}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="location">Location</label>
+          <select
+            id="location"
+            className="custom-select"
+            name="location"
+            onChange={(event) => setLocation(event.target.value)}
+          >
+            <option>Location</option>
+            {locationList.map((location, index) => (
+              <option key={index} value={location}>
+                {location}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="date"> Date </label>
 
-              <textarea
-                value={more}
-                onChange={(event) => setMore(event.target.value)}
-              ></textarea>
-            </label>
-            <div className={style.button}>
-              <input type="submit" value="Save this week" />
-              <a href="http://localhost:22666">Cancel</a>
-            </div>
+          <input
+            id="date"
+            className="form-control"
+            type="date"
+            name="date"
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
+            min="2020-01-01"
+            max="2020-12-31"
+            required
+          />
+
+          <label htmlFor="time">Start Time</label>
+
+          <input
+            id="time"
+            className="form-control"
+            type="time"
+            name="start"
+            value={start}
+            onChange={changStartTimeHandler}
+            min="11:00"
+            max="17:00"
+            required
+          />
+
+          <label htmlFor="time"> End Time </label>
+
+          <input
+            id="time"
+            className="form-control"
+            type="time"
+            name="end"
+            value={end}
+            onChange={(event) => setEnd(event.target.value)}
+            min="11:00"
+            max="17:00"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="subject">Subject</label>
+          <select
+            id="subject"
+            className="custom-select"
+            name="subject"
+            onChange={(event) => setSubject(event.target.value)}
+          >
+            <option>Subject</option>
+            {subjectList.map((subject, index) => (
+              <option key={index} value={subject}>
+                {subject}
+              </option>
+            ))}
+          </select>
+
+          <label>Tell us more about yourself</label>
+
+          <textarea
+            rows="3"
+            className="form-control"
+            value={more}
+            onChange={(event) => setMore(event.target.value)}
+          ></textarea>
+
+          <div>
+            <button className="btn btn-primary" type="submit">
+              Save this week
+            </button>
+            <button type='reset' className='btn btn-danger'> Cancel</button>
+            {/* <a href="http://localhost:226">Cancel</a> */}
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   );
 };
