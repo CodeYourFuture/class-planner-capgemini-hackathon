@@ -1,84 +1,95 @@
-const dotenv = require("dotenv/config");
-const cors = require("cors");
-const express = require("express");
-const bodyParser = require("body-parser");
+import "dotenv/config";
+import cors from "cors";
+import express from "express";
+
 const app = express();
-const weeks = require("../weeks.json");
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json());
+let weeks = require("../weeks.json");
+const bodyParser = require("body-parser");
+
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.get("/week/:number/class", (req, res) => {
-  const { start, end, type } = req.query;
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
-  // After posting a session, this sorts the sessions by start time
-  const sortedTimeDetails = selectedWeek.timeDetails.sort((a, b) =>
-    a.start > b.start ? 1 : -1
+
+app.get("/", (req, res) => {
+  return res.send("Hello from the Class PLanner Backend!");
+});
+
+//show all weeks
+app.get("/week", (req, res) => {
+  return res.send(Object.values(weeks));
+});
+
+//show week ID
+
+app.get("/week/:id", (req, res) => {
+  // const {albumId} = req.params
+  const weekId = Number(req.params.id);
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week) : res.sendStatus(404);
+  console.log(weekId);
+});
+
+//Create new week
+app.post("/week/:number", (req, res) => {
+ const newWeek = {
+    week: Number(req.body.week),
+    location: req.body.location,
+    date: req.body.date,
+    start: req.body.start,
+    end: req.body.end,
+    subject: req.body.subject,
+    more: req.body.more
+ }
+
+  if (
+    //mandatory fields
+    "week" in req.body &&
+    "location" in req.body &&
+    "date" in req.body &&
+    "subject" in req.body
+  ) {
+    weeks.push(newWeek);
+    res.send(
+      `week number ${req.params.number} has been created`
+    );
+  } else {
+    res
+      .status(400)
+      .send(
+        "Please fill the form: week, location, date, subject are mandatory"
+      );
+  }
+  console.log(newWeek);
+});
+
+app.put("/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  let newWeek = weeks.filter(week =>{
+    return week.week === weekId
+  })[0];
+
+  const index = weeks.indexOf(newWeek);
+  
+  const keys = Object.keys(req.body)
+  keys.forEach(key=>{
+newWeek[key] = req.body[key]
+  });
+
+  weeks[index]= newWeek;
+  res.json(weeks[index]);
+  return res.send(
+    `Received a PUT HTTP method for week number ${req.params.number}`
   );
-  res.json(sortedTimeDetails);
-  if (req.query.type || req.query.start || req.query.end) {
-    res.json(
-      selectedWeek.timeDetails.find(
-        (session) =>
-          session.type === type ||
-          session.start === start ||
-          session.end === end
-      )
-    );
-  } else {
-    res.sendStatus(404);
-  }
 });
-app.post("/week/:number/class", (req, res) => {
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
-  if (req.body.start && req.body.end && req.body.type) {
-    selectedWeek.timeDetails.push(req.body);
-  } else {
-    res.send("Please fill the form");
-  }
+
+app.delete("/week/:id", (req, res) => {
+  const weekDelete = Number(req.params.id);
+  weeks = weeks.filter((week) => week.week != weekDelete);
+  res.send(
+    `Received a DELETE HTTP method for week number ${req.params.id}`
+  );
 });
-//To Edit a session (Save Changes Button)
-app.put("/week/:number/class", (req, res) => {
-  const { start, end, type } = req.query;
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
-  let session = {};
-  if (req.query.type || req.query.start || req.query.end) {
-    session = selectedWeek.timeDetails.find(
-      (session) =>
-        session.type === type || session.start === start || session.end === end
-    );
-  }
-  if (req.body.type) {
-    session.type = req.body.type;
-  }
-  if (req.body.start) {
-    session.start = req.body.start;
-  }
-  if (req.body.end) {
-    session.end = req.body.end;
-  }
-  res.json(session);
-});
-app.delete("/week/:number/class", (req, res) => {
-  const { start, end, type } = req.body;
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
-  if (req.body.type && req.body.start && req.body.end) {
-    res.json(
-      selectedWeek.timeDetails.filter(
-        (session) =>
-          session.type !== type &&
-          session.start !== start &&
-          session.end !== end
-      )
-    );
-  } else {
-    ("Session not found");
-  }
-});
+
 app.listen(process.env.PORT, () =>
   console.log(`Backend listening on port ${process.env.PORT}!`)
 );
