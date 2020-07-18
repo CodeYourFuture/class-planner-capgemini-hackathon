@@ -1,13 +1,16 @@
 import React from "react";
 import Add from "./Add";
+import EditDelete from "./EditDelete";
 import Find from "./Find";
-
+import Navbar from "../Navbar";
 const AddEditDelete = () => {
   return (
     <div>
-      <h4> Add/Edit/Delete Page</h4>
+      <Navbar />
+      <h1> Add/Edit/Delete Page</h1>
       <Add />
       <Find />
+     
     </div>
   );
 };

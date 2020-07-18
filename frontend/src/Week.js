@@ -1,5 +1,6 @@
 import React from "react";
-import TeacherDetails from './TeacherDetails'
+import TeacherDetails from "./TeacherDetails";
+
 const Week = (props) => {
   return (
     <div className="container">

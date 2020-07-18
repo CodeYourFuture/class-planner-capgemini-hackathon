@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import Week from "./Week";
 import "./App.css";
-import AddEditDelete from "./AddEditDelete/AddEditDelete";
 
 const App = () => {
   const [weeks, setWeeks] = useState([]);
@@ -20,16 +18,14 @@ const App = () => {
       {/* {console.log(weeks)} */}
       <Navbar />
       {/* <SignUp /> */}
-      {weeks &&
-        weeks.map((week, index) => {
-          return (
-            <div key={index}>
-              <AddEditDelete week={week}/>
-              <Week week={week} />
-              {/* <DetailsPage week={week} /> */}
-            </div>
-          );
-        })}
+      {weeks && weeks.map((week, index) => {
+        return (
+          <div key={index}>
+            {/* <Week week={week} /> */}
+            {/* <DetailsPage week={week} /> */}
+          </div>
+        );
+      })}
     </div>
   );
 };
