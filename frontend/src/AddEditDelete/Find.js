@@ -1,45 +1,47 @@
 import React, { useState, useEffect } from "react";
 
-import style from "./find.module.css";
 import EditDelete from "./EditDelete";
 
 const Find = () => {
-  const [week, setWeek] = useState("");
-  const [weekList, setWeekList] = useState([]);
+  const [weekNumber, setWeekNumber] = useState("");
 
   const [addedWeekLocation, setAddedWeekLocation] = useState("");
-  const [addedTime, setAddedTime] = useState("");
+  const [addedStartTime, setAddedStartTime] = useState("");
+  const [addedEndTime, setAddedEndTime] = useState("");
   const [addedDate, setAddedDate] = useState("");
   const [addedSubject, setAddedSubject] = useState("");
   const [addedWeek, setAddedWeek] = useState("");
+  const [addedMore, setAddedMore] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch(`http://localhost:22666/week/${week}`, { method: "GET" })
+    fetch(`http://localhost:22666/week/${weekNumber}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
+        setAddedWeek(data.week);
         setAddedWeekLocation(data.location);
         setAddedDate(data.date);
-        setAddedTime(data.time);
+        setAddedStartTime(data.start);
+        setAddedEndTime(data.end);
         setAddedSubject(data.subject);
-        setAddedWeek(data.week);
+        setAddedMore(data.more);
       });
   }
 
   return (
-    <div className={style.find}>
+    <div className="">
       <p>Week Finder</p>
       <div className="row search-wrapper">
         <div className="col">
-          <form className={style.form} onSubmit={handleSubmit}>
+          <form className="" onSubmit={handleSubmit}>
             <label htmlFor="week">Week</label>
             <input
               type="number"
               id="week"
               name="week"
               placeholder="week number"
-              value={weekList}
-              onChange={(e) => setWeekList(e.target.value)}
+              value={weekNumber}
+              onChange={(e) => setWeekNumber(e.target.value)}
             />
 
             <div>
@@ -51,14 +53,18 @@ const Find = () => {
             <EditDelete
               setAddedWeekLocation={setAddedWeekLocation}
               setAddedDate={setAddedDate}
-              setAddedTime={setAddedTime}
+              setAddedStartTime={setAddedStartTime}
+              setAddedEndTime={setAddedEndTime}
               setAddedSubject={setAddedSubject}
               setAddedWeek={setAddedWeek}
-              addedTime={addedTime}
+              setAddedMore={setAddedMore}
+              addedStartTime={addedStartTime}
+              addedEndTime={addedEndTime}
               addedDate={addedDate}
               addedSubject={addedSubject}
               addedWeek={addedWeek}
               addedWeekLocation={addedWeekLocation}
+              addedMore={addedMore}
             />
           </div>
         </div>

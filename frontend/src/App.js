@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
+import AddEditDelete from './AddEditDelete/AddEditDelete'
+
 import "./App.css";
 
 const App = () => {
@@ -23,9 +25,13 @@ const App = () => {
           <div key={index}>
             {/* <Week week={week} /> */}
             {/* <DetailsPage week={week} /> */}
+
           </div>
         );
       })}
+      <div>
+        <AddEditDelete/>
+      </div>
     </div>
   );
 };

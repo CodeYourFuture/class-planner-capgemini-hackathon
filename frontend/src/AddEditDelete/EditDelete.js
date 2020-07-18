@@ -1,43 +1,39 @@
 import React, { useState } from "react";
-import style from "./editdelete.module.css";
 
 const EditDelete = (props) => {
-
-  const onClickDelete = (id,event) => {
-  event.preventDefault();
+  const reqBody = {
+    week: props.addedWeek,
+    location: props.addedWeekLocation,
+    date: props.addedDate,
+    start: props.addedStartTime,
+    end: props.addedEndTime,
+    subject: props.addedSubject,
+    more: props.addedMore,
+  };
+  const onClickDelete = (id) => {
     fetch(`http://localhost:22666/week/${id}`, { method: "DELETE" })
       .catch((error) => console.log(error))
       .then((res) => res.json())
-      .then()
+      .then();
   };
-//  const[seeBody, setSeeBody]=useState([])
-//   const handleUpdate=(id)=> {
-//     const body = JSON.stringify({
-//       props.addedWeek,
-//       pro,
-//       firstName,
-//       surname,
-//       email,
-//       checkInDate,
-//       checkOutDate,
-//     });
-//     fetch(`http://localhost:22666/week/${id}`, {
-//       method: "PUT",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body,
-//     })
-  //     .then((res) => res.json())
-  //     .then(data=>{
-  //       console.log(data)
-  //       setSeeBody(data)});
-  // }
+
+  const handleUpdate = (id) => {
+    const body = JSON.stringify(reqBody);
+    fetch(`http://localhost:22666/week/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((res) => res.json())
+      .then();
+  };
   return (
-    <div className={style.editdelete}>
+    <div className="">
       <div>
         <form>
-          <div className={style.form}>
+          <div className="">
             <label>
               Week Number:
               <input
@@ -45,6 +41,7 @@ const EditDelete = (props) => {
                 name="name"
                 value={props.addedWeek}
                 onChange={(e) => {
+                  reqBody.week = e.target.value;
                   props.setAddedWeek(e.target.value);
                 }}
               />
@@ -56,6 +53,7 @@ const EditDelete = (props) => {
                 name="name"
                 value={props.addedSubject}
                 onChange={(e) => {
+                  reqBody.subject = e.target.value;
                   props.setAddedSubject(e.target.value);
                 }}
               />
@@ -67,18 +65,32 @@ const EditDelete = (props) => {
                 name="name"
                 value={props.addedDate}
                 onChange={(e) => {
+                  reqBody.date = e.target.value;
                   props.setAddedDate(e.target.value);
                 }}
               />
             </label>
             <label>
-              Time:
+              Start Time
               <input
                 type="text"
                 name="name"
-                value={props.addedTime}
+                value={props.addedStartTime}
                 onChange={(e) => {
-                  props.setAddedTime(e.target.value);
+                  reqBody.start = e.target.value;
+                  props.setAddedStartTime(e.target.value);
+                }}
+              />
+            </label>
+            <label>
+              End Time
+              <input
+                type="text"
+                name="name"
+                value={props.addedEndTime}
+                onChange={(e) => {
+                  reqBody.end = e.target.value;
+                  props.setAddedEndTime(e.target.value);
                 }}
               />
             </label>
@@ -93,11 +105,26 @@ const EditDelete = (props) => {
                 }}
               />
             </label>
+            <label>
+              More
+              <input
+                type="text"
+                name="name"
+                value={props.addedMore}
+                onChange={(e) => {
+                  reqBody.more = e.target.value;
+                  props.setAddedMore(e.target.value);
+                }}
+              />
+            </label>
           </div>
-          <div className={style.button}>
-            <input type="submit" value="Submit" />
-            <button onClick={() => onClickDelete(props.addedWeek)}>Delete</button>
-            {/* <button onClick={() => handleUpdate(props.addedWeek)}>Update</button> */}
+          <div className="">
+            <button onClick={() => onClickDelete(props.addedWeek)}>
+              Delete
+            </button>
+            <button onClick={() => handleUpdate(props.addedWeek)}>
+              Update
+            </button>
           </div>
         </form>
       </div>
