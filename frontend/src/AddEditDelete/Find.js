@@ -1,37 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import style from "./find.module.css";
 import EditDelete from "./EditDelete";
 
 const Find = () => {
-  const [week, setWeek] = useState("");
-  const [weekList, setWeekList] = useState([]);
-
+  const [weekList, setWeekList] = useState("");
   const [addedWeekLocation, setAddedWeekLocation] = useState("");
-  const [addedTime, setAddedTime] = useState("");
+  const [addedStartTime, setAddedStartTime] = useState("");
+  const [addedEndTime, setAddedEndTime] = useState("");
   const [addedDate, setAddedDate] = useState("");
   const [addedSubject, setAddedSubject] = useState("");
   const [addedWeek, setAddedWeek] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch(`http://localhost:22666/week/${week}`, { method: "GET" })
+    fetch(`http://localhost:22666/week/${weekList}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
         setAddedWeekLocation(data.location);
         setAddedDate(data.date);
-        setAddedTime(data.time);
+        setAddedStartTime(data.start);
+        setAddedEndTime(data.end);
         setAddedSubject(data.subject);
         setAddedWeek(data.week);
       });
   }
 
   return (
-    <div className={style.find}>
+    <div>
       <p>Week Finder</p>
       <div className="row search-wrapper">
         <div className="col">
-          <form className={style.form} onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="week">Week</label>
             <input
               type="number"
@@ -49,12 +48,14 @@ const Find = () => {
           <div>
             {" "}
             <EditDelete
+              setAddedWeek={setAddedWeek}
               setAddedWeekLocation={setAddedWeekLocation}
               setAddedDate={setAddedDate}
-              setAddedTime={setAddedTime}
+              setAddedStartTime={setAddedStartTime}
+              setAddedEndTime={setAddedEndTime}
               setAddedSubject={setAddedSubject}
-              setAddedWeek={setAddedWeek}
-              addedTime={addedTime}
+              addedStartTime={addedStartTime}
+              addedEndTime={addedEndTime}
               addedDate={addedDate}
               addedSubject={addedSubject}
               addedWeek={addedWeek}
