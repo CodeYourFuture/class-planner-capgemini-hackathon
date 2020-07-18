@@ -36,25 +36,25 @@
     ],
     "peopleDetails": [
       {
-        "fullName": "Chris Owen",
-        "email": "example@example.com",
-        "role": "Lead Teacher",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "fullName": "Jhon",
+        "email": "examplll@example.com",
+        "role": "Leadrrr",
+        "slackId": "matt",
+        "comments": "coollll"
       },
       {
-        "fullName": "Ali Smith",
-        "email": "example@example.com",
-        "role": "Teacher Assistant",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "fullName": "Matt",
+        "email": "exaaam@example.com",
+        "role": "teacher b",
+        "slackId": "susan",
+        "comments": "true"
       },
       {
         "fullName": "Dom Vinyard",
-        "email": "example@example.com",
-        "role": "Teacher trainer",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "email": "eexam@example.com",
+        "role": "top leader",
+        "slackId": "eva",
+        "comments": "pick"
       }
     ]
   },
@@ -95,25 +95,25 @@
     ],
     "peopleDetails": [
       {
-        "fullName": "Chris Owen",
-        "email": "example@example.com",
-        "role": "Lead Teacher",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "fullName": "Chris O",
+        "email": "examplee@example.com",
+        "role": "master",
+        "slackId": "ford",
+        "comments": "top"
       },
       {
-        "fullName": "Ali Smith",
-        "email": "example@example.com",
-        "role": "Teacher Assistant",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "fullName": "Edward",
+        "email": "ex@example.com",
+        "role": "Teacher A",
+        "slackId": "smith",
+        "comments": "hi"
       },
       {
-        "fullName": "Dom Vinyard",
-        "email": "example@example.com",
-        "role": "Teacher trainer",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "fullName": "Dom Vinyardd",
+        "email": "exa@example.com",
+        "role": "Teacher traine",
+        "slackId": "Ali",
+        "comments": "thanks"
       }
     ]
   },
@@ -154,24 +154,24 @@
     "peopleDetails": [
       {
         "fullName": "Chris Owen",
-        "email": "example@example.com",
-        "role": "Lead Teacher",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "email": "exam@example.com",
+        "role": "Lea",
+        "slackId": "Ch",
+        "comments": "fine"
       },
       {
-        "fullName": "Ali Smith",
+        "fullName": "Ali Sm",
         "email": "example@example.com",
         "role": "Teacher Assistant",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "slackId": "idid",
+        "comments": "well"
       },
       {
-        "fullName": "Dom Vinyard",
-        "email": "example@example.com",
+        "fullName": "Dom Vin",
+        "email": "exampl@example.com",
         "role": "Teacher trainer",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "slackId": "id",
+        "comments": "nice"
       }
     ]
   }
