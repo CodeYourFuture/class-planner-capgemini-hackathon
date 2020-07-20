@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -18,7 +19,9 @@ const Navbar = () => {
           aria-label="Search"
         ></input>
         <div className="col-sm-1"></div>
-        <button className="col-sm-2 btn btn-primary margin">Add Week</button>
+        <Link className="col-sm-2 btn btn-primary margin" to="/add-week">
+          Add Week
+        </Link>
       </div>
     </div>
   );
