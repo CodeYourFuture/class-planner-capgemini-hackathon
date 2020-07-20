@@ -35,7 +35,7 @@ const EditDelete = (props) => {
         <form>
           <div className="">
             <label>
-              Week Number:
+              Week Number
               <input
                 type="text"
                 name="name"
@@ -47,7 +47,7 @@ const EditDelete = (props) => {
               />
             </label>
             <label>
-              Subject:
+              Subject
               <input
                 type="text"
                 name="name"
@@ -59,7 +59,7 @@ const EditDelete = (props) => {
               />
             </label>
             <label>
-              Date:
+              Date
               <input
                 type="text"
                 name="name"
@@ -95,7 +95,7 @@ const EditDelete = (props) => {
               />
             </label>
             <label>
-              Location:
+              Location
               <input
                 type="text"
                 name="name"

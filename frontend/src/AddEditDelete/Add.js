@@ -65,6 +65,7 @@ const Add = () => {
             ))}
           </select>
         </div>
+
         <div className="form-group">
           <label htmlFor="location">Location</label>
           <select
@@ -153,8 +154,10 @@ const Add = () => {
             <button className="btn btn-primary" type="submit">
               Save this week
             </button>
-            <button type='reset' className='btn btn-danger'> Cancel</button>
-            {/* <a href="http://localhost:226">Cancel</a> */}
+            <button type="reset" className="btn btn-danger">
+              {" "}
+              Cancel
+            </button>
           </div>
         </div>
       </form>
