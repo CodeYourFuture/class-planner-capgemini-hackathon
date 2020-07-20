@@ -5,7 +5,7 @@ import Find from "./Find";
 const AddEditDelete = () => {
   return (
     <div>
-      <h1> Add/Edit/Delete Page</h1>
+      <h1> Add/Edit/Delete Class</h1>
       <Add />
       <Find />
      

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import EditDelete from "./EditDelete";
 
 const Find = () => {
@@ -66,6 +65,7 @@ const Find = () => {
               addedWeekLocation={addedWeekLocation}
               addedMore={addedMore}
             />
+           
           </div>
         </div>
       </div>

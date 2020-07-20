@@ -6,7 +6,7 @@ const Add = () => {
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const [subject, setSubject] = useState("");
+  const [module, setmodule] = useState("");
   const [more, setMore] = useState("");
   const locationList = [
     "Central London",
@@ -16,7 +16,7 @@ const Add = () => {
   ];
   const weekList = [0, 1, 2, 3, 4, 5];
 
-  const subjectList = ["HTML&CSS", " JS", " React", " Node.js", "MongoDB"];
+  const moduleList = ["HTML&CSS", " JS", " React", " Node.js", "MongoDB"];
 
   function changStartTimeHandler(event) {
     console.log(event.target.value);
@@ -31,7 +31,7 @@ const Add = () => {
       date,
       start,
       end,
-      subject,
+      module,
       more,
     });
 
@@ -126,22 +126,22 @@ const Add = () => {
           />
         </div>
         <div>
-          <label htmlFor="subject">Subject</label>
+          <label htmlFor="module">module</label>
           <select
             id="subject"
             className="custom-select"
             name="subject"
-            onChange={(event) => setSubject(event.target.value)}
+            onChange={(event) => setmodule(event.target.value)}
           >
-            <option>Subject</option>
-            {subjectList.map((subject, index) => (
-              <option key={index} value={subject}>
-                {subject}
+            <option>Select module</option>
+            {moduleList.map((module, index) => (
+              <option key={index} value={module}>
+                {module}
               </option>
             ))}
           </select>
 
-          <label>Tell us more about yourself</label>
+          <label>Module details</label>
 
           <textarea
             rows="3"
