@@ -19,27 +19,38 @@ app.get("/week", (req, res) => {
   return res.send(Object.values(weeks));
 });
 
+//week numbers
+app.get("/week/:number", (req, res) => {
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  if (selectedWeek) {
+    res.json(selectedWeek);
+  } else {
+    res.status(400).send("Week not found");
+  }
+});
+
 //show week ID
 
 app.get("/week/:id", (req, res) => {
   // const {albumId} = req.params
-  const weekId = Number(req.params.id);
+  const weekId = id(req.params.id);
   const week = weeks.find((week) => week.week === weekId);
   week ? res.json(week) : res.sendStatus(404);
   console.log(weekId);
 });
 
 //Create new week
-app.post("/week/:number", (req, res) => {
- const newWeek = {
+app.post("/week/:id", (req, res) => {
+  const newWeek = {
     week: Number(req.body.week),
     location: req.body.location,
     date: req.body.date,
     start: req.body.start,
     end: req.body.end,
     subject: req.body.subject,
-    more: req.body.more
- }
+    more: req.body.more,
+  };
 
   if (
     //mandatory fields
@@ -49,9 +60,7 @@ app.post("/week/:number", (req, res) => {
     "subject" in req.body
   ) {
     weeks.push(newWeek);
-    res.send(
-      `week number ${req.params.number} has been created`
-    );
+    res.send(`week id ${req.params.id} has been created`);
   } else {
     res
       .status(400)
@@ -64,30 +73,146 @@ app.post("/week/:number", (req, res) => {
 
 app.put("/week/:id", (req, res) => {
   const weekId = Number(req.params.id);
-  let newWeek = weeks.filter(week =>{
-    return week.week === weekId
+  let newWeek = weeks.filter((week) => {
+    return week.week === weekId;
   })[0];
 
   const index = weeks.indexOf(newWeek);
-  
-  const keys = Object.keys(req.body)
-  keys.forEach(key=>{
-newWeek[key] = req.body[key]
+
+  const keys = Object.keys(req.body);
+  keys.forEach((key) => {
+    newWeek[key] = req.body[key];
   });
 
-  weeks[index]= newWeek;
+  weeks[index] = newWeek;
   res.json(weeks[index]);
-  return res.send(
-    `Received a PUT HTTP method for week number ${req.params.number}`
-  );
+  return res.send(`Received a PUT HTTP method for week id ${req.params.id}`);
 });
 
 app.delete("/week/:id", (req, res) => {
-  const weekDelete = Number(req.params.id);
+  const weekDelete = id(req.params.id);
   weeks = weeks.filter((week) => week.week != weekDelete);
-  res.send(
-    `Received a DELETE HTTP method for week number ${req.params.id}`
+  res.send(`Received a DELETE HTTP method for week id ${req.params.id}`);
+});
+
+//last change:
+app.get("/week/:number/class", (req, res) => {
+  const { number, start, end, type } = req.query;
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  // After posting a session, this sorts the sessions by start time
+  const sortedTimeDetails = selectedWeek.timeDetails.sort((a, b) =>
+    a.start > b.start ? 1 : -1
   );
+  res.json(sortedTimeDetails);
+  if (req.query.type || req.query.start || req.query.end) {
+    res.json(
+      selectedWeek.timeDetails.find(
+        (session) =>
+          session.number === number ||
+          session.type === type ||
+          session.start === start ||
+          session.end === end
+      )
+    );
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+app.post("/week/:id/class", (req, res) => {
+  const weekId = Number(req.params.id);
+  const selectedWeek = weeks.find((week) => week.week === weekId);
+  if (req.body.start && req.body.end && req.body.type) {
+    res.send("this class is created");
+    selectedWeek.timeDetails.push(req.body);
+  } else {
+    res.send("Please fill the form");
+  }
+});
+
+app.put("/week/:number/volunteer/:id", (req, res) => {
+  const weekNumber = Number(req.params.number);
+  const volunteerId = Number(req.params.id);
+
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+
+  let volunteer = {};
+  if (volunteerId) {
+    volunteer = selectedWeek.peopleDetails.find(
+      (volunteer) => volunteer.id === volunteerId
+    );
+  }
+  if (req.body.id) {
+    volunteer.id = req.body.id;
+  }
+  if (req.body.fullName) {
+    volunteer.fullName = req.body.fullName;
+  }
+  if (req.body.email) {
+    volunteer.email = req.body.email;
+  }
+  if (req.body.role) {
+    volunteer.role = req.body.role;
+  }
+  if (req.body.slackId) {
+    volunteer.slackId = req.body.slackId;
+  }
+  if (req.body.comments) {
+    volunteer.comments = req.body.comments;
+  }
+  res.json(volunteer);
+});
+
+app.put("/week/:number/class/:id", (req, res) => {
+  const weekNumber = Number(req.params.number);
+  const sessionId = Number(req.params.id);
+
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+
+  let session = {};
+  if (sessionId) {
+    session = selectedWeek.timeDetails.find(
+      (session) => session.id === sessionId
+    );
+  }
+  if (req.body.id) {
+    session.id = req.body.id;
+  }
+  if (req.body.type) {
+    session.type = req.body.type;
+  }
+  if (req.body.start) {
+    session.start = req.body.start;
+  }
+  if (req.body.end) {
+    session.end = req.body.end;
+  }
+  res.json(session);
+});
+app.delete("/week/:number/volunteer/:id", (req, res) => {
+  const weekNumber = Number(req.params.number);
+  const volunteerId = Number(req.params.id);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  const newPeopleDetails = selectedWeek.peopleDetails.filter(
+    (volunteer) => volunteer.id !== volunteerId
+  );
+  if (newPeopleDetails) {
+    return (weeks[weekNumber].peopleDetails = newPeopleDetails);
+  }
+  res.json(weeks);
+});
+
+app.delete("/week/:number/class/:id", (req, res) => {
+  const weekNumber = Number(req.params.number);
+  const sessionId = Number(req.params.id);
+
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+
+  const updatedSession = selectedWeek.timeDetails.filter(
+    (session) => session.id !== sessionId
+  );
+  res.send(updatedSession);
 });
 
 app.listen(process.env.PORT, () =>

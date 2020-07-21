@@ -19,8 +19,8 @@ const Navbar = () => {
           aria-label="Search"
         ></input>
         <div className="col-1"></div>
-        <Link className="col btn btn-primary margin" to="/">
-          Return To Home
+        <Link className="col btn btn-primary margin" to="/add-week">
+          Add Week
         </Link>
       </div>
     </div>
