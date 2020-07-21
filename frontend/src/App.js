@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+
 import Navbar from "./Navbar";
-import AddEditDelete from './AddEditDelete/AddEditDelete'
+import Home from "./Home";
+import AddWeek from "./AddEditDelete/AddEditDelete";
 
 import "./App.css";
 
@@ -17,21 +20,11 @@ const App = () => {
 
   return (
     <div>
-      {/* {console.log(weeks)} */}
       <Navbar />
-      {/* <SignUp /> */}
-      {weeks && weeks.map((week, index) => {
-        return (
-          <div key={index}>
-            {/* <Week week={week} /> */}
-            {/* <DetailsPage week={week} /> */}
-
-          </div>
-        );
-      })}
-      <div>
-        <AddEditDelete/>
-      </div>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/add-week" component={AddWeek} />
+      </Switch>
     </div>
   );
 };

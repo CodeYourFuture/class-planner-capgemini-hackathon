@@ -18,6 +18,20 @@ app.get("/", (req, res) => {
 app.get("/week", (req, res) => {
   return res.send(Object.values(weeks));
 });
+//show people according to week
+app.get("/admin/people/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week.peopleDetails) : res.sendStatus(404);
+  // return res.send(Object.values(weeks));
+});
+//show time details according to week
+app.get("/admin/time/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week.timeDetails) : res.sendStatus(404);
+  // return res.send(Object.values(weeks));
+});
 
 //show week ID
 
