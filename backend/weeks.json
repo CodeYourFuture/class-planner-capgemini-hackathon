@@ -9,26 +9,31 @@
     "more": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,",
     "timeDetails": [
       {
+        "id": 0,
         "start": "11:00",
         "end": "11:30",
         "type": "Stand up"
       },
       {
+        "id": 1,
         "start": "11:30",
         "end": "14:00",
         "type": "Intro"
       },
       {
+        "id": 2,
         "start": "14:00",
         "end": "15:00",
         "type": "Lunch"
       },
       {
+        "id": 3,
         "start": "15:00",
         "end": "17:00",
         "type": "Soft skills workshop"
       },
       {
+        "id": 4,
         "start": "17:00",
         "end": "17:30",
         "type": "Retro and clean up"
@@ -36,20 +41,24 @@
     ],
     "peopleDetails": [
       {
-        "fullName": "Jhon",
-        "email": "examplll@example.com",
-        "role": "Leadrrr",
-        "slackId": "matt",
-        "comments": "coollll"
+        "id": 0,
+        "fullName": "Chris Owen",
+        "email": "example@example.com",
+        "role": "Lead Teacher",
+        "slackId": "Chris",
+        "comments": "so cool"
       },
       {
-        "fullName": "Matt",
-        "email": "exaaam@example.com",
-        "role": "teacher b",
-        "slackId": "susan",
-        "comments": "true"
+        "id": 1,
+        "fullName": "Ali Smith",
+        "email": "example@example.com",
+        "role": "Teacher Assistant",
+        "slackId": "Chris",
+        "comments": "so cool"
+
       },
       {
+        "id": 2,
         "fullName": "Dom Vinyard",
         "email": "eexam@example.com",
         "role": "top leader",
@@ -68,26 +77,31 @@
     "more": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,",
     "timeDetails": [
       {
+        "id": 0,
         "start": "11:00",
         "end": "11:30",
         "type": "Stand up"
       },
       {
+        "id": 1,
         "start": "11:30",
         "end": "14:00",
         "type": "Intro"
       },
       {
+        "id": 2,
         "start": "14:00",
         "end": "15:00",
         "type": "Lunch"
       },
       {
+        "id": 3,
         "start": "15:00",
         "end": "17:00",
         "type": "Soft skills workshop"
       },
       {
+        "id": 4,
         "start": "17:00",
         "end": "17:30",
         "type": "Retro and clean up"
@@ -95,25 +109,28 @@
     ],
     "peopleDetails": [
       {
-        "fullName": "Chris O",
-        "email": "examplee@example.com",
-        "role": "master",
-        "slackId": "ford",
-        "comments": "top"
+        "id": 0,
+        "fullName": "Chris Owen",
+        "email": "example@example.com",
+        "role": "Lead Teacher",
+        "slackId": "Chris",
+        "comments": "so cool"
       },
       {
-        "fullName": "Edward",
-        "email": "ex@example.com",
-        "role": "Teacher A",
-        "slackId": "smith",
-        "comments": "hi"
+        "id": 1,
+        "fullName": "Ali Smith",
+        "email": "example@example.com",
+        "role": "Teacher Assistant",
+        "slackId": "Chris",
+        "comments": "so cool"
       },
       {
-        "fullName": "Dom Vinyardd",
-        "email": "exa@example.com",
-        "role": "Teacher traine",
-        "slackId": "Ali",
-        "comments": "thanks"
+        "id": 2,
+        "fullName": "Dom Vinyard",
+        "email": "example@example.com",
+        "role": "Teacher trainer",
+        "slackId": "Chris",
+        "comments": "so cool"
       }
     ]
   },
@@ -126,26 +143,31 @@
     "subject": "HTML-CSS",
     "timeDetails": [
       {
+        "id": 0,
         "start": "11:00",
         "end": "11:30",
         "type": "Stand up"
       },
       {
+        "id": 1,
         "start": "11:30",
         "end": "14:00",
         "type": "Intro"
       },
       {
+        "id": 2,
         "start": "14:00",
         "end": "15:00",
         "type": "Lunch"
       },
       {
+        "id": 3,
         "start": "15:00",
         "end": "17:00",
         "type": "Soft skills workshop"
       },
       {
+        "id": 4,
         "start": "17:00",
         "end": "17:30",
         "type": "Retro and clean up"
@@ -153,6 +175,7 @@
     ],
     "peopleDetails": [
       {
+        "id": 0,
         "fullName": "Chris Owen",
         "email": "exam@example.com",
         "role": "Lea",
@@ -160,15 +183,17 @@
         "comments": "fine"
       },
       {
-        "fullName": "Ali Sm",
+        "id": 1,
+        "fullName": "Ali Smith",
         "email": "example@example.com",
         "role": "Teacher Assistant",
         "slackId": "idid",
         "comments": "well"
       },
       {
-        "fullName": "Dom Vin",
-        "email": "exampl@example.com",
+        "id": 2,
+        "fullName": "Dom Vinyard",
+        "email": "example@example.com",
         "role": "Teacher trainer",
         "slackId": "id",
         "comments": "nice"

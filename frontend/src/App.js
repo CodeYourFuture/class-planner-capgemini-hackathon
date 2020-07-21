@@ -1,29 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
-
-import Navbar from "./Navbar";
 import Home from "./Home";
 import AddWeek from "./AddEditDelete/AddEditDelete";
-
+import SignUp from "./SignUp";
 import "./App.css";
+import DetailsPage from "./DetailsPage";
 
 const App = () => {
-  const [weeks, setWeeks] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:22666/week")
-      .then((res) => res.json())
-      .then((data) => {
-        setWeeks(data);
-      });
-  }, []);
-
   return (
     <div>
-      <Navbar />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/add-week" component={AddWeek} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path="/details" component={DetailsPage} />
+
       </Switch>
     </div>
   );

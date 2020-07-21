@@ -8,42 +8,42 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
-app.get("/week/:number/class", (req, res) => {
-  const { start, end, type } = req.query;
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
-  // After posting a session, this sorts the sessions by start time
-  const sortedTimeDetails = selectedWeek.timeDetails.sort((a, b) =>
-    a.start > b.start ? 1 : -1
-  );
-  res.json(sortedTimeDetails);
-  if (req.query.type || req.query.start || req.query.end) {
-    res.json(
-      selectedWeek.timeDetails.find(
-        (session) =>
-          session.type === type ||
-          session.start === start ||
-          session.end === end
-      )
-    );
-  } else {
-    res.sendStatus(404);
-  }
-});
-app.post("/week/:number/class", (req, res) => {
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
-  if (req.body.start && req.body.end && req.body.type) {
-    selectedWeek.timeDetails.push(req.body);
-  } else {
-    res.send("Please fill the form");
-  }
-});
+// app.get("/week/:id/class", (req, res) => {
+//   const { start, end, type } = req.query;
+//   const weekId = Number(req.params.id);
+//   const selectedWeek = weeks.find((week) => week.week === weekId);
+//   // After posting a session, this sorts the sessions by start time
+//   const sortedTimeDetails = selectedWeek.timeDetails.sort((a, b) =>
+//     a.start > b.start ? 1 : -1
+//   );
+//   res.json(sortedTimeDetails);
+//   if (req.query.type || req.query.start || req.query.end) {
+//     res.json(
+//       selectedWeek.timeDetails.find(
+//         (session) =>
+//           session.type === type ||
+//           session.start === start ||
+//           session.end === end
+//       )
+//     );
+//   } else {
+//     res.sendStatus(404);
+//   }
+// });
+// app.post("/week/:id/class", (req, res) => {
+//   const weekId = Number(req.params.id);
+//   const selectedWeek = weeks.find((week) => week.week === weekId);
+//   if (req.body.start && req.body.end && req.body.type) {
+//     selectedWeek.timeDetails.push(req.body);
+//   } else {
+//     res.send("Please fill the form");
+//   }
+// });
 //To Edit a session (Save Changes Button)
-app.put("/week/:number/class", (req, res) => {
-  const { start, end, type } = req.query;
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+app.put("/week/:id/class", (req, res) => {
+  // const { start, end, type } = req.query;
+  const weekId = Number(req.params.id);
+  const selectedWeek = weeks.find((week) => week.week === weekId);
   let session = {};
   if (req.query.type || req.query.start || req.query.end) {
     session = selectedWeek.timeDetails.find(
@@ -62,14 +62,15 @@ app.put("/week/:number/class", (req, res) => {
   }
   res.json(session);
 });
-app.delete("/week/:number/class", (req, res) => {
-  const { start, end, type } = req.body;
-  const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+app.delete("/week/:id/class", (req, res) => {
+  const { id, start, end, type } = req.body;
+  const weekId = Number(req.params.id);
+  const selectedWeek = weeks.find((week) => week.week === weekId);
   if (req.body.type && req.body.start && req.body.end) {
     res.json(
       selectedWeek.timeDetails.filter(
         (session) =>
+          session.id !== id &&
           session.type !== type &&
           session.start !== start &&
           session.end !== end
