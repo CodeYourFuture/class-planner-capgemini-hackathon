@@ -119,3 +119,7 @@ li {
   display: flex;
   flex-direction: column;
 }
+.add-location{
+  margin-top:2rem;
+  margin-bottom: 0;
+}

@@ -62,7 +62,7 @@ app.post("/week/:id", (req, res) => {
     date: req.body.date,
     start: req.body.start,
     end: req.body.end,
-    subject: req.body.subject,
+    module: req.body.module,
     more: req.body.more,
   };
 
@@ -71,7 +71,7 @@ app.post("/week/:id", (req, res) => {
     "week" in req.body &&
     "location" in req.body &&
     "date" in req.body &&
-    "subject" in req.body
+    "module" in req.body
   ) {
     weeks.push(newWeek);
 
@@ -81,7 +81,7 @@ app.post("/week/:id", (req, res) => {
     res
       .status(400)
       .send(
-        "Please fill the form: week, location, date, subject are mandatory"
+        "Please fill the form: week, location, date, module are mandatory"
       );
   }
   console.log(newWeek);
