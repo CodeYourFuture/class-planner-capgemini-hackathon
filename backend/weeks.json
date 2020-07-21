@@ -55,14 +55,15 @@
         "role": "Teacher Assistant",
         "slackId": "Chris",
         "comments": "so cool"
+
       },
       {
         "id": 2,
         "fullName": "Dom Vinyard",
-        "email": "example@example.com",
-        "role": "Teacher trainer",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "email": "eexam@example.com",
+        "role": "top leader",
+        "slackId": "eva",
+        "comments": "pick"
       }
     ]
   },
@@ -176,26 +177,26 @@
       {
         "id": 0,
         "fullName": "Chris Owen",
-        "email": "example@example.com",
-        "role": "Lead Teacher",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "email": "exam@example.com",
+        "role": "Lea",
+        "slackId": "Ch",
+        "comments": "fine"
       },
       {
         "id": 1,
         "fullName": "Ali Smith",
         "email": "example@example.com",
         "role": "Teacher Assistant",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "slackId": "idid",
+        "comments": "well"
       },
       {
         "id": 2,
         "fullName": "Dom Vinyard",
         "email": "example@example.com",
         "role": "Teacher trainer",
-        "slackId": "Chris",
-        "comments": "so cool"
+        "slackId": "id",
+        "comments": "nice"
       }
     ]
   }

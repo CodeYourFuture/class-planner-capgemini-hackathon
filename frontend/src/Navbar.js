@@ -21,6 +21,7 @@ const Navbar = () => {
         <div className="col-1"></div>
         <Link className="col btn btn-primary margin" to="/">
           Return To Home
+
         </Link>
       </div>
     </div>

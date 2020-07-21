@@ -18,6 +18,20 @@ app.get("/", (req, res) => {
 app.get("/week", (req, res) => {
   return res.send(Object.values(weeks));
 });
+//show people according to week
+app.get("/admin/people/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week.peopleDetails) : res.sendStatus(404);
+  // return res.send(Object.values(weeks));
+});
+//show time details according to week
+app.get("/admin/time/week/:id", (req, res) => {
+  const weekId = Number(req.params.id);
+  const week = weeks.find((week) => week.week === weekId);
+  week ? res.json(week.timeDetails) : res.sendStatus(404);
+  // return res.send(Object.values(weeks));
+});
 
 //week numbers
 app.get("/week/:number", (req, res) => {
@@ -60,7 +74,9 @@ app.post("/week/:id", (req, res) => {
     "subject" in req.body
   ) {
     weeks.push(newWeek);
+
     res.send(`week id ${req.params.id} has been created`);
+
   } else {
     res
       .status(400)
@@ -212,7 +228,7 @@ app.delete("/week/:number/class/:id", (req, res) => {
   const updatedSession = selectedWeek.timeDetails.filter(
     (session) => session.id !== sessionId
   );
-  res.send(updatedSession);
+res.send(`Received a DELETE HTTP method for week number ${req.params.id}`);
 });
 
 app.listen(process.env.PORT, () =>

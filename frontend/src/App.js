@@ -14,6 +14,7 @@ const App = () => {
         <Route path="/add-week" component={AddWeek} />
         <Route path="/sign-up" component={SignUp} />
         <Route path="/details" component={DetailsPage} />
+
       </Switch>
     </div>
   );
