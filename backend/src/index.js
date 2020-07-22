@@ -36,7 +36,8 @@ app.get("/admin/time/week/:id", (req, res) => {
 //week numbers
 app.get("/week/:number", (req, res) => {
   const weekNumber = Number(req.params.number);
-  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  const selectedWeek = weeks.filter((week) => week.week === weekNumber);
+
   if (selectedWeek) {
     res.json(selectedWeek);
   } else {
@@ -46,13 +47,13 @@ app.get("/week/:number", (req, res) => {
 
 //show week ID
 
-app.get("/week/:id", (req, res) => {
-  // const {albumId} = req.params
-  const weekId = id(req.params.id);
-  const week = weeks.find((week) => week.week === weekId);
-  week ? res.json(week) : res.sendStatus(404);
-  console.log(weekId);
-});
+// app.get("/week/:id", (req, res) => {
+//   // const {albumId} = req.params
+//   const weekId = id(req.params.id);
+//   const week = weeks.filter((week) => week.week === weekId);
+//   week ? res.json(week) : res.sendStatus(404);
+//   console.log(weekId);
+// });
 
 //Create new week
 app.post("/week/:id", (req, res) => {
@@ -76,13 +77,10 @@ app.post("/week/:id", (req, res) => {
     weeks.push(newWeek);
 
     res.send(`week id ${req.params.id} has been created`);
-
   } else {
     res
       .status(400)
-      .send(
-        "Please fill the form: week, location, date, module are mandatory"
-      );
+      .send("Please fill the form: week, location, date, module are mandatory");
   }
   console.log(newWeek);
 });
@@ -228,7 +226,7 @@ app.delete("/week/:number/class/:id", (req, res) => {
   const updatedSession = selectedWeek.timeDetails.filter(
     (session) => session.id !== sessionId
   );
-res.send(`Received a DELETE HTTP method for week number ${req.params.id}`);
+  res.send(`Received a DELETE HTTP method for week number ${req.params.id}`);
 });
 
 app.listen(process.env.PORT, () =>

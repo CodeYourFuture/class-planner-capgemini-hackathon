@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const VolunteersDetails = (props) => {
-  // console.log(props.week.peopleDetails);
+  const [rowDelete, setRowDelete] = useState(props.week.peopleDetails);
+
+  const deleteHandler = (index) => {
+    setRowDelete(rowDelete.slice(index,1));
+  };
 
   return (
     <div>
@@ -15,7 +19,7 @@ const VolunteersDetails = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.week.peopleDetails.map((element, index) => {
+          {rowDelete.map((element, index) => {
             return (
               <tr key={index}>
                 <th scope="row">{element.id}</th>
@@ -25,7 +29,10 @@ const VolunteersDetails = (props) => {
                   <button className="btn btn-info col-5 margin-button">
                     Edit
                   </button>
-                  <button className="btn btn-danger col-5 margin-button">
+                  <button
+                    onClick={() => deleteHandler(index)}
+                    className="btn btn-danger col-5 margin-button"
+                  >
                     Delete
                   </button>
                 </td>

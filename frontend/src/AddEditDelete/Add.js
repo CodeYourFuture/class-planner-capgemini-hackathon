@@ -19,7 +19,7 @@ const Add = () => {
   const moduleList = ["HTML&CSS", " JS", " React", " Node.js", "MongoDB"];
 
   function changStartTimeHandler(event) {
-    console.log(event.target.value);
+   
     setStart(event.target.value);
   }
   function handleSubmit(event) {
