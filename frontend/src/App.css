@@ -5,13 +5,6 @@
 input[type="number"] {
   background: none;
 }
-.module {
-  margin-top: 1.5em;
-  margin-bottom: 2em;
-}
-.font {
-  font-size: medium;
-}
 .time-table {
   border-right: 1px solid lightslategrey;
 }
