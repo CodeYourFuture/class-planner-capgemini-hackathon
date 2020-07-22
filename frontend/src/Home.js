@@ -24,7 +24,7 @@ const Home = () => {
         weeks.map((week, index) => {
           return (
             <div key={index}>
-              {console.log(week.week)}
+             
               <Week week={week} />
             </div>
           );

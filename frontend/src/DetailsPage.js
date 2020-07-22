@@ -6,11 +6,19 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const DetailsPage = (props) => {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> e0fb53ea8fd882fec92979f691c9ee466b87b8e4
   const [weeks, setWeeks] = useState([]);
   const [addTimeForm, setAddTimeForm] = useState(false);
 console.log(props.userClick)
   useEffect(() => {
+<<<<<<< HEAD
     fetch(`http://localhost:22666/week/${props.userClick}`)
+=======
+    fetch(`http://localhost:22666/week/${props.match.params.weekNumber}`)
+>>>>>>> e0fb53ea8fd882fec92979f691c9ee466b87b8e4
       .then((res) => res.json())
       .then((data) => {
         setWeeks(data);
@@ -22,6 +30,9 @@ console.log(props.userClick)
   const addHandler = () => {
     setAddTimeForm(true);
   };
+  {
+    console.log(weeks);
+  }
   return (
     <div>
       <Navbar />

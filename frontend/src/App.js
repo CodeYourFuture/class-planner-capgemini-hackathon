@@ -9,13 +9,14 @@ import "./App.css";
 import DetailsPage from "./DetailsPage";
 
 const App = () => {
+
   return (
     <div>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/add-week" component={AddWeek} />
         <Route path="/sign-up" component={SignUp} />
-        <Route path="/details" component={DetailsPage} />
+        <Route path="/details/:weekNumber" component={DetailsPage} />
         <Route path="/add" component={Add} />
         <Route path="/edit-delete" component={Find} />
       </Switch>
