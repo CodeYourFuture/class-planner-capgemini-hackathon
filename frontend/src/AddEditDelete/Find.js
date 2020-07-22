@@ -20,13 +20,13 @@ const Find = () => {
     fetch(`http://localhost:22666/week/${weekNumber}`, { method: "GET" })
       .then((res) => res.json())
       .then((data) => {
-        setAddedWeek(data.week);
-        setAddedWeekLocation(data.location);
-        setAddedDate(data.date);
-        setAddedStartTime(data.start);
-        setAddedEndTime(data.end);
-        setAddedModule(data.subject);
-        setAddedMore(data.more);
+        setAddedWeek(data[0].week);
+        setAddedWeekLocation(data[0].location);
+        setAddedDate(data[0].date);
+        setAddedStartTime(data[0].start);
+        setAddedEndTime(data[0].end);
+        setAddedModule(data[0].subject);
+        setAddedMore(data[0].more);
       });
   }
 

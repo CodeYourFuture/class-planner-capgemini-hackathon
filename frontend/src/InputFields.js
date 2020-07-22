@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const InputFields = () => {
+const InputFields = (props) => {
   const [start, setStartTime] = useState("");
   const [end, setFinishTime] = useState("");
   const [type, setClassType] = useState("");
@@ -10,7 +10,7 @@ const InputFields = () => {
       end,
       type,
     });
-    fetch("http://localhost:22666/week/1/class", {
+    fetch(`http://localhost:22666/week/addsession/${props.session}/class`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
