@@ -35,7 +35,7 @@ const Find = () => {
   }
 
   return (
-    <div className="container">
+    <div>
       <Navbar />
       <div className="container">
         <form onSubmit={handleSubmit}>
