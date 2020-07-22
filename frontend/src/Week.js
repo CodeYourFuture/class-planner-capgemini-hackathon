@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import TeacherDetails from "./TeacherDetails";
 import { Link } from "react-router-dom";
+import DetailsPage from "./DetailsPage";
 
 const Week = (props) => {
+  const [userClick, setUserClick] = useState(null)
   console.log(props.week.week);
+  {console.log("data",userClick)}
 
   const detailsHandler = (e) => {
     e.preventDefault();
     console.log(props.week.week);
-  };
+  }; 
+
+  // function filterWeek(param) {
+    
+  // }
 
   return (
     <div className="container">
@@ -32,11 +39,13 @@ const Week = (props) => {
             <div className="col-sm-9">
               <h1 className="card-title title">{props.week.subject}</h1>
               <Link to="/details">
+              <DetailsPage userClick={userClick}/>
                 <button
                   className="btn btn-primary col-9 margin-button"
-                  value={props.week.week}
+                 onClick = {() =>setUserClick(props.week.week)}
+                 
                 >
-                  {console.log(props.week.week)}
+                  {console.log("grab id",props.week.week)}
                   View Details
                 </button>
               </Link>

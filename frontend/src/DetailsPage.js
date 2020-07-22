@@ -5,16 +5,18 @@ import InputFields from "./InputFields";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
-const DetailsPage = () => {
+const DetailsPage = (props) => {
   const [weeks, setWeeks] = useState([]);
   const [addTimeForm, setAddTimeForm] = useState(false);
-
+console.log(props.userClick)
   useEffect(() => {
-    fetch(`http://localhost:22666/week`)
+    fetch(`http://localhost:22666/week/${props.userClick}`)
       .then((res) => res.json())
       .then((data) => {
         setWeeks(data);
+        
       });
+      
   }, []);
 
   const addHandler = () => {

@@ -12,12 +12,14 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => {
         setWeeks(data);
+        
       });
   }, []);
 
   return (
-    <div>
+    <div>{console.log("data", weeks)}
       <HomeNavbar />
+      
 
       {weeks &&
         weeks.map((week, index) => {
