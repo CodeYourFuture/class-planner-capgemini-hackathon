@@ -1,6 +1,8 @@
 import React from "react";
 
 const VolunteersDetails = (props) => {
+  // console.log(props.week.peopleDetails);
+
   return (
     <div>
       <table className="table table-sm table-hover">
