@@ -8,7 +8,7 @@ const Find = () => {
   const [addedStartTime, setAddedStartTime] = useState("");
   const [addedEndTime, setAddedEndTime] = useState("");
   const [addedDate, setAddedDate] = useState("");
-  const [addedSubject, setAddedSubject] = useState("");
+  const [addedModule, setAddedModule] = useState("");
   const [addedWeek, setAddedWeek] = useState("");
   const [addedMore, setAddedMore] = useState("");
 
@@ -22,52 +22,48 @@ const Find = () => {
         setAddedDate(data.date);
         setAddedStartTime(data.start);
         setAddedEndTime(data.end);
-        setAddedSubject(data.subject);
+        setAddedModule(data.subject);
         setAddedMore(data.more);
       });
   }
 
   return (
-    <div className="">
-      <p>Week Finder</p>
-      <div className="row search-wrapper">
-        <div className="col">
-          <form className="" onSubmit={handleSubmit}>
-            <label htmlFor="week">Week</label>
-            <input
-              type="number"
-              id="week"
-              name="week"
-              placeholder="week number"
-              value={weekNumber}
-              onChange={(e) => setWeekNumber(e.target.value)}
-            />
-
-            <div>
-              <input type="submit" value="find" />
-            </div>
-          </form>
-          <div>
-            {" "}
-            <EditDelete
-              setAddedWeekLocation={setAddedWeekLocation}
-              setAddedDate={setAddedDate}
-              setAddedStartTime={setAddedStartTime}
-              setAddedEndTime={setAddedEndTime}
-              setAddedSubject={setAddedSubject}
-              setAddedWeek={setAddedWeek}
-              setAddedMore={setAddedMore}
-              addedStartTime={addedStartTime}
-              addedEndTime={addedEndTime}
-              addedDate={addedDate}
-              addedSubject={addedSubject}
-              addedWeek={addedWeek}
-              addedWeekLocation={addedWeekLocation}
-              addedMore={addedMore}
-            />
-           
-          </div>
-        </div>
+    <div className="container">
+      <div className="container">
+        <h3>Week Finder</h3>
+        <form className="form-group" onSubmit={handleSubmit}>
+          <label htmlFor="week">Week</label>
+          <input
+            type="number"
+            className="form-control"
+            id="week"
+            name="week"
+            placeholder="week number"
+            value={weekNumber}
+            onChange={(e) => setWeekNumber(e.target.value)}
+          />
+          <button type="submit" className="btn btn-primary">
+            Find
+          </button>
+        </form>
+      </div>
+      <div className="container">
+        <EditDelete
+          setAddedWeekLocation={setAddedWeekLocation}
+          setAddedDate={setAddedDate}
+          setAddedStartTime={setAddedStartTime}
+          setAddedEndTime={setAddedEndTime}
+          setAddedModule={setAddedModule}
+          setAddedWeek={setAddedWeek}
+          setAddedMore={setAddedMore}
+          addedStartTime={addedStartTime}
+          addedEndTime={addedEndTime}
+          addedDate={addedDate}
+          addedModule={addedModule}
+          addedWeek={addedWeek}
+          addedWeekLocation={addedWeekLocation}
+          addedMore={addedMore}
+        />
       </div>
     </div>
   );

@@ -2,6 +2,16 @@
   font-family: "Lato", sans-serif;
   background-color: #f8f9fa;
 }
+input[type="number"] {
+  background: none;
+}
+.module {
+  margin-top: 1.5em;
+  margin-bottom: 2em;
+}
+.font {
+  font-size: medium;
+}
 .time-table {
   border-right: 1px solid lightslategrey;
 }
@@ -119,7 +129,7 @@ li {
   display: flex;
   flex-direction: column;
 }
-.add-location{
-  margin-top:2rem;
+.add-location {
+  margin-top: 2rem;
   margin-bottom: 0;
 }

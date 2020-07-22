@@ -7,7 +7,7 @@ const EditDelete = (props) => {
     date: props.addedDate,
     start: props.addedStartTime,
     end: props.addedEndTime,
-    module: props.addedmodule,
+    module: props.addedModule,
     more: props.addedMore,
   };
   const onClickDelete = (id) => {
@@ -47,14 +47,14 @@ const EditDelete = (props) => {
               />
             </label>
             <label>
-             Module
+              Module
               <input
                 type="text"
                 name="name"
-                value={props.addedmodule}
+                value={props.addedModule}
                 onChange={(e) => {
                   reqBody.module = e.target.value;
-                  props.setAddedmodule(e.target.value);
+                  props.setAddedModule(e.target.value);
                 }}
               />
             </label>
