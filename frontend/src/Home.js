@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import HomeNavbar from "./HomeNavbar";
 import Week from "./Week";
 import "./App.css";
+// import ClassTimeAndType from "./Step-4-Alisina/ClassTimeAndType";
 
 const Home = () => {
   const [weeks, setWeeks] = useState([]);
@@ -17,11 +18,11 @@ const Home = () => {
   return (
     <div>
       <HomeNavbar />
+      {/* <ClassTimeAndType /> */}
       {weeks &&
         weeks.map((week, index) => {
           return (
             <div key={index}>
-             
               <Week week={week} />
             </div>
           );

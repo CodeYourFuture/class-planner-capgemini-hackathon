@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import AddWeek from "./AddEditDelete/AddEditDelete";
-import SignUp from "./SignUp";
+// import SignUp from "./SignUp";
 import Add from "./AddEditDelete/Add";
 import Find from "./AddEditDelete/Find";
 import "./App.css";

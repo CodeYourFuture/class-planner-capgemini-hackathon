@@ -10,7 +10,7 @@ const InputFields = (props) => {
       end,
       type,
     });
-    fetch(`http://localhost:22666/week/${props.session}/class`, {
+    fetch(`http://localhost:22666/week/addsession/${props.session}/class`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
