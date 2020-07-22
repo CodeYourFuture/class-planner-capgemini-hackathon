@@ -3,13 +3,6 @@ import TeacherDetails from "./TeacherDetails";
 import { Link } from "react-router-dom";
 
 const Week = (props) => {
-  console.log(props.week.week);
-
-  const detailsHandler = (e) => {
-    e.preventDefault();
-    console.log(props.week.week);
-  };
-
   return (
     <div className="container">
       <div className="card">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const TimeDetailsPage = (props) => {
+  console.log(props.week.timeDetails);
   const deleteUser = (number, id) => {
     console.log(props.week.timeDetails.id);
     fetch(`http://localhost:22666/week/${number}/class/${id}`, {
@@ -56,7 +57,7 @@ const TimeDetailsPage = (props) => {
                 <td>{type}</td>
                 <td>
                   <button
-                    className="btn btn-info col-5 margin-button"
+                    className="btn btn-info col-9 margin-button"
                     onClick={() => editUser(props.week.week, id)}
                     onChange={changeHandler}
                     value={editRow}
@@ -64,7 +65,7 @@ const TimeDetailsPage = (props) => {
                     Edit
                   </button>
                   <button
-                    className="btn btn-danger col-5 margin-button"
+                    className="btn btn-danger col-9 margin-button"
                     onClick={() => deleteUser(props.week.week, id)}
                     value={deleteRow}
                   >
