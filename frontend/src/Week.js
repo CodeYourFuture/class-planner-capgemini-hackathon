@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TeacherDetails from "./TeacherDetails";
 import { Link } from "react-router-dom";
 
@@ -24,12 +24,8 @@ const Week = (props) => {
           <div className="row">
             <div className="col-sm-9">
               <h1 className="card-title title">{props.week.subject}</h1>
-              <Link to="/details">
-                <button
-                  className="btn btn-primary col-9 margin-button"
-                  value={props.week.week}
-                >
-                  {console.log(props.week.week)}
+              <Link to={`/details/${props.week.week}`}>
+                <button className="btn btn-primary col-9 margin-button">
                   View Details
                 </button>
               </Link>

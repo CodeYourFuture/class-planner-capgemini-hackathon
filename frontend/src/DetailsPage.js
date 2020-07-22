@@ -5,12 +5,13 @@ import InputFields from "./InputFields";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
-const DetailsPage = () => {
+const DetailsPage = (props) => {
+  
   const [weeks, setWeeks] = useState([]);
   const [addTimeForm, setAddTimeForm] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:22666/week`)
+    fetch(`http://localhost:22666/week/${props.match.params.weekNumber}`)
       .then((res) => res.json())
       .then((data) => {
         setWeeks(data);
@@ -20,6 +21,9 @@ const DetailsPage = () => {
   const addHandler = () => {
     setAddTimeForm(true);
   };
+  {
+    console.log(weeks);
+  }
   return (
     <div>
       <Navbar />

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
 const TimeDetailsPage = (props) => {
-  console.log(props.week.timeDetails);
+  const [rowDelete, setRowDelete] = useState(props.week.timeDetails);
+
+  const deleteHandler = (index) => {
+    setRowDelete(rowDelete.slice(index, 1));
+  };
+
   const deleteUser = (number, id) => {
-    console.log(props.week.timeDetails.id);
     fetch(`http://localhost:22666/week/${number}/class/${id}`, {
       method: "DELETE",
     })
@@ -26,14 +30,6 @@ const TimeDetailsPage = (props) => {
       .then();
   };
 
-  const [deleteRow, setDeleteRow] = useState("");
-
-  const changeHandler = (e) => {
-    setDeleteRow(e.target.value);
-  };
-
-  const [editRow, setEditRow] = useState("");
-
   return (
     <div>
       <table className="table table-striped time-table table-hover">
@@ -47,7 +43,7 @@ const TimeDetailsPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.week.timeDetails.map((time, index) => {
+          {rowDelete.map((time, index) => {
             const { id, start, end, type } = time;
             return (
               <tr key={index}>
@@ -59,15 +55,13 @@ const TimeDetailsPage = (props) => {
                   <button
                     className="btn btn-info col-9 margin-button"
                     onClick={() => editUser(props.week.week, id)}
-                    onChange={changeHandler}
-                    value={editRow}
+                   
                   >
                     Edit
                   </button>
                   <button
                     className="btn btn-danger col-9 margin-button"
                     onClick={() => deleteUser(props.week.week, id)}
-                    value={deleteRow}
                   >
                     Delete
                   </button>
