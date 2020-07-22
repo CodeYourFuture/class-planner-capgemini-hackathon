@@ -4,11 +4,12 @@ import VolunteersDetails from "./VolunteersDetails";
 import InputFields from "./InputFields";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import SignUp from "./SignUp";
 
 const DetailsPage = (props) => {
-  
   const [weeks, setWeeks] = useState([]);
   const [addTimeForm, setAddTimeForm] = useState(false);
+  const [addSignUpForm, setAddSignUpForm] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:22666/week/${props.match.params.weekNumber}`)
@@ -21,9 +22,11 @@ const DetailsPage = (props) => {
   const addHandler = () => {
     setAddTimeForm(true);
   };
-  {
-    console.log(weeks);
-  }
+
+  const signUpHandler = () => {
+    setAddSignUpForm(true);
+  };
+
   return (
     <div>
       <Navbar />
@@ -76,11 +79,12 @@ const DetailsPage = (props) => {
                           </button>
                         </div>
                         <div className="col-6">
-                          <Link to="sign-up">
-                            <button className="btn btn-success col-12 margin-button">
-                              Sign Up
-                            </button>
-                          </Link>
+                          <button
+                            className="btn btn-success col-12 margin-button"
+                            onClick={signUpHandler}
+                          >
+                            Sign Up
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -89,7 +93,12 @@ const DetailsPage = (props) => {
                       CODE YOUR FUTURE
                     </div>
                   </div>
-                  {addTimeForm ? <InputFields /> : null}
+                  {addSignUpForm ? (
+                    <SignUp session={props.match.params.weekNumber} />
+                  ) : null}
+                  {addTimeForm ? (
+                    <InputFields session={props.match.params.weekNumber} />
+                  ) : null}
                 </div>
               </div>
             </div>

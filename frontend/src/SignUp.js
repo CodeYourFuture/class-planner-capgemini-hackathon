@@ -1,81 +1,106 @@
-import React from "react";
-import useForm from "./useForm";
-import validate from "./LoginFormValidationRules";
-import Navbar from "./Navbar";
+import React, { useState } from "react";
+// import useForm from "./useForm";
+// import validate from "./LoginFormValidationRules";
 
-const SignUp = () => {
-  const { values, errors, handleChange, handleSubmit } = useForm(
-    submit,
-    validate
-  );
+const SignUp = (props) => {
+  // const { values, errors, handleChange, handleSubmit } = useForm(
+  //   submit,
+  //   validate
+  // );
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [slackId, setSlackId] = useState("");
+  const [comment, setComment] = useState("");
+
+  const handleSignUp = () => {
+    const body = JSON.stringify({
+      name,
+      email,
+      role,
+      slackId,
+      comment,
+    });
+    fetch(`http://localhost:22666/week/${props.session}/volunteer`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body,
+    })
+      .then((res) => res.json())
+      .then(() => {
+        console.log("Data added");
+      });
+  };
 
   function submit() {
     //TODO
   }
   return (
     <div>
-      <Navbar />
-      <form onSubmit={handleSubmit} className="container col-6" noValidate>
+      <form className="container col-6" noValidate>
         <div className="signUpTitle">
           <h2>Sign Up form</h2>
         </div>
         <div className="form-group">
           <label htmlFor="name">Full Name*:</label>
           <input
-            className={
-              !errors.name ? "form-control" : "form-control border-danger"
-            }
+            // className={
+            //   !errors.name ? "form-control" : "form-control border-danger"
+            // }
             type="text"
             id="name"
             name="name"
             placeholder="Full Name"
-            onChange={handleChange}
-            value={values.name || ""}
+            onChange={(event) => setName(event.target.value)}
+            value={name || ""}
             required
           />
-          {errors.name && (
+          {/* {errors.name && (
             <small className="form-text help">{errors.name}</small>
-          )}
+          )} */}
         </div>
         <div className="form-group">
           <label htmlFor="email">Email Address*:</label>
           <input
             autoComplete="off"
-            className={
-              !errors.email ? "form-control" : "form-control border-danger"
-            }
+            // className={
+            //   !errors.email ? "form-control" : "form-control border-danger"
+            // }
             id="email"
             name="email"
-            onChange={handleChange}
+            onChange={(event) => setEmail(event.target.value)}
             placeholder="Email"
-            value={values.email || ""}
+            value={email || ""}
             required
           />
-          {errors.email && (
+          {/* {errors.email && (
             <small className="form-text help">{errors.email}</small>
-          )}
+          )} */}
         </div>
         <div className="form-group">
           <label htmlFor="volunteer">Role*:</label>
           <select
-            className={
-              !errors.volunteer
-                ? "custom-select"
-                : "custom-select border-danger"
-            }
+            // className={
+            //   !errors.volunteer
+            //     ? "custom-select"
+            //     : "custom-select border-danger"
+            // }
             name="volunteer"
             id="volunteer"
-            onChange={handleChange}
+            onChange={(e) => setRole(e.target.value)}
             required
           >
-            <option>Select...</option>
-            <option>Lead Teacher</option>
-            <option>Teacher Assistant</option>
-            <option>Teacher Trainer</option>
+            <option value="select">Select...</option>
+            <option value="lead teacher">Lead Teacher</option>
+            <option value="teacher assistant">Teacher Assistant</option>
+            <option value="teacher trainer">Teacher Trainer</option>
           </select>
-          {errors.volunteer && (
+          {/* {errors.volunteer && (
             <small className="form-text help">{errors.volunteer}</small>
-          )}
+          )} */}
         </div>
         <div className="form-group">
           <label className="label">Slack ID:</label>
@@ -84,8 +109,8 @@ const SignUp = () => {
             type="text"
             name="slack"
             placeholder="slack ID"
-            onChange={handleChange}
-            value={values.slack || ""}
+            onChange={(e) => setSlackId(e.target.value)}
+            value={slackId || ""}
           />
         </div>
         <div className="form-group">
@@ -96,8 +121,8 @@ const SignUp = () => {
               type="text"
               name="comment"
               placeholder="comment"
-              onChange={handleChange}
-              value={values.comment || ""}
+              onChange={(e) => setComment(e.target.value)}
+              value={comment || ""}
               rows="3"
             />
           </div>

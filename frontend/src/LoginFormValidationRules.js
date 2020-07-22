@@ -5,7 +5,7 @@ export default function validate(values) {
   } else if (values.name.length < 6) {
     errors.name = "Full name has to be more than 6 characters";
   } else if (!/[A-Z][a-zA-Z]/.test(values.name)) {
-    errors.name = "Name is invalid";
+    errors.name = "Name must contain uppercase";
   }
   if (!values.email) {
     errors.email = "Email is Required";

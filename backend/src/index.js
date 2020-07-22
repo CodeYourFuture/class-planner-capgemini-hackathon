@@ -50,7 +50,7 @@ app.get("/week/:number", (req, res) => {
 // app.get("/week/:id", (req, res) => {
 //   // const {albumId} = req.params
 //   const weekId = id(req.params.id);
-//   const week = weeks.filter((week) => week.week === weekId);
+//   const week = weeks.find((week) => week.week === weekId);
 //   week ? res.json(week) : res.sendStatus(404);
 //   console.log(weekId);
 // });
@@ -145,6 +145,18 @@ app.post("/week/:id/class", (req, res) => {
   }
 });
 
+app.post("/week/:id/volunteer", (req, res) => {
+  const weekId = Number(req.params.id);
+  const { id, fullName, email, role } = req.params;
+  const selectedWeek = weeks.find((week) => week.week === weekId);
+  if (id && fullName && email && role) {
+    res.send("Volunteer added");
+    selectedWeek.paopleDetails.push(req.body);
+  } else {
+    res.send("Please fill the missing inputs");
+  }
+});
+
 app.put("/week/:number/volunteer/:id", (req, res) => {
   const weekNumber = Number(req.params.number);
   const volunteerId = Number(req.params.id);
@@ -226,7 +238,10 @@ app.delete("/week/:number/class/:id", (req, res) => {
   const updatedSession = selectedWeek.timeDetails.filter(
     (session) => session.id !== sessionId
   );
-  res.send(`Received a DELETE HTTP method for week number ${req.params.id}`);
+  if (updatedSession) {
+    return (weeks[weekNumber].timeDetails = updatedSession);
+  }
+  res.send(`Session is updated`);
 });
 
 app.listen(process.env.PORT, () =>

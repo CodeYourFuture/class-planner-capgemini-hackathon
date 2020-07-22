@@ -3,9 +3,9 @@ import React, { useState } from "react";
 const TimeDetailsPage = (props) => {
   const [rowDelete, setRowDelete] = useState(props.week.timeDetails);
 
-  const deleteHandler = (index) => {
-    setRowDelete(rowDelete.slice(index, 1));
-  };
+  // const deleteHandler = (index) => {
+  //   setRowDelete(rowDelete.slice(index, 1));
+  // };
 
   const deleteUser = (number, id) => {
     fetch(`http://localhost:22666/week/${number}/class/${id}`, {
@@ -14,6 +14,7 @@ const TimeDetailsPage = (props) => {
       .catch((error) => console.log(error))
       .then((res) => res.json())
       .then();
+    // window.location.reload();
   };
 
   const editUser = (number, id) => {
@@ -35,7 +36,6 @@ const TimeDetailsPage = (props) => {
       <table className="table table-striped time-table table-hover">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Start Time</th>
             <th scope="col">Finish Time</th>
             <th scope="col">Class Type</th>
@@ -47,7 +47,6 @@ const TimeDetailsPage = (props) => {
             const { id, start, end, type } = time;
             return (
               <tr key={index}>
-                <th scope="row">{id}</th>
                 <td>{start}</td>
                 <td>{end}</td>
                 <td>{type}</td>
@@ -55,7 +54,6 @@ const TimeDetailsPage = (props) => {
                   <button
                     className="btn btn-info col-9 margin-button"
                     onClick={() => editUser(props.week.week, id)}
-                   
                   >
                     Edit
                   </button>
