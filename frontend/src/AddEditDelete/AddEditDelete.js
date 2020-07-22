@@ -1,14 +1,12 @@
 import React from "react";
 import Add from "./Add";
-import Find from "./Find";
+import Navbar from "../Navbar";
 
 const AddEditDelete = () => {
   return (
     <div>
-      <h1> Add/Edit/Delete Class</h1>
+      <Navbar />
       <Add />
-      <Find />
-     
     </div>
   );
 };

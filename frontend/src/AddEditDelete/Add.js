@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Add = () => {
   const [week, setWeek] = useState("");
@@ -6,7 +7,7 @@ const Add = () => {
   const [date, setDate] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const [module, setmodule] = useState("");
+  const [module, setModule] = useState("");
   const [more, setMore] = useState("");
   const locationList = [
     "Central London",
@@ -14,7 +15,6 @@ const Add = () => {
     "Manchester",
     "Glasgow",
   ];
-  const weekList = [0, 1, 2, 3, 4, 5];
 
   const moduleList = ["HTML&CSS", " JS", " React", " Node.js", "MongoDB"];
 
@@ -49,115 +49,154 @@ const Add = () => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="weekSelect">Week</label>
-          <select
-            id="weekSelect"
-            name="week"
-            className="custom-select"
-            onChange={(event) => setWeek(event.target.value)}
-          >
-            <option>Week</option>
-            {weekList.map((week, index) => (
-              <option key={index} value={week}>
-                {week}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="location">Location</label>
-          <select
-            id="location"
-            className="custom-select"
-            name="location"
-            onChange={(event) => setLocation(event.target.value)}
-          >
-            <option>Location</option>
-            {locationList.map((location, index) => (
-              <option key={index} value={location}>
-                {location}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="form-group">
-          <label htmlFor="date"> Date </label>
-
-          <input
-            id="date"
-            className="form-control"
-            type="date"
-            name="date"
-            value={date}
-            onChange={(event) => setDate(event.target.value)}
-            min="2020-01-01"
-            max="2020-12-31"
-            required
-          />
-
-          <label htmlFor="time">Start Time</label>
-
-          <input
-            id="time"
-            className="form-control"
-            type="time"
-            name="start"
-            value={start}
-            onChange={changStartTimeHandler}
-            min="11:00"
-            max="17:00"
-            required
-          />
-
-          <label htmlFor="time"> End Time </label>
-
-          <input
-            id="time"
-            className="form-control"
-            type="time"
-            name="end"
-            value={end}
-            onChange={(event) => setEnd(event.target.value)}
-            min="11:00"
-            max="17:00"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="module">module</label>
-          <select
-            id="subject"
-            className="custom-select"
-            name="subject"
-            onChange={(event) => setmodule(event.target.value)}
-          >
-            <option>Select module</option>
-            {moduleList.map((module, index) => (
-              <option key={index} value={module}>
-                {module}
-              </option>
-            ))}
-          </select>
-
-          <label>Module details</label>
-
-          <textarea
-            rows="3"
-            className="form-control"
-            value={more}
-            onChange={(event) => setMore(event.target.value)}
-          ></textarea>
-
-          <div>
-            <button className="btn btn-primary" type="submit">
-              Save this week
-            </button>
-            <button type="reset" className="btn btn-danger">
-              {" "}
-              Cancel
-            </button>
+        <div className="card">
+          <div className="card-header">
+            <ul className="nav nav-tabs card-header-tabs">
+              <li className="nav-item">
+                <a className="nav-link active">Add Week</a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="edit-delete">
+                  Edit/Delete
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="card-body">
+            <div className="form-row">
+              <div className="form-group col-md-6">
+                <label htmlFor="module-add"> Module:</label>
+                <select
+                  id="module-add"
+                  className="form-control"
+                  name="subject"
+                  onChange={(event) => setModule(event.target.value)}
+                >
+                  <option className="p">Select module</option>
+                  {moduleList.map((module, index) => (
+                    <option key={index} value={module}>
+                      {module}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="form-group col-md-6">
+                <label htmlFor="week-number-add">Week:</label>
+                <input
+                  id="week-number-add"
+                  type="number"
+                  name="week"
+                  placeholder="week number"
+                  className="form-control"
+                  value={week}
+                  onChange={(e) => setWeek(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="syllabus">Link to Syllabus</label>
+              <input
+                type="text"
+                className="form-control"
+                id="syllabus"
+                placeholder="Link to syllabus"
+              />
+            </div>
+            <ul className="week-date-time">
+              <div className="form-row">
+                <li className="form-group col-3">
+                  <p>
+                    Location:{" "}
+                    <select
+                      id="location"
+                      className="custom-select"
+                      name="location"
+                      onChange={(event) => setLocation(event.target.value)}
+                    >
+                      <option>Location</option>
+                      {locationList.map((location, index) => (
+                        <option key={index} value={location}>
+                          {location}
+                        </option>
+                      ))}
+                    </select>
+                  </p>
+                </li>
+                <li className="form-group col-3">
+                  <p>
+                    Date:
+                    <input
+                      id="date"
+                      className="form-control"
+                      type="date"
+                      name="date"
+                      value={date}
+                      onChange={(event) => setDate(event.target.value)}
+                      min="2020-01-01"
+                      max="2020-12-31"
+                      required
+                    />
+                  </p>
+                </li>
+                <li className="form-group col-3">
+                  Start Time:{" "}
+                  <input
+                    id="time"
+                    className="form-control"
+                    type="time"
+                    name="start"
+                    value={start}
+                    onChange={changStartTimeHandler}
+                    min="11:00"
+                    max="17:00"
+                    required
+                  />
+                </li>
+                <li className="form-group col-3">
+                  End Time:{" "}
+                  <input
+                    id="time"
+                    className="form-control"
+                    type="time"
+                    name="end"
+                    value={end}
+                    onChange={(event) => setEnd(event.target.value)}
+                    min="11:00"
+                    max="17:00"
+                    required
+                  />
+                </li>
+              </div>
+              <label htmlFor="module-details-add"> Module details:</label>
+              <textarea
+                id="module-details-add"
+                placeholder="Module details"
+                rows="3"
+                className="form-control"
+                value={more}
+                onChange={(event) => setMore(event.target.value)}
+              ></textarea>
+            </ul>
+            <div className="card-body">
+              <div className="row">
+                <div className="col-1"></div>
+                <button
+                  className="btn btn-primary col-5 margin-button"
+                  type="submit"
+                >
+                  Save this week
+                </button>
+                <button
+                  className="btn btn-danger col-5 margin-button"
+                  type="reset"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="card-footer text-muted text-center padding">
+            CODE YOUR FUTURE
           </div>
         </div>
       </form>

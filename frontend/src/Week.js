@@ -40,11 +40,6 @@ const Week = (props) => {
                   View Details
                 </button>
               </Link>
-              <Link to="/sign-up">
-                <button className="btn btn-success col-9 margin-button">
-                  Sign Up
-                </button>
-              </Link>
             </div>
             <div className="col-sm-3">
               <TeacherDetails className="margin" />
