@@ -38,7 +38,6 @@ const Week = (props) => {
           <div className="row">
             <div className="col-sm-9">
               <h1 className="card-title title">{props.week.subject}</h1>
-<<<<<<< HEAD
               <Link to="/details">
               <DetailsPage userClick={userClick}/>
                 <button
@@ -47,10 +46,6 @@ const Week = (props) => {
                  
                 >
                   {console.log("grab id",props.week.week)}
-=======
-              <Link to={`/details/${props.week.week}`}>
-                <button className="btn btn-primary col-9 margin-button">
->>>>>>> e0fb53ea8fd882fec92979f691c9ee466b87b8e4
                   View Details
                 </button>
               </Link>
