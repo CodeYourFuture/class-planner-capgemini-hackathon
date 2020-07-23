@@ -48,7 +48,7 @@ const EditDeleteVolunteer = (props) => {
         <div>
           <input
             onChange={(event) => {
-              props.setEmail(event.target.value)(
+              return props.setEmail(event.target.value),(
                 (reqBody.email = event.target.value)
               );
             }}
@@ -63,7 +63,8 @@ const EditDeleteVolunteer = (props) => {
         <div>
           <input
             onChange={(event) => {
-              props.setRole(event.target.value)(
+              return (
+                props.setRole(event.target.value),
                 (reqBody.role = event.target.value)
               );
             }}
