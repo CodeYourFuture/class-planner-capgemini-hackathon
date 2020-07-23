@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import TimeDetailsPage from "./TimeDetailsPage";
 import VolunteersDetails from "./VolunteersDetails";
 import InputFields from "./InputFields";
-// import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import SignUp from "./SignUp";
 
@@ -32,6 +31,7 @@ const DetailsPage = (props) => {
       <Navbar />
       {weeks &&
         weeks.map((week, index) => {
+          console.log(week);
           return (
             <div key={index}>
               <div>
@@ -71,12 +71,13 @@ const DetailsPage = (props) => {
                           </button>
                         </div>
                         <div className="col-3">
-                          <button
-                            href="#"
+                          <a
+                            type="button"
+                            href={`${week.syllabus}`}
                             className="btn btn-primary col-12 margin-button"
                           >
                             View Syllabus
-                          </button>
+                          </a>
                         </div>
                         <div className="col-6">
                           <button
