@@ -8,28 +8,32 @@ const SignUp = (props) => {
   //   validate
   // );
 
-  const [name, setName] = useState("");
+  const [fullName, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const [slackId, setSlackId] = useState("");
   const [comment, setComment] = useState("");
 
   const handleSignUp = () => {
+  
     const body = JSON.stringify({
-      name,
+      fullName,
       email,
       role,
       slackId,
       comment,
     });
 
-    fetch(`http://localhost:22666/week/${props.session}/volunteer`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body,
-    })
+    fetch(
+      `http://localhost:22666/week/addvolunteer/${props.session}/volunteer`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body,
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         console.log("Data added");
@@ -37,6 +41,7 @@ const SignUp = (props) => {
   };
 
   return (
+
     <div className="card bg-light mb-2">
       <div className="card-header bg-secondary text-white">
         <h3 className="card-title">Sign Up form</h3>
@@ -44,15 +49,15 @@ const SignUp = (props) => {
       <div className="card-body">
         <form onSubmit={handleSignUp}>
           <div className="form-group">
-            <label htmlFor="name">Full Name*:</label>
+            <label htmlFor="fullName">Full Name*:</label>
             <input
               className="form-control"
               type="text"
-              id="name"
+              id="fullName"
               name="name"
               placeholder="Full Name"
               onChange={(event) => setName(event.target.value)}
-              value={name || ""}
+              value={fullName || ""}
               required
             />
             {/* {errors.name && (
@@ -74,6 +79,7 @@ const SignUp = (props) => {
             {/* {errors.email && (
             <small className="form-text help">{errors.email}</small>
           )} */}
+
           </div>
           <div className="form-group">
             <label htmlFor="volunteer">Role*:</label>

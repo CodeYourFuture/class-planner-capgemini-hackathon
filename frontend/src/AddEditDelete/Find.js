@@ -4,8 +4,7 @@ import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 
 const Find = () => {
-  const [weekNumber, setWeekNumber] = useState(null);
-
+  const [weekNumber, setWeekNumber] = useState(0);
   const [addedWeekLocation, setAddedWeekLocation] = useState("");
   const [addedStartTime, setAddedStartTime] = useState("");
   const [addedEndTime, setAddedEndTime] = useState("");
@@ -14,6 +13,7 @@ const Find = () => {
   const [addedWeek, setAddedWeek] = useState("");
   const [addedMore, setAddedMore] = useState("");
   const [findAppear, setFindAppear] = useState(false);
+  const [status, setStatus] = useState();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -33,6 +33,7 @@ const Find = () => {
   }
 
   function appearanceHandler() {
+    setStatus(null)
     setFindAppear(true);
   }
 
@@ -40,7 +41,7 @@ const Find = () => {
     <div>
       <Navbar />
       <div className="container">
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}> */}
           <div className="card">
             <div className="card-header">
               <ul className="nav nav-tabs card-header-tabs">
@@ -79,6 +80,16 @@ const Find = () => {
                       >
                         Find
                       </button>
+                      {status && (
+                        <div
+                          style={{
+                            backgroundColor: status.success ? "green" : "red",
+                          }}
+                        >
+                          {" "}
+                          {status.message}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </form>
@@ -100,6 +111,8 @@ const Find = () => {
                     addedWeek={addedWeek}
                     addedWeekLocation={addedWeekLocation}
                     addedMore={addedMore}
+                    hideForm={() => setFindAppear(false)}
+                    setStatus={setStatus}
                   />
                 </div>
               ) : null}
@@ -108,7 +121,7 @@ const Find = () => {
               CODE YOUR FUTURE
             </div>
           </div>
-        </form>
+        {/* </form> */}
       </div>
     </div>
   );

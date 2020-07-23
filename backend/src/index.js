@@ -106,7 +106,7 @@ app.put("/week/:id", (req, res) => {
 app.delete("/week/:id", (req, res) => {
   const weekDelete = Number(req.params.id);
   weeks = weeks.filter((week) => week.week != weekDelete);
-  console.log(weeks)
+  console.log(weeks);
   res.send(`Received a DELETE HTTP method for week id ${req.params.id}`);
 });
 
