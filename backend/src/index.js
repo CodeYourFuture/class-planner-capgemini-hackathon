@@ -155,14 +155,39 @@ app.post("/week/addsession/:number/class", (req, res) => {
   }
 });
 
+app.get("/week/:number/volunteer", (req, res) => {
+  const { id, fullName, email, role, slackId, comments } = req.query;
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  // After posting a session, this sorts the sessions by start time
+  const sortedVolunteerDetails = selectedWeek.peopleDetails.sort((a, b) =>
+    a.start > b.start ? 1 : -1
+  );
+  res.json(sortedVolunteerDetails);
+  if (req.query.type || req.query.start || req.query.end) {
+    res.json(
+      selectedWeek.peopleDetails.find(
+        (volunteer) =>
+          volunteer.id === id ||
+          volunteer.fullName === fullName ||
+          volunteer.email === email ||
+          volunteer.role === role ||
+          volunteer.slackId === slackId ||
+          volunteer.comments === comments
+      )
+    );
+  } else {
+    res.sendStatus(404);
+  }
+});
+
 app.get("/week/:number/class/:id", (req, res) => {
-  const { number, start, end, id } = req.params;
   const weekNumber = Number(req.params.number);
   const selectedWeek = weeks.find((week) => week.week === weekNumber);
   const selectedSession = selectedWeek.timeDetails.find(
     (session) => session.id === Number(req.params.id)
   );
-  console.log(selectedSession)
+  console.log(selectedSession);
   res.json(selectedSession);
 });
 
@@ -177,6 +202,16 @@ app.get("/week/:number/class/:id", (req, res) => {
 //   }
 // });
 
+app.get("/week/:number/volunteer/:id", (req, res) => {
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  const selectedVolunteer = selectedWeek.peopleDetails.find(
+    (volunteer) => volunteer.id === Number(req.params.id)
+  );
+  console.log(selectedVolunteer);
+  res.json(selectedVolunteer);
+});
+
 app.post("/week/:id/volunteer", (req, res) => {
   const weekId = Number(req.params.id);
   const { id, fullName, email, role } = req.params;
@@ -190,11 +225,10 @@ app.post("/week/:id/volunteer", (req, res) => {
 });
 
 app.put("/week/:number/volunteer/:id", (req, res) => {
+  const { id, fullName, email, role, slackId, comments } = req.body;
   const weekNumber = Number(req.params.number);
   const volunteerId = Number(req.params.id);
-
   const selectedWeek = weeks.find((week) => week.week === weekNumber);
-
   let volunteer = {};
   if (volunteerId) {
     volunteer = selectedWeek.peopleDetails.find(
@@ -202,22 +236,22 @@ app.put("/week/:number/volunteer/:id", (req, res) => {
     );
   }
   if (req.body.id) {
-    volunteer.id = req.body.id;
+    volunteer.id = id;
   }
   if (req.body.fullName) {
-    volunteer.fullName = req.body.fullName;
+    volunteer.fullName = fullName;
   }
   if (req.body.email) {
-    volunteer.email = req.body.email;
+    volunteer.email = email;
   }
   if (req.body.role) {
-    volunteer.role = req.body.role;
+    volunteer.role = role;
   }
   if (req.body.slackId) {
-    volunteer.slackId = req.body.slackId;
+    volunteer.slackId = slackId;
   }
   if (req.body.comments) {
-    volunteer.comments = req.body.comments;
+    volunteer.comments = comments;
   }
   res.json(volunteer);
 });
