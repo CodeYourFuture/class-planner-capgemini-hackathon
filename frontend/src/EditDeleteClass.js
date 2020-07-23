@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 const EditDeleteClass = (props) => {
   const reqBody = {
     id: props.id,
@@ -20,63 +20,66 @@ const EditDeleteClass = (props) => {
   };
 
   return (
-    <form className="form-datetime">
-      <h3>Class Type Finder</h3>
-      <div className="start-time">
-        <div>
-          <label>Start Time:</label>
-        </div>
-        <div>
-          <input
-            onChange={(event) => {
-              props.setStart(event.target.value);
-              reqBody.start = event.target.value;
-            }}
-            type="search"
-            value={props.start}
-          />
-        </div>
+    <div className="card bg-dark">
+      <div className="card-header text-white">
+        <h3 className="bg-dark card-title">Session Editor</h3>
       </div>
-      <div className="finish-time">
-        <div>
-          <label>Finish Time:</label>
-        </div>
-        <div>
-          <input
-            onChange={(event) => {
-              props.setEnd(event.target.value);
-              reqBody.end = event.target.value;
-            }}
-            type="search"
-            value={props.end}
-          />
-        </div>
+      <div className="card-body bg-dark text-white">
+        <form className="bg-dark">
+          <div className="mb-2 bg-dark">
+            <label htmlFor="start-time-edit bg-danger edit-card">
+              Start Time:
+            </label>
+            <input
+              onChange={(event) => {
+                props.setStart(event.target.value);
+                reqBody.start = event.target.value;
+              }}
+              type="search"
+              value={props.start}
+              id="start-time-edit"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-2 bg-dark">
+            <label htmlFor="finish-time-edit">Finish Time:</label>
+            <input
+              onChange={(event) => {
+                props.setEnd(event.target.value);
+                reqBody.end = event.target.value;
+              }}
+              type="search"
+              value={props.end}
+              id="finish-time-edit"
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3 bg-dark">
+            <label htmlFor="class-type-edit">Class Type:</label>
+            <input
+              onChange={(event) => {
+                props.setType(event.target.value);
+                reqBody.type = event.target.value;
+              }}
+              type="search"
+              value={props.type}
+              id="class-type-edit"
+              className="form-control"
+            />
+          </div>
+          <div className="date-time-btn">
+            <button
+              className="btn-date-time"
+              type="submit"
+              onClick={() => handleUpdate(props.week.week, props.id)}
+              className=""
+            >
+              update
+            </button>
+          </div>
+        </form>
       </div>
-      <div className="class-type">
-        <div>
-          <label>Class Type:</label>
-        </div>
-        <div>
-          <input
-            onChange={(event) => {
-              props.setType(event.target.value);
-              reqBody.type = event.target.value;
-            }}
-            type="search"
-            value={props.type}
-          />
-        </div>
-      </div>
-      <div className="date-time-btn">
-        <button
-          className="btn-date-time"
-          type="submit"
-          onClick={() => handleUpdate(props.week.week, props.id)}
-        >
-          update
-        </button>
-      </div>
-    </form>
+    </div>
   );
 };
 export default EditDeleteClass;
