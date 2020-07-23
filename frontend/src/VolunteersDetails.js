@@ -1,35 +1,26 @@
 import React, { useState } from "react";
+import EditDeleteVolunteer from "./EditDeleteVolunteer";
 
 const VolunteersDetails = (props) => {
-  const [rowDelete, setRowDelete] = useState(props.week.peopleDetails);
+  const [id, setId] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [slackId, setSlackId] = useState("");
+  const [comments, setComments] = useState("");
 
-  // const deleteHandler = (index) => {
-  //   setRowDelete(rowDelete.slice(index, 1));
-  // };
-
-  const deleteUser = (number, id) => {
-    fetch(`http://localhost:22666/week/${number}/volunteer/${id}`, {
-      method: "DELETE",
-    })
-      .catch((error) => console.log(error))
+  const handleSubmit = (number, id) => {
+    fetch(`http://localhost:22666/week/${number}/volunteer/${id}`)
       .then((res) => res.json())
-      .then(setRowDelete(rowDelete.filter((item) => item.id !== id)));
+      .then((data) => {
+        setId(data.id);
+        setFullName(data.fullName);
+        setEmail(data.email);
+        setRole(data.role);
+        setSlackId(data.slackId);
+        setComments(data.comments);
+      });
   };
-
-  const editUser = (number, id) => {
-    const body = JSON.stringify({
-      id,
-    });
-    fetch(`http://localhost:22666/week/${number}/volunteer/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body,
-    })
-      .catch((error) => console.log(error))
-      .then((res) => res.json())
-      .then();
-  };
-
   return (
     <div>
       <table className="table table-sm table-hover">
@@ -51,7 +42,7 @@ const VolunteersDetails = (props) => {
                   <td>
                     <button
                       className="btn btn-info col-5 margin-button"
-                      onClick={() => editUser(props.week.week, element.id)}
+                      onClick={() => handleSubmit(props.week.week, element.id)}
                     >
                       Edit
                     </button>
@@ -67,6 +58,22 @@ const VolunteersDetails = (props) => {
             })}
         </tbody>
       </table>
+
+      <EditDeleteVolunteer
+        fullName={fullName}
+        id={id}
+        email={email}
+        role={role}
+        slackId={slackId}
+        comments={comments}
+        setFullName={setFullName}
+        setId={setId}
+        setEmail={setEmail}
+        setRole={setRole}
+        setSlackId={setSlackId}
+        setComments={setComments}
+        week={week.week}
+      />
     </div>
   );
 };
