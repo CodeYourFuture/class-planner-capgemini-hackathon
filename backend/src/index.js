@@ -162,20 +162,8 @@ app.get("/week/:number/class/:id", (req, res) => {
   const selectedSession = selectedWeek.timeDetails.find(
     (session) => session.id === Number(req.params.id)
   );
-  console.log(selectedSession);
-  if (req.query.type || req.query.start || req.query.end) {
-    res.json(
-      selectedWeek.timeDetails.find(
-        (session) =>
-          session.number === number ||
-          session.type === type ||
-          session.start === start ||
-          session.end === end
-      )
-    );
-  } else {
-    res.sendStatus(404);
-  }
+  console.log(selectedSession)
+  res.json(selectedSession);
 });
 
 // app.post("/week/:id/class", (req, res) => {

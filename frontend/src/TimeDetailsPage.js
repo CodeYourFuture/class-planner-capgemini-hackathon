@@ -12,18 +12,12 @@ const TimeDetailsPage = (props) => {
       .then(setRowDelete(rowDelete.filter((item) => item.id !== id)));
   };
 
-  const editUser = (number, id) => {
-    const body = JSON.stringify({
-      id,
-    });
-    fetch(`http://localhost:22666/week/${number}/class/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body,
-    })
+  const editSession = (number, id) => {
+   
+    fetch(`http://localhost:22666/week/${number}/class/${id}`)
       .catch((error) => console.log(error))
       .then((res) => res.json())
-      .then();
+      .then(data=>console.log(data));
   };
 
   return (
@@ -50,7 +44,7 @@ const TimeDetailsPage = (props) => {
                   <td>
                     <button
                       className="btn btn-info col-9 margin-button"
-                      onClick={() => editUser(props.week.week, id)}
+                      onClick={() => editSession(props.week.week, id)}
                     >
                       Edit
                     </button>
