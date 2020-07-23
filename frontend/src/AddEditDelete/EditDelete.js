@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const EditDelete = (props) => {
   const reqBody = {
@@ -12,9 +12,24 @@ const EditDelete = (props) => {
   };
   const onClickDelete = (id) => {
     fetch(`http://localhost:22666/week/${id}`, { method: "DELETE" })
-      .catch((error) => console.log(error))
-      .then((res) => res.json())
-      .then();
+      .then((res) => {
+        if (res.ok) {
+          props.setStatus({
+            success: true,
+            message: `Successfully deleted week ${id} !`,
+          });
+          props.hideForm();
+        } else {
+          throw Error("Non ok response !");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        props.setStatus({
+          success: false,
+          message: `Failed to delete week ${id}`,
+        });
+      });
   };
 
   const handleUpdate = (id) => {
@@ -29,6 +44,7 @@ const EditDelete = (props) => {
       .then((res) => res.json())
       .then();
   };
+
   return (
     <form>
       <div className="form-row">

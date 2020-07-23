@@ -8,28 +8,32 @@ const SignUp = (props) => {
   //   validate
   // );
 
-  const [name, setName] = useState("");
+  const [fullName, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
   const [slackId, setSlackId] = useState("");
   const [comment, setComment] = useState("");
 
   const handleSignUp = () => {
+  
     const body = JSON.stringify({
-      name,
+      fullName,
       email,
       role,
       slackId,
       comment,
     });
 
-    fetch(`http://localhost:22666/week/${props.session}/volunteer`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body,
-    })
+    fetch(
+      `http://localhost:22666/week/addvolunteer/${props.session}/volunteer`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body,
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         console.log("Data added");
@@ -38,22 +42,22 @@ const SignUp = (props) => {
 
   return (
     <div>
-      <form className="container col-6" onSubmit={handleSignUp} >
+      <form className="container col-6" onSubmit={handleSignUp}>
         <div className="signUpTitle">
           <h2>Sign Up form</h2>
         </div>
         <div className="form-group">
-          <label htmlFor="name">Full Name*:</label>
+          <label htmlFor="fullName">Full Name*:</label>
           <input
             // className={
             //   !errors.name ? "form-control" : "form-control border-danger"
             // }
             type="text"
-            id="name"
-            name="name"
+            id="fullName"
+            name="fullName"
             placeholder="Full Name"
             onChange={(event) => setName(event.target.value)}
-            value={name || ""}
+            value={fullName || ""}
             required
           />
           {/* {errors.name && (
@@ -101,7 +105,6 @@ const SignUp = (props) => {
             <option value="Personal Development Rep">
               Personal Development Rep
             </option>
-            
           </select>
           {/* {errors.volunteer && (
             <small className="form-text help">{errors.volunteer}</small>
