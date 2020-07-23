@@ -1,23 +1,5 @@
 import React, { useState } from "react";
 const EditDeleteClass = (props) => {
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
-  const [type, setType] = useState("");
-  const editClass = (weekId, id) => {
-    const [] = useState();
-
-    const body = JSON.stringify({
-      id,
-    });
-    fetch(`http://localhost:22666/week/${props.weekId}/class/:id`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      body,
-    })
-      .catch((error) => console.log(error))
-      .then((res) => res.json())
-      .then();
-  };
   return (
     <form /*onSubmit={handleSubmit}*/ className="form-datetime">
       <h3>Class Type Finder</h3>
@@ -29,7 +11,7 @@ const EditDeleteClass = (props) => {
           <input
             /*onChange={(event) => setStart(event.target.value)}*/
             type="search"
-            /*value={start}*/
+            value={props.start}
           />
         </div>
       </div>
@@ -41,7 +23,7 @@ const EditDeleteClass = (props) => {
           <input
             /*onChange={(event) => setEnd(event.target.value)}*/
             type="search"
-            /*value={end}*/
+            value={props.end}
           />
         </div>
       </div>
@@ -51,18 +33,14 @@ const EditDeleteClass = (props) => {
         </div>
         <div>
           <input
-            /*onChange={(event) => setType(event.target.value)}*/
+            onChange={(event) => props.setType(event.target.value)}
             type="search"
-            /*value={type}*/
+            value={props.type}
           />
         </div>
       </div>
       <div className="date-time-btn">
-        <button
-          className="btn-date-time"
-          type="submit"
-          onClick={() => editClass()}
-        >
+        <button className="btn-date-time" type="submit">
           update
         </button>
       </div>

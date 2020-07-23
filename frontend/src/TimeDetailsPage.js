@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import EditDeleteClass from "./EditDeleteClass";
+import EditDelete from "./AddEditDelete/EditDelete";
 
 const TimeDetailsPage = (props) => {
   const [rowDelete, setRowDelete] = useState(props.week.timeDetails);
+
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [type, setType] = useState("");
 
   const deleteUser = (number, id) => {
     fetch(`http://localhost:22666/week/${number}/class/${id}`, {
@@ -13,11 +19,14 @@ const TimeDetailsPage = (props) => {
   };
 
   const editSession = (number, id) => {
-   
     fetch(`http://localhost:22666/week/${number}/class/${id}`)
       .catch((error) => console.log(error))
       .then((res) => res.json())
-      .then(data=>console.log(data));
+      .then((data) => {
+        setStart(data.start);
+        setEnd(data.end);
+        setType(data.type);
+      });
   };
 
   return (
@@ -60,6 +69,14 @@ const TimeDetailsPage = (props) => {
             })}
         </tbody>
       </table>
+      <EditDeleteClass
+        start={start}
+        end={end}
+        type={type}
+        setStart={setStart}
+        setEnd={setEnd}
+        setType={setType}
+      />
     </div>
   );
 };
