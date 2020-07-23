@@ -3,18 +3,13 @@ import React, { useState } from "react";
 const TimeDetailsPage = (props) => {
   const [rowDelete, setRowDelete] = useState(props.week.timeDetails);
 
-  // const deleteHandler = (index) => {
-  //   setRowDelete(rowDelete.slice(index, 1));
-  // };
-
   const deleteUser = (number, id) => {
     fetch(`http://localhost:22666/week/${number}/class/${id}`, {
       method: "DELETE",
     })
       .catch((error) => console.log(error))
       .then((res) => res.json())
-      .then();
-    // window.location.reload();
+      .then(setRowDelete(rowDelete.filter((item) => item.id !== id)));
   };
 
   const editUser = (number, id) => {
@@ -43,30 +38,32 @@ const TimeDetailsPage = (props) => {
           </tr>
         </thead>
         <tbody>
-          {rowDelete.map((time, index) => {
-            const { id, start, end, type } = time;
-            return (
-              <tr key={index}>
-                <td>{start}</td>
-                <td>{end}</td>
-                <td>{type}</td>
-                <td>
-                  <button
-                    className="btn btn-info col-9 margin-button"
-                    onClick={() => editUser(props.week.week, id)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="btn btn-danger col-9 margin-button"
-                    onClick={() => deleteUser(props.week.week, id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
+          {rowDelete &&
+            rowDelete.length > 0 &&
+            rowDelete.map((time, index) => {
+              const { id, start, end, type } = time;
+              return (
+                <tr key={index}>
+                  <td>{start}</td>
+                  <td>{end}</td>
+                  <td>{type}</td>
+                  <td>
+                    <button
+                      className="btn btn-info col-9 margin-button"
+                      onClick={() => editUser(props.week.week, id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-danger col-9 margin-button"
+                      onClick={() => deleteUser(props.week.week, id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>
