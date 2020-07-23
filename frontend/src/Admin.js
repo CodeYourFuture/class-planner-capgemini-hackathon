@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TimeDetailsPage from "./TimeDetailsPage";
-import VolunteersDetails from "./VolunteersDetails";
+import AdminVolunteer from "./AdminVolunteer";
 import InputFields from "./InputFields";
 import Navbar from "./Navbar";
 import SignUp from "./SignUp";
@@ -20,10 +20,12 @@ const Admin = (props) => {
 
   const addHandler = () => {
     setAddTimeForm(true);
+    setAddSignUpForm(false);
   };
 
   const signUpHandler = () => {
     setAddSignUpForm(true);
+    setAddTimeForm(false);
   };
 
   return (
@@ -55,9 +57,17 @@ const Admin = (props) => {
                       <div className="row">
                         <div className="col">
                           <TimeDetailsPage week={week} />
+                          {addTimeForm ? (
+                            <InputFields
+                              session={props.match.params.weekNumber}
+                            />
+                          ) : null}
                         </div>
                         <div className="col">
-                          <VolunteersDetails week={week} />
+                          <AdminVolunteer week={week} />
+                          {addSignUpForm ? (
+                            <SignUp session={props.match.params.weekNumber} />
+                          ) : null}
                         </div>
                       </div>
 
@@ -94,12 +104,6 @@ const Admin = (props) => {
                       CODE YOUR FUTURE
                     </div>
                   </div>
-                  {addSignUpForm ? (
-                    <SignUp session={props.match.params.weekNumber} />
-                  ) : null}
-                  {addTimeForm ? (
-                    <InputFields session={props.match.params.weekNumber} />
-                  ) : null}
                 </div>
               </div>
             </div>
