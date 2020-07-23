@@ -1,7 +1,26 @@
 import React, { useState } from "react";
 const EditDeleteClass = (props) => {
+  const reqBody = {
+    id: props.id,
+    start: props.start,
+    end: props.end,
+    type: props.type,
+  };
+  const handleUpdate = (number, id) => {
+    const body = JSON.stringify(reqBody);
+    fetch(`http://localhost:22666/week/${number}/class/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body,
+    })
+      .then((res) => res.json())
+      .then();
+  };
+
   return (
-    <form /*onSubmit={handleSubmit}*/ className="form-datetime">
+    <form className="form-datetime">
       <h3>Class Type Finder</h3>
       <div className="start-time">
         <div>
@@ -9,7 +28,10 @@ const EditDeleteClass = (props) => {
         </div>
         <div>
           <input
-            /*onChange={(event) => setStart(event.target.value)}*/
+            onChange={(event) => {
+              props.setStart(event.target.value);
+              reqBody.start = event.target.value;
+            }}
             type="search"
             value={props.start}
           />
@@ -21,7 +43,10 @@ const EditDeleteClass = (props) => {
         </div>
         <div>
           <input
-            /*onChange={(event) => setEnd(event.target.value)}*/
+            onChange={(event) => {
+              props.setEnd(event.target.value);
+              reqBody.end = event.target.value;
+            }}
             type="search"
             value={props.end}
           />
@@ -33,14 +58,21 @@ const EditDeleteClass = (props) => {
         </div>
         <div>
           <input
-            onChange={(event) => props.setType(event.target.value)}
+            onChange={(event) => {
+              props.setType(event.target.value);
+              reqBody.type = event.target.value;
+            }}
             type="search"
             value={props.type}
           />
         </div>
       </div>
       <div className="date-time-btn">
-        <button className="btn-date-time" type="submit">
+        <button
+          className="btn-date-time"
+          type="submit"
+          onClick={() => handleUpdate(props.week.week, props.id)}
+        >
           update
         </button>
       </div>

@@ -8,6 +8,8 @@ const TimeDetailsPage = (props) => {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [type, setType] = useState("");
+  const [id, setId] = useState("");
+  const [findAppear, setFindAppear] = useState(false);
 
   const deleteUser = (number, id) => {
     fetch(`http://localhost:22666/week/${number}/class/${id}`, {
@@ -26,8 +28,13 @@ const TimeDetailsPage = (props) => {
         setStart(data.start);
         setEnd(data.end);
         setType(data.type);
+        setId(data.id);
       });
   };
+
+  function appearanceHandler() {
+    setFindAppear(true);
+  }
 
   return (
     <div>
@@ -54,6 +61,7 @@ const TimeDetailsPage = (props) => {
                     <button
                       className="btn btn-info col-9 margin-button"
                       onClick={() => editSession(props.week.week, id)}
+                      onChange={appearanceHandler}
                     >
                       Edit
                     </button>
@@ -69,14 +77,19 @@ const TimeDetailsPage = (props) => {
             })}
         </tbody>
       </table>
-      <EditDeleteClass
-        start={start}
-        end={end}
-        type={type}
-        setStart={setStart}
-        setEnd={setEnd}
-        setType={setType}
-      />
+      {findAppear ? (
+        <EditDeleteClass
+          start={start}
+          end={end}
+          type={type}
+          id={id}
+          setStart={setStart}
+          setEnd={setEnd}
+          setType={setType}
+          week={props.week}
+        />
+      ) : null}
+      {console.log(props)}
     </div>
   );
 };
