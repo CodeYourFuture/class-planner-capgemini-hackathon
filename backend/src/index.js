@@ -169,7 +169,7 @@ app.post("/week/addvolunteer/:number/volunteer", (req, res) => {
   if (fullName || email || role) {
     req.body.id = newId;
     selectedWeek.peopleDetails.push(req.body);
-    res.status(201).send("New session successfully added");
+    res.status(201).send("New volunteer successfully added");
   } else {
     res.send("Please fill the form");
   }
