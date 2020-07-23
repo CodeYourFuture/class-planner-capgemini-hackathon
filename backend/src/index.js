@@ -156,13 +156,12 @@ app.post("/week/addsession/:number/class", (req, res) => {
 });
 
 app.get("/week/:number/class/:id", (req, res) => {
-  const { number, start, end, id } = req.params;
   const weekNumber = Number(req.params.number);
   const selectedWeek = weeks.find((week) => week.week === weekNumber);
   const selectedSession = selectedWeek.timeDetails.find(
     (session) => session.id === Number(req.params.id)
   );
-  console.log(selectedSession)
+  console.log(selectedSession);
   res.json(selectedSession);
 });
 
@@ -176,6 +175,16 @@ app.get("/week/:number/class/:id", (req, res) => {
 //     res.send("Please fill the form");
 //   }
 // });
+
+app.get("/week/:number/volunteer/:id", (req, res) => {
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  const selectedVolunteer = selectedWeek.peopleDetails.find(
+    (volunteer) => volunteer.id === Number(req.params.id)
+  );
+  console.log(selectedVolunteer);
+  res.json(selectedVolunteer);
+});
 
 app.post("/week/:id/volunteer", (req, res) => {
   const weekId = Number(req.params.id);
