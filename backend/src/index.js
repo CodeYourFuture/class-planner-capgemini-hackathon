@@ -225,11 +225,10 @@ app.post("/week/:id/volunteer", (req, res) => {
 });
 
 app.put("/week/:number/volunteer/:id", (req, res) => {
+  const { id, fullName, email, role, slackId, comments } = req.body;
   const weekNumber = Number(req.params.number);
   const volunteerId = Number(req.params.id);
-
   const selectedWeek = weeks.find((week) => week.week === weekNumber);
-
   let volunteer = {};
   if (volunteerId) {
     volunteer = selectedWeek.peopleDetails.find(
@@ -237,22 +236,22 @@ app.put("/week/:number/volunteer/:id", (req, res) => {
     );
   }
   if (req.body.id) {
-    volunteer.id = req.body.id;
+    volunteer.id = id;
   }
   if (req.body.fullName) {
-    volunteer.fullName = req.body.fullName;
+    volunteer.fullName = fullName;
   }
   if (req.body.email) {
-    volunteer.email = req.body.email;
+    volunteer.email = email;
   }
   if (req.body.role) {
-    volunteer.role = req.body.role;
+    volunteer.role = role;
   }
   if (req.body.slackId) {
-    volunteer.slackId = req.body.slackId;
+    volunteer.slackId = slackId;
   }
   if (req.body.comments) {
-    volunteer.comments = req.body.comments;
+    volunteer.comments = comments;
   }
   res.json(volunteer);
 });
