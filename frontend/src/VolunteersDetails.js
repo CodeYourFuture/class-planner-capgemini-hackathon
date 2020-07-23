@@ -2,6 +2,18 @@ import React, { useState } from "react";
 import EditDeleteVolunteer from "./EditDeleteVolunteer";
 
 const VolunteersDetails = (props) => {
+  const [rowDelete, setRowDelete] = useState(props.week.peopleDetails);
+ 
+  const deleteUser = (number, id) => {
+    fetch(`http://localhost:22666/week/${number}/volunteer/${id}`, {
+      method: "DELETE",
+    })
+      .catch((error) => console.log(error))
+      .then((res) => res.json())
+      .then(setRowDelete(rowDelete.filter((item) => item.id !== id)));
+  };
+
+
   const [id, setId] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -72,7 +84,7 @@ const VolunteersDetails = (props) => {
         setRole={setRole}
         setSlackId={setSlackId}
         setComments={setComments}
-        week={week.week}
+        week={props.week}
       />
     </div>
   );

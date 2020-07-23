@@ -30,8 +30,11 @@ const EditDeleteVolunteer = (props) => {
         </div>
         <div>
           <input
-            onChange={(event) => {props.setFullName(event.target.value),
-                (reqBody.fullName = event.target.value);
+            onChange={(event) => {
+              return (
+                props.setFullName(event.target.value),
+                (reqBody.fullName = event.target.value)
+              );
             }}
             type="text"
             value={props.fullName}
@@ -50,7 +53,7 @@ const EditDeleteVolunteer = (props) => {
               );
             }}
             type="text"
-            value={props.email}
+            
           />
         </div>
       </div>
@@ -61,7 +64,9 @@ const EditDeleteVolunteer = (props) => {
         <div>
           <input
             onChange={(event) => {
-              props.setRole(event.target.value)((reqBody.role = event.target.value));
+              props.setRole(event.target.value)(
+                (reqBody.role = event.target.value)
+              );
             }}
             type="text"
             value={props.role}
@@ -81,24 +86,27 @@ const EditDeleteVolunteer = (props) => {
             value={props.slackId}
           />
         </div>
-        <div>
+        {/* <div>
           <label>Comments</label>
         </div>
         <div>
           <input
             onChange={(event) => {
-              props.setComments(event.target.value)(
-                (reqBody.comments = event.target.value)
-              );
+              reqBody.comments = event.target.value;
+              props.setComments(event.target.value);
             }}
             type="text"
             value={props.comments}
           />
-        </div>
+        </div> */}
       </div>
       <div className="date-time-btn">
-        <button className="btn-date-time" type="submit">
-          Find
+        <button
+          className="btn-date-time"
+          type="submit"
+          onClick={() => handleUpdate(props.week.week, props.id)}
+        >
+          Update
         </button>
       </div>
     </form>
