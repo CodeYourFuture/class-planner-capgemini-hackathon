@@ -1,7 +1,14 @@
 import React, { useState } from "react";
+import EditDeleteClass from "./EditDeleteClass";
 
 const TimeDetailsPage = (props) => {
   const [rowDelete, setRowDelete] = useState(props.week.timeDetails);
+
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [type, setType] = useState("");
+  const [id, setId] = useState("");
+  const [findAppear, setFindAppear] = useState(false);
 
   const deleteUser = (number, id) => {
     fetch(`http://localhost:22666/week/${number}/class/${id}`, {
@@ -13,12 +20,20 @@ const TimeDetailsPage = (props) => {
   };
 
   const editSession = (number, id) => {
-   
     fetch(`http://localhost:22666/week/${number}/class/${id}`)
       .catch((error) => console.log(error))
       .then((res) => res.json())
-      .then(data=>console.log(data));
+      .then((data) => {
+        setStart(data.start);
+        setEnd(data.end);
+        setType(data.type);
+        setId(data.id);
+      });
   };
+
+  function appearanceHandler() {
+    setFindAppear(true);
+  }
 
   return (
     <div>
@@ -44,7 +59,10 @@ const TimeDetailsPage = (props) => {
                   <td>
                     <button
                       className="btn btn-info col-9 margin-button"
-                      onClick={() => editSession(props.week.week, id)}
+                      onClick={() => {
+                        editSession(props.week.week, id);
+                        appearanceHandler();
+                      }}
                     >
                       Edit
                     </button>
@@ -60,6 +78,18 @@ const TimeDetailsPage = (props) => {
             })}
         </tbody>
       </table>
+      {findAppear ? (
+        <EditDeleteClass
+          start={start}
+          end={end}
+          type={type}
+          id={id}
+          setStart={setStart}
+          setEnd={setEnd}
+          setType={setType}
+          week={props.week}
+        />
+      ) : null}
     </div>
   );
 };
