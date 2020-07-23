@@ -155,6 +155,25 @@ app.post("/week/addsession/:number/class", (req, res) => {
   }
 });
 
+app.post("/week/addvolunteer/:number/volunteer", (req, res) => {
+  let { fullName, email, role, slackId, comments } = req.body;
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  const newId = Number(selectedWeek.peopleDetails.length);
+  console.log(newId);
+  const checkId = selectedWeek.peopleDetails.find(
+    (volunteer) => volunteer.id === newId
+  );
+
+  if (fullName || email || role) {
+    req.body.id = newId;
+    selectedWeek.peopleDetails.push(req.body);
+    res.status(201).send("New session successfully added");
+  } else {
+    res.send("Please fill the form");
+  }
+});
+
 app.get("/week/:number/volunteer", (req, res) => {
   const { id, fullName, email, role, slackId, comments } = req.query;
   const weekNumber = Number(req.params.number);
