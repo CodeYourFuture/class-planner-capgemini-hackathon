@@ -104,8 +104,9 @@ app.put("/week/:id", (req, res) => {
 });
 
 app.delete("/week/:id", (req, res) => {
-  const weekDelete = id(req.params.id);
+  const weekDelete = Number(req.params.id);
   weeks = weeks.filter((week) => week.week != weekDelete);
+  console.log(weeks)
   res.send(`Received a DELETE HTTP method for week id ${req.params.id}`);
 });
 
@@ -233,9 +234,9 @@ app.get("/week/:number/volunteer/:id", (req, res) => {
 
 app.post("/week/:id/volunteer", (req, res) => {
   const weekId = Number(req.params.id);
-  const { id, fullName, email, role } = req.params;
+  const { id, fullName, email, role, comments, slackId } = req.body;
   const selectedWeek = weeks.find((week) => week.week === weekId);
-  if (id && fullName && email && role) {
+  if (fullName && email && role) {
     res.send("Volunteer added");
     selectedWeek.peopleDetails.push(req.body);
   } else {

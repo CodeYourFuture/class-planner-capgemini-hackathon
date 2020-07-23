@@ -7,6 +7,7 @@ import Add from "./AddEditDelete/Add";
 import Find from "./AddEditDelete/Find";
 import "./App.css";
 import DetailsPage from "./DetailsPage";
+import Admin from "./Admin"
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         {/* <Route path="/sign-up" component={SignUp} /> */}
         <Route path="/add" component={Add} />
         <Route path="/edit-delete" component={Find} />
+        <Route path="/admin" component={Admin} />
       </Switch>
     </div>
   );

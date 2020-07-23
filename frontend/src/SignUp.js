@@ -22,6 +22,7 @@ const SignUp = (props) => {
       slackId,
       comment,
     });
+
     fetch(`http://localhost:22666/week/${props.session}/volunteer`, {
       method: "POST",
       headers: {
@@ -35,12 +36,9 @@ const SignUp = (props) => {
       });
   };
 
-  function submit() {
-    //TODO
-  }
   return (
     <div>
-      <form className="container col-6" noValidate>
+      <form className="container col-6" onSubmit={handleSignUp} >
         <div className="signUpTitle">
           <h2>Sign Up form</h2>
         </div>
@@ -94,9 +92,16 @@ const SignUp = (props) => {
             required
           >
             <option value="select">Select...</option>
-            <option value="lead teacher">Lead Teacher</option>
-            <option value="teacher assistant">Teacher Assistant</option>
-            <option value="teacher trainer">Teacher Trainer</option>
+            <option value="Coordinator">Coordinator</option>
+            <option value="Lead Teacher">Lead Teacher</option>
+            <option value="Assistant Lead Teacher">
+              Assistant Lead Teacher
+            </option>
+            <option value="Teaching Assistant">Teaching Assistant</option>
+            <option value="Personal Development Rep">
+              Personal Development Rep
+            </option>
+            
           </select>
           {/* {errors.volunteer && (
             <small className="form-text help">{errors.volunteer}</small>

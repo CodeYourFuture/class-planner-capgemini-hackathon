@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 import { Link } from "react-router-dom";
 
 const Find = () => {
-  const [weekNumber, setWeekNumber] = useState("");
+  const [weekNumber, setWeekNumber] = useState(null);
 
   const [addedWeekLocation, setAddedWeekLocation] = useState("");
   const [addedStartTime, setAddedStartTime] = useState("");
@@ -17,16 +17,18 @@ const Find = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch(`http://localhost:22666/week/${weekNumber}`, { method: "GET" })
+    fetch(`http://localhost:22666/week/${weekNumber}`)
       .then((res) => res.json())
       .then((data) => {
-        setAddedWeek(data[0].week);
-        setAddedWeekLocation(data[0].location);
-        setAddedDate(data[0].date);
-        setAddedStartTime(data[0].start);
-        setAddedEndTime(data[0].end);
-        setAddedModule(data[0].subject);
-        setAddedMore(data[0].more);
+        if (data.length > 0) {
+          setAddedWeek(data[0].week);
+          setAddedWeekLocation(data[0].location);
+          setAddedDate(data[0].date);
+          setAddedStartTime(data[0].start);
+          setAddedEndTime(data[0].end);
+          setAddedModule(data[0].subject);
+          setAddedMore(data[0].more);
+        }
       });
   }
 
