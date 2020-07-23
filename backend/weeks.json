@@ -6,34 +6,35 @@
     "start": "11 am",
     "end": "5:30 pm",
     "subject": "intro",
+    "syllabus": "https://syllabus.codeyourfuture.io/react/week-3/lesson.html",
     "more": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,",
     "timeDetails": [
       {
-        "id": 0,
+        "id": 1,
         "start": "11:00",
         "end": "11:30",
         "type": "Stand up"
       },
       {
-        "id": 1,
+        "id": 2,
         "start": "11:30",
         "end": "14:00",
         "type": "Intro"
       },
       {
-        "id": 2,
+        "id": 3,
         "start": "14:00",
         "end": "15:00",
         "type": "Lunch"
       },
       {
-        "id": 3,
+        "id": 4,
         "start": "15:00",
         "end": "17:00",
         "type": "Soft skills workshop"
       },
       {
-        "id": 4,
+        "id": 5,
         "start": "17:00",
         "end": "17:30",
         "type": "Retro and clean up"
@@ -41,7 +42,7 @@
     ],
     "peopleDetails": [
       {
-        "id": 0,
+        "id": 1,
         "fullName": "Chris Owen",
         "email": "example@example.com",
         "role": "Lead Teacher",
@@ -49,16 +50,15 @@
         "comments": "so cool"
       },
       {
-        "id": 1,
+        "id": 2,
         "fullName": "Ali Smith",
         "email": "example@example.com",
         "role": "Teacher Assistant",
         "slackId": "Chris",
         "comments": "so cool"
-
       },
       {
-        "id": 2,
+        "id": 3,
         "fullName": "Dom Vinyard",
         "email": "eexam@example.com",
         "role": "top leader",
@@ -74,34 +74,35 @@
     "start": "11 am",
     "end": "5:30 pm",
     "subject": "intro",
+    "syllabus": "https://syllabus.codeyourfuture.io/react/week-3/lesson.html",
     "more": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,",
     "timeDetails": [
       {
-        "id": 0,
+        "id": 1,
         "start": "11:00",
         "end": "11:30",
         "type": "Stand up"
       },
       {
-        "id": 1,
+        "id": 2,
         "start": "11:30",
         "end": "14:00",
         "type": "Intro"
       },
       {
-        "id": 2,
+        "id": 3,
         "start": "14:00",
         "end": "15:00",
         "type": "Lunch"
       },
       {
-        "id": 3,
+        "id": 4,
         "start": "15:00",
         "end": "17:00",
         "type": "Soft skills workshop"
       },
       {
-        "id": 4,
+        "id": 5,
         "start": "17:00",
         "end": "17:30",
         "type": "Retro and clean up"
@@ -109,7 +110,7 @@
     ],
     "peopleDetails": [
       {
-        "id": 0,
+        "id": 1,
         "fullName": "Chris Owen",
         "email": "example@example.com",
         "role": "Lead Teacher",
@@ -117,7 +118,7 @@
         "comments": "so cool"
       },
       {
-        "id": 1,
+        "id": 2,
         "fullName": "Ali Smith",
         "email": "example@example.com",
         "role": "Teacher Assistant",
@@ -125,7 +126,7 @@
         "comments": "so cool"
       },
       {
-        "id": 2,
+        "id": 3,
         "fullName": "Dom Vinyard",
         "email": "example@example.com",
         "role": "Teacher trainer",
@@ -141,33 +142,34 @@
     "start": "11 am",
     "end": "5:30 pm",
     "subject": "HTML-CSS",
+    "syllabus": "https://syllabus.codeyourfuture.io/react/week-3/lesson.html",
     "timeDetails": [
       {
-        "id": 0,
+        "id": 1,
         "start": "11:00",
         "end": "11:30",
         "type": "Stand up"
       },
       {
-        "id": 1,
+        "id": 2,
         "start": "11:30",
         "end": "14:00",
         "type": "Intro"
       },
       {
-        "id": 2,
+        "id": 3,
         "start": "14:00",
         "end": "15:00",
         "type": "Lunch"
       },
       {
-        "id": 3,
+        "id": 4,
         "start": "15:00",
         "end": "17:00",
         "type": "Soft skills workshop"
       },
       {
-        "id": 4,
+        "id": 5,
         "start": "17:00",
         "end": "17:30",
         "type": "Retro and clean up"
@@ -175,7 +177,7 @@
     ],
     "peopleDetails": [
       {
-        "id": 0,
+        "id": 1,
         "fullName": "Chris Owen",
         "email": "exam@example.com",
         "role": "Lea",
@@ -183,7 +185,7 @@
         "comments": "fine"
       },
       {
-        "id": 1,
+        "id": 2,
         "fullName": "Ali Smith",
         "email": "example@example.com",
         "role": "Teacher Assistant",
@@ -191,7 +193,7 @@
         "comments": "well"
       },
       {
-        "id": 2,
+        "id": 3,
         "fullName": "Dom Vinyard",
         "email": "example@example.com",
         "role": "Teacher trainer",
