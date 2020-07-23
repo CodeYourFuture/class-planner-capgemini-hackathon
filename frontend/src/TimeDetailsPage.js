@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import EditDeleteClass from "./EditDeleteClass";
-import EditDelete from "./AddEditDelete/EditDelete";
 
 const TimeDetailsPage = (props) => {
   const [rowDelete, setRowDelete] = useState(props.week.timeDetails);
@@ -60,8 +59,10 @@ const TimeDetailsPage = (props) => {
                   <td>
                     <button
                       className="btn btn-info col-9 margin-button"
-                      onClick={() => editSession(props.week.week, id)}
-                      onChange={appearanceHandler}
+                      onClick={() => {
+                        editSession(props.week.week, id);
+                        appearanceHandler();
+                      }}
                     >
                       Edit
                     </button>
@@ -89,7 +90,6 @@ const TimeDetailsPage = (props) => {
           week={props.week}
         />
       ) : null}
-      {console.log(props)}
     </div>
   );
 };
