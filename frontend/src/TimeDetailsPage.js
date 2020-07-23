@@ -78,7 +78,7 @@ const TimeDetailsPage = (props) => {
             })}
         </tbody>
       </table>
-      {/* {findAppear ? ( */}
+      {findAppear ? (
         <EditDeleteClass
           start={start}
           end={end}
@@ -89,7 +89,7 @@ const TimeDetailsPage = (props) => {
           setType={setType}
           week={props.week}
         />
-      {/* ) : null} */}
+      ) : null}
     </div>
   );
 };

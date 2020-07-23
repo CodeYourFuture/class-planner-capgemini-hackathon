@@ -20,16 +20,14 @@ const EditDeleteClass = (props) => {
   };
 
   return (
-    <div className="card bg-dark">
-      <div className="card-header text-white">
-        <h3 className="bg-dark card-title">Session Editor</h3>
+    <div className="card bg-light mb-2">
+      <div className="card-header bg-secondary text-white">
+        <h3 className="card-title">Session Editor</h3>
       </div>
-      <div className="card-body bg-dark text-white">
-        <form className="bg-dark">
-          <div className="mb-2 bg-dark">
-            <label htmlFor="start-time-edit bg-danger edit-card">
-              Start Time:
-            </label>
+      <div className="card-body">
+        <form>
+          <div className="mb-2">
+            <label htmlFor="start-time-edit edit-card">Start Time:</label>
             <input
               onChange={(event) => {
                 props.setStart(event.target.value);
@@ -41,7 +39,7 @@ const EditDeleteClass = (props) => {
               className="form-control"
             />
           </div>
-          <div className="mb-2 bg-dark">
+          <div className="mb-2">
             <label htmlFor="finish-time-edit">Finish Time:</label>
             <input
               onChange={(event) => {
@@ -54,7 +52,7 @@ const EditDeleteClass = (props) => {
               className="form-control"
             />
           </div>
-          <div className="mb-3 bg-dark">
+          <div className="mb-3">
             <label htmlFor="class-type-edit">Class Type:</label>
             <input
               onChange={(event) => {
@@ -67,12 +65,12 @@ const EditDeleteClass = (props) => {
               className="form-control"
             />
           </div>
-          <div className="date-time-btn">
+          <div className="row">
+            <div className="col-4"></div>
             <button
-              className="btn-date-time"
+              className="btn btn-info col-4"
               type="submit"
               onClick={() => handleUpdate(props.week.week, props.id)}
-              className=""
             >
               update
             </button>
