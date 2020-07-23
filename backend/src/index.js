@@ -155,6 +155,17 @@ app.post("/week/addsession/:number/class", (req, res) => {
   }
 });
 
+app.get("/week/:number/class/:id", (req, res) => {
+  const { number, start, end, id } = req.params;
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  const selectedSession = selectedWeek.timeDetails.find(
+    (session) => session.id === Number(req.params.id)
+  );
+  console.log(selectedSession)
+  res.json(selectedSession);
+});
+
 // app.post("/week/:id/class", (req, res) => {
 //   const weekId = Number(req.params.id);
 //   const selectedWeek = weeks.find((week) => week.week === weekId);
