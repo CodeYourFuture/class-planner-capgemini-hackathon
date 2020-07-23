@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EditDeleteVolunteer from "./EditDeleteVolunteer";
-const VolunteersDetails = (props) => {
+
+const AdminVolunteer = (props) => {
   const [rowDelete, setRowDelete] = useState(props.week.peopleDetails);
   const [appearance, setAppearance] = useState(false);
 
@@ -44,6 +45,7 @@ const VolunteersDetails = (props) => {
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Role</th>
+            <th scope="col">Email</th>
             <th scope="col">Edit/Delete</th>
           </tr>
         </thead>
@@ -55,9 +57,11 @@ const VolunteersDetails = (props) => {
                 <tr key={index}>
                   <td>{element.fullName}</td>
                   <td>{element.role}</td>
+                  <td>{element.email}</td>
+
                   <td>
                     <button
-                      className="btn btn-info col-5 margin-button"
+                      className="btn btn-info col-12 margin-button"
                       onClick={() => {
                         handleSubmit(props.week.week, element.id);
                         appearanceHandler();
@@ -67,7 +71,7 @@ const VolunteersDetails = (props) => {
                     </button>
                     <button
                       onClick={() => deleteUser(props.week.week, element.id)}
-                      className="btn btn-danger col-5 margin-button"
+                      className="btn btn-danger col-12 margin-button"
                     >
                       Delete
                     </button>
@@ -98,4 +102,4 @@ const VolunteersDetails = (props) => {
   );
 };
 
-export default VolunteersDetails;
+export default AdminVolunteer;

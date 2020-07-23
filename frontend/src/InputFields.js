@@ -23,51 +23,46 @@ const InputFields = (props) => {
       });
   };
   return (
-    <div className="container text-center">
-      <form onSubmit={handleAddNew} className="">
-        <h3>Time and Class Type</h3>
-        <div className="start-time">
-          <div>
+    <div className="card bg-light mb-2">
+      <div className="card-header bg-secondary text-white">
+        <h3 className="card-title">Time and Session Details</h3>
+      </div>
+      <div className="card-body">
+        <form onSubmit={handleAddNew}>
+          <div className="mb-2">
             <label>Start Time:</label>
-          </div>
-          <div>
             <input
               onChange={(event) => setStartTime(event.target.value)}
               type="text"
               value={start}
+              className="form-control"
             />
           </div>
-        </div>
-        <div className="finish-time">
-          <div>
+          <div className="mb-2">
             <label>Finish Time:</label>
-          </div>
-          <div>
             <input
               onChange={(event) => setFinishTime(event.target.value)}
               type="text"
               value={end}
+              className="form-control"
             />
           </div>
-        </div>
-        <div className="class-type">
-          <div>
+          <div className="mb-3">
             <label>Class Type:</label>
-          </div>
-          <div>
             <input
               onChange={(event) => setClassType(event.target.value)}
               type="text"
               value={type}
+              className="form-control"
             />
           </div>
-        </div>
-        <div className="date-time-btn">
-          <button className="btn-date-time" type="submit">
-            Add to Timetable
-          </button>
-        </div>
-      </form>
+          <div className="text-center">
+            <button className="btn btn-info col-4" type="submit">
+              Add to Timetable
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

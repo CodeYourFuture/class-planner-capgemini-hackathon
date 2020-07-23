@@ -20,10 +20,12 @@ const DetailsPage = (props) => {
 
   const addHandler = () => {
     setAddTimeForm(true);
+    setAddSignUpForm(false);
   };
 
   const signUpHandler = () => {
     setAddSignUpForm(true);
+    setAddTimeForm(false);
   };
 
   return (
@@ -55,9 +57,17 @@ const DetailsPage = (props) => {
                       <div className="row">
                         <div className="col">
                           <TimeDetailsPage week={week} />
+                          {addTimeForm ? (
+                            <InputFields
+                              session={props.match.params.weekNumber}
+                            />
+                          ) : null}
                         </div>
                         <div className="col">
                           <VolunteersDetails week={week} />
+                          {addSignUpForm ? (
+                            <SignUp session={props.match.params.weekNumber} />
+                          ) : null}
                         </div>
                       </div>
 
@@ -94,12 +104,6 @@ const DetailsPage = (props) => {
                       CODE YOUR FUTURE
                     </div>
                   </div>
-                  {addSignUpForm ? (
-                    <SignUp session={props.match.params.weekNumber} />
-                  ) : null}
-                  {addTimeForm ? (
-                    <InputFields session={props.match.params.weekNumber} />
-                  ) : null}
                 </div>
               </div>
             </div>
