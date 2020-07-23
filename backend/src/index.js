@@ -155,6 +155,32 @@ app.post("/week/addsession/:number/class", (req, res) => {
   }
 });
 
+app.get("/week/:number/volunteer", (req, res) => {
+  const { id, fullName, email, role, slackId, comments } = req.query;
+  const weekNumber = Number(req.params.number);
+  const selectedWeek = weeks.find((week) => week.week === weekNumber);
+  // After posting a session, this sorts the sessions by start time
+  const sortedVolunteerDetails = selectedWeek.peopleDetails.sort((a, b) =>
+    a.start > b.start ? 1 : -1
+  );
+  res.json(sortedVolunteerDetails);
+  if (req.query.type || req.query.start || req.query.end) {
+    res.json(
+      selectedWeek.peopleDetails.find(
+        (volunteer) =>
+          volunteer.id === id ||
+          volunteer.fullName === fullName ||
+          volunteer.email === email ||
+          volunteer.role === role ||
+          volunteer.slackId === slackId ||
+          volunteer.comments === comments
+      )
+    );
+  } else {
+    res.sendStatus(404);
+  }
+});
+
 app.get("/week/:number/class/:id", (req, res) => {
   const weekNumber = Number(req.params.number);
   const selectedWeek = weeks.find((week) => week.week === weekNumber);
