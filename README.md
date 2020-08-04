@@ -6,7 +6,7 @@
 
 - node
 - React
-- join to Trello group of this project []
+- join the Trello group of this project []
 - clone project from [https://github.com/codeyourfuture/class-planner]
 - make your own branch
 - take a look which parts are doing by others so prevent conflicts
