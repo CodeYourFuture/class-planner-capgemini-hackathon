@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Image } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Logo from "./images/cyf-logo.png";
 

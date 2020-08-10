@@ -1,0 +1,4 @@
+[[redirects]]
+ from = "/*"
+ to = "/frontend/index.html"
+ status = 200

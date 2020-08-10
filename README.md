@@ -6,6 +6,9 @@
 
 - node
 - React
+  start with "npm install react-testing-library --save-dev"
+  then npm start
+
 - join to Trello group of this project []
 - clone project from [https://github.com/codeyourfuture/class-planner]
 - make your own branch

@@ -51,9 +51,9 @@ const Find = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" to="edit-delete">
+                  <Link className="nav-link active" to="edit-delete">
                     Edit/Delete
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

@@ -16,7 +16,7 @@ const DetailsPage = (props) => {
       .then((data) => {
         setWeeks(data);
       });
-  }, []);
+  }, [props.match.params.weekNumber]);
 
   const addHandler = () => {
     setAddTimeForm(true);
